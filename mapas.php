@@ -17,9 +17,9 @@
             <?php
 
 
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
+                $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com:3306";
+                $username = "abcr";
+                $password = "abcr1234";
                 // Create connection
                 $conn = new mysqli($servername, $username, $password);
 
