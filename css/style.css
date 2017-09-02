@@ -1,0 +1,205 @@
+body{
+  font-family: sans-serif;
+
+
+}
+.dropbtn {
+    background-color: #34495E;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+.body{
+  padding: 60px 15px;
+}
+.ubuntu{
+  font-family: 'Ubuntu', sans-serif;
+}
+.title{
+  font-size: 2.5em;
+  margin-top:0;
+}
+
+.main-header{
+  background-color:#34495E;
+  padding-left:15px;
+  padding-right:15px;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 10px;
+}
+.nav-link{
+  color:white;
+  margin-right:-8px;
+  text-decoration: none;
+  width: 30%;
+  display: inline-block;
+}
+.text-center{
+  text-align:center;
+}
+.red-text{
+  color:#F45B69;
+}
+.main-container{
+  min-height: 100vh;
+}
+.card{
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.tresD{
+  text-shadow: 1px 3px 0px #6b251d, 1px 13px 5px rgb(171,168,168);
+}
+
+/* Footer */
+
+	#footer {
+		padding: 6em 0 6em 0 ;
+		background-color: #4686a0;
+		color: rgba(255, 255, 255, 0.75);
+		background-attachment: fixed,							fixed,							fixed;
+		background-image: url("images/overlay2.png"), url("images/overlay4.svg"), linear-gradient(45deg, #4361c2, #4fa49a 50%, #9dc66b 95%);
+		background-position: top left,						center center,					center center;
+		background-size: auto,							cover,							cover;
+		text-align: center;
+	}
+
+		#footer a {
+			border-bottom-color: rgba(255, 255, 255, 0.5);
+		}
+
+			#footer a:hover {
+				color: #ffffff;
+			}
+
+		#footer h1, #footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b {
+			color: #ffffff;
+		}
+
+		#footer header p {
+			color: #ffffff;
+		}
+
+		#footer header.major:after {
+			background: #ffffff;
+		}
+
+		#footer input[type="submit"],
+		#footer input[type="reset"],
+		#footer input[type="button"],
+		#footer button,
+		#footer .button {
+			box-shadow: inset 0 0 0 1px #ffffff;
+			color: #ffffff !important;
+		}
+
+			#footer input[type="submit"]:hover,
+			#footer input[type="reset"]:hover,
+			#footer input[type="button"]:hover,
+			#footer button:hover,
+			#footer .button:hover {
+				background-color: rgba(255, 255, 255, 0.125);
+			}
+
+			#footer input[type="submit"]:active,
+			#footer input[type="reset"]:active,
+			#footer input[type="button"]:active,
+			#footer button:active,
+			#footer .button:active {
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+
+			#footer input[type="submit"].special,
+			#footer input[type="reset"].special,
+			#footer input[type="button"].special,
+			#footer button.special,
+			#footer .button.special {
+				background-color: #ffffff;
+				box-shadow: inset 0 0 0 1px #ffffff !important;
+				color: #4686a0 !important;
+			}
+
+				#footer input[type="submit"].special:hover,
+				#footer input[type="reset"].special:hover,
+				#footer input[type="button"].special:hover,
+				#footer button.special:hover,
+				#footer .button.special:hover {
+					background-color: rgba(255, 255, 255, 0.125) !important;
+					color: #ffffff !important;
+				}
+
+				#footer input[type="submit"].special:active,
+				#footer input[type="reset"].special:active,
+				#footer input[type="button"].special:active,
+				#footer button.special:active,
+				#footer .button.special:active {
+					background-color: rgba(255, 255, 255, 0.25) !important;
+				}
+
+		#footer ul.major-icons li .icon {
+			border-color: #ffffff;
+		}
+
+		#footer .icon.major {
+			color: #ffffff;
+		}
+
+		#footer .icons {
+			margin: 0;
+		}
+
+		#footer .copyright {
+			font-size: 0.8em;
+			list-style: none;
+			margin: 2em 0 0 0;
+			padding: 0;
+		}
+
+			#footer .copyright li {
+				border-left: solid 1px;
+				display: inline-block;
+				line-height: 1em;
+				margin-left: 1em;
+				padding: 0 0 0 1em;
+			}
+
+				#footer .copyright li:first-child {
+					border-left: 0;
+					margin-left: 0;
+					padding: 0;
+				}
