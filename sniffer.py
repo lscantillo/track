@@ -9,7 +9,7 @@ import MySQLdb
 
 def main():
     print("Connecting to MySQL DB.")
-    db = MySQLdb.connect('localhost','root','','designlocations')
+    db = MySQLdb.connect(' designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com:3306','abcr','abcr1234','designlocations')
     cursor = db.cursor()
 
     print("Creating socket object.")
@@ -18,12 +18,8 @@ def main():
     HOST = socket.gethostbyname(socket.gethostname())
     s.bind((HOST, 56303))
     print("Arigato ningen.")
-    # s.listen(1)
     print("Accepting.")
     while True:
-        # conn, addr = s.accept()
-        # print("Connected")
-        #try:
         while True:
             data, addr = s.recvfrom(65536)
             print("Raw data received: " + str(data))
@@ -41,8 +37,7 @@ def main():
                     print("The Message Was Ignored")
             else:
                 break
-        #except:
-        #    print("Woops, something happened")
+        
 
 
 def getMess(m):
@@ -80,7 +75,7 @@ def getMess(m):
 
 
 def getTime(wks, days, scnd):
-    seco = wks * 7 * 24 * 60 * 60 + (days + 3657) * 24 * 60 * 60 + scnd #+ 5 * 60 * 60
+    seco = wks * 7 * 24 * 60 * 60 + (days + 3657) * 24 * 60 * 60 + scnd 
     t = time.localtime(seco)
     posmonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     Year = t.tm_year
