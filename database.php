@@ -1,10 +1,7 @@
-﻿<?php
-     #$servername = "181.192.147.42:3306";
-                $servername = "localhost";
-                #$servername = "syrusloc";
-		$username = "root";
-                #$username = "furdesign";
-                $password = "";
+﻿<?php;
+                $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com:3306";
+		$username = "abcr";
+                $password = "abcr1234";
     // Create connection
     $conn = new mysqli($servername, $username, $password);
 
