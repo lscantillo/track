@@ -16,7 +16,7 @@
             <?php
 
 
-                $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com:3306";
+                $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
                 $username = "abcr";
                 $password = "abcr1234";
                 // Create connection
