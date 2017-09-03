@@ -9,7 +9,7 @@ import MySQLdb
 
 def main():
     print("Connecting to MySQL DB.")
-    db = MySQLdb.connect(' designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com','abcr','abcr1234','designlocations')
+    db = MySQLdb.connect('designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com','abcr','abcr1234','designlocations')
     cursor = db.cursor()
 
     print("Creating socket object.")
