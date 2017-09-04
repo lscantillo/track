@@ -74,7 +74,7 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
   </script>
   
-  <form action="historicotest.php">
+  <form action="historico.php">
   <input type="submit" value="Historico" class="dropbtn">
   </form>
 
