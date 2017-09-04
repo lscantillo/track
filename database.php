@@ -34,6 +34,7 @@
         return $answer;
     }
 
+
     function querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit)
     {
         $query="SELECT * FROM locations ";
@@ -103,27 +104,7 @@
             $query=$query.$lmt;
         }
 
-        if(strlen($query)<27){
-            $query=$query."WHERE 1";
-        }
-
         return $query;
-    }
-
-    function yrmnthd($yb,$ye,$mb,$me,$db,$de)
-    {
-        $begining=dategenerator($yb,$mb,$db);
-        $ending=dategenerator($ye,$me,$de);
-        $answer=interval($begining,$ending);
-        return $answer;
-    }
-
-    function yrmnth($yb,$ye,$mb,$me)
-    {
-        $begining=dategenerator($yb,$mb,"00");
-        $ending=dategenerator($ye,$me,"00");
-        $answer=interval($begining,$ending);
-        return $answer;
     }
 
     function dategenerator($y,$m,$d)
@@ -132,17 +113,6 @@
         return $date;
     }
 
-    function dateinterval($begin,$end)
-    {
-        $answer=" Date<".$begin." AND Date>".$end;
-        return $answer;
-    }
-
-    function timeinterval($begin,$end)
-    {
-        $answer=" Time<".$begin." AND Time>".$end;
-        return $answer;
-    }
 
     function whereand($query,$string){
         if(strlen($query)<26){
@@ -153,3 +123,4 @@
         return $query=$query.$string;
     }
 ?>
+
