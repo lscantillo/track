@@ -18,6 +18,7 @@
             <header class="main-header">
               <nav class="main-nav">
                 <a href="index.php" class="nav-link ubuntu">Inicio</a>
+                <a href="menu.php" class="nav-link ubuntu"Tracking</a>
                 <a href="historico.php" class="nav-link ubuntu">Historico</a>
               </nav>
             </header>
