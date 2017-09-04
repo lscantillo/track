@@ -46,12 +46,12 @@
         if($yb>0){
             if($mb>0){
                 if($db>0){
-                    $ybg="Date< ".dategenerator($yb,$mb,$db)." ";
+                    $ybg="Date> ".dategenerator($yb,$mb,$db)." ";
                 }else{
-                    $ybg="Date< ".dategenerator($yb,$mb,"00")." ";
+                    $ybg="Date> ".dategenerator($yb,$mb,"00")." ";
                 }
             }else{
-                $ybg="Date< ".dategenerator($yb,"00","00")." ";
+                $ybg="Date> ".dategenerator($yb,"00","00")." ";
             }
         }
 
@@ -67,12 +67,12 @@
             }
         }
 
-        if($hb>=0){
+        if($hb>=0 AND ($he!=0 AND $hb!=0)){
             $hbg=" Time> ".$hb.":00:00 ";
         }
 
-        if($he>=0){
-            $hen=" Time> ".$he.":00:00 ";
+        if($he>=0 AND ($he!=0 AND $hb!=0)){
+            $hen=" Time< ".$he.":00:00 ";
         }
 
         if($limit>0){
@@ -81,39 +81,19 @@
 
 
         if(strlen($ybg)>0){
-            if(strlen($query)<26){
-                $query=$query."WHERE "; 
-            }else{
-                $query=$query."AND ";
-            }
-            $query=$query.$ybg;
-        } 
+            $query=whereand($query,$ybg);
+        }
 
         if(strlen($yen)>0){
-            if(strlen($query)<26){
-                $query=$query."WHERE "; 
-            }else{
-                $query=$query."AND ";
-            }
-            $query=$query.$yen;
+            $query=whereand($query,$yen);
         }
 
         if(strlen($hbg)>0){
-            if(strlen($query)<26){
-                $query=$query."WHERE "; 
-            }else{
-                $query=$query."AND ";
-            }
-            $query=$query.$hbg;
+            $query=whereand($query,$hbg);
         }
 
         if(strlen($hen)>0){
-            if(strlen($query)<26){
-                $query=$query."WHERE "; 
-            }else{
-                $query=$query."AND ";
-            }
-            $query=$query.$hen;
+            $query=whereand($query,$hen);
         }
 
         if(strlen($lmt)>0){
@@ -121,6 +101,10 @@
                 $query=$query."AND ";
             }
             $query=$query.$lmt;
+        }
+
+        if(strlen($query)<27){
+            $query=$query."WHERE 1";
         }
 
         return $query;
@@ -158,5 +142,14 @@
     {
         $answer=" Time<".$begin." AND Time>".$end;
         return $answer;
+    }
+
+    function whereand($query,$string){
+        if(strlen($query)<26){
+            $query=$query."WHERE "; 
+        }else{
+            $query=$query."AND ";
+        }
+        return $query=$query.$string;
     }
 ?>
