@@ -216,19 +216,21 @@
 
   $result = connection2rds($query);
 
-  while($row = mysqli_fetch_array($result))
-  {
+  $sz=count($result);
+
+  for ($i=0; $i < $sz; $i++) { 
     echo "<tr>";
-    echo "<td>" . $row['ID'] . "</td>";
-    echo "<td>" . $row['Latitude'] . "</td>";
-    echo "<td>" . $row['Longitude'] . "</td>";
-    echo "<td>" . $row['Date'] . "</td>";
-    echo "<td>" . $row['Time'] . "</td>";
+    echo "<td>" . $result[0][i] . "</td>";
+    echo "<td>" . $result[1][i] . "</td>";
+    echo "<td>" . $result[2][i] . "</td>";
+    echo "<td>" . $result[3][i] . "</td>";
+    echo "<td>" . $result[4][i] . "</td>";
     echo "</tr>";
-  }
+   }
 
   echo "</table>";
 
 ?>
+
 
 </html>
