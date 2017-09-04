@@ -33,4 +33,130 @@
 
         return $answer;
     }
+
+    function querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit)
+    {
+        $query="SELECT * FROM locations ";
+        $ybg="";
+        $yen="";
+        $hbg="";
+        $hen="";
+        $lmt="";
+
+        if($yb>0){
+            if($mb>0){
+                if($db>0){
+                    $ybg="Date< ".dategenerator($yb,$mb,$db)." ";
+                }else{
+                    $ybg="Date< ".dategenerator($yb,$mb,"00")." ";
+                }
+            }else{
+                $ybg="Date< ".dategenerator($yb,"00","00")." ";
+            }
+        }
+
+        if($ye>0){
+            if($me>0){
+                if($de>0){
+                    $yen="Date< ".dategenerator($yb,$mb,$db)." ";
+                }else{
+                    $yen="Date< ".dategenerator($yb,$mb,"00")." ";
+                }
+            }else{
+                $yen="Date< ".dategenerator($yb,"00","00")." ";
+            }
+        }
+
+        if($hb>=0){
+            $hbg=" Time> ".$hb.":00:00 ";
+        }
+
+        if($he>=0){
+            $hen=" Time> ".$he.":00:00 ";
+        }
+
+        if($limit>0){
+            $lmt="LIMIT ".$limit;
+        }
+
+
+        if(strlen($ybg)>0){
+            if(strlen($query)<26){
+                $query=$query."WHERE "; 
+            }else{
+                $query=$query."AND ";
+            }
+            $query=$query.$ybg;
+        } 
+
+        if(strlen($yen)>0){
+            if(strlen($query)<26){
+                $query=$query."WHERE "; 
+            }else{
+                $query=$query."AND ";
+            }
+            $query=$query.$yen;
+        }
+
+        if(strlen($hbg)>0){
+            if(strlen($query)<26){
+                $query=$query."WHERE "; 
+            }else{
+                $query=$query."AND ";
+            }
+            $query=$query.$hbg;
+        }
+
+        if(strlen($hen)>0){
+            if(strlen($query)<26){
+                $query=$query."WHERE "; 
+            }else{
+                $query=$query."AND ";
+            }
+            $query=$query.$hen;
+        }
+
+        if(strlen($lmt)>0){
+            if(strlen($query)>26){
+                $query=$query."AND ";
+            }
+            $query=$query.$lmt;
+        }
+
+        return $query;
+    }
+
+    function yrmnthd($yb,$ye,$mb,$me,$db,$de)
+    {
+        $begining=dategenerator($yb,$mb,$db);
+        $ending=dategenerator($ye,$me,$de);
+        $answer=interval($begining,$ending);
+        return $answer;
+    }
+
+    function yrmnth($yb,$ye,$mb,$me)
+    {
+        $begining=dategenerator($yb,$mb,"00");
+        $ending=dategenerator($ye,$me,"00");
+        $answer=interval($begining,$ending);
+        return $answer;
+    }
+
+    function dategenerator($y,$m,$d)
+    {
+        $date="20".$y."-".$m."-".$d;
+        return $date;
+    }
+
+    function dateinterval($begin,$end)
+    {
+        $answer=" Date<".$begin." AND Date>".$end;
+        return $answer;
+    }
+
+    function timeinterval($begin,$end)
+    {
+        $answer=" Time<".$begin." AND Time>".$end;
+        return $answer;
+    }
 ?>
