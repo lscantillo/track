@@ -34,7 +34,7 @@
   </select>
   <br />   <br /> 
   <select id="month" name="Mes inicio" >
-    <option value="-1">Mes inicio</option>
+    <option value="0">Mes inicio</option>
     <option value="1">Enero</option>
     <option value="2">Febrero</option>
     <option value="3">Marzo</option>
@@ -49,7 +49,7 @@
     <option value="12">Diciembre</option>
   </select>
   <select id="monthtil" name="Mes fin" >
-    <option value="-1">Mes fin</option>
+    <option value="0">Mes fin</option>
     <option value="1">Enero</option>
     <option value="2">Febrero</option>
     <option value="3">Marzo</option>
@@ -65,8 +65,7 @@
   </select>
   <br />   <br /> 
   <select id="day" name="Día inicio" >
-      <option value="-1">Día inicio</option>
-      <option value="0">00</option>
+      <option value="0">Día inicio</option>
       <option value="1">01</option>
       <option value="2">02</option>
       <option value="3">03</option>
@@ -101,8 +100,7 @@
   </select>
   </select>
     <select id="daytil" name="Día fin" >
-    <option value="-1">Día fin</option>
-    <option value="0">00</option>
+    <option value="0">Día fin</option>
     <option value="1">01</option>
     <option value="2">02</option>
     <option value="3">03</option>
@@ -191,6 +189,14 @@
     <option value="23">23:00</option>
   </select>
   <br />   <br /> 
+    <select id="howmany" name="Eventos a desplegar" >
+    <option value="0">Eventos a desplegar fin</option>
+    <option value="1">1</option>
+    <option value="10">10</option>
+    <option value="100">100</option>
+    <option value="1000">1000</option>
+  </select>
+  <br />   <br /> 
   <table style="width:100%">
   <tr>
     <th>ID</th>
@@ -199,32 +205,27 @@
     <th>Date</th>
     <th>Time</th>
   </tr>
-</table>
 <?php
 
   include 'database.php';
 
-  $query = $query = "SELECT * FROM locations";
+  $query = querygenerator(0,0,0,0,0,0,0,0,0);
 
   $result = connection2rds($query);
-echo "<table style="width:100%">"
 
-while($row = mysqli_fetch_array($result))
-  
-  
-{
-echo "<tr>";
-echo "<td>" . $row['ID'] . "</td>";
-echo "<td>" . $row['Latitude'] . "</td>";
-echo "<td>" . $row['Longitude'] . "</td>";
-echo "<td>" . $row['Date'] . "</td>";
-echo "<td>" . $row['Time'] . "</td>";
-echo "</tr>";
-}
+  while($row = mysqli_fetch_array($result))
+  {
+    echo "<tr>";
+    echo "<td>" . $row['ID'] . "</td>";
+    echo "<td>" . $row['Latitude'] . "</td>";
+    echo "<td>" . $row['Longitude'] . "</td>";
+    echo "<td>" . $row['Date'] . "</td>";
+    echo "<td>" . $row['Time'] . "</td>";
+    echo "</tr>";
+  }
 
-echo "</table>";
+  echo "</table>";
 
 ?>
-
 
 </html>
