@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   </head>
-
-
   <label for="timefilter"> Filtrar por tiempo : </label>
-  <br /> 
+  <br />   <br /> 
   <select id="year" name="Año inicio" >
     <option value="0">Año inicio</option>
     <option value="21">2021</option>
@@ -34,7 +32,7 @@
     <option value="15">2015</option>
     <option value="14">2014</option>
   </select>
-  <br /> 
+  <br />   <br /> 
   <select id="month" name="Mes inicio" >
     <option value="-1">Mes inicio</option>
     <option value="1">Enero</option>
@@ -65,7 +63,7 @@
     <option value="11">Noviembre</option>
     <option value="12">Diciembre</option>
   </select>
-  <br /> 
+  <br />   <br /> 
   <select id="day" name="Día inicio" >
       <option value="-1">Día inicio</option>
       <option value="0">00</option>
@@ -137,7 +135,7 @@
     <option value="30">30</option>
     <option value="31">31</option>
   </select>
-  <br /> 
+  <br />   <br /> 
   <select id="hour" name="Hora inicio" >
     <option value="-1">Hora inicio</option>
     <option value="0">00:00</option>
@@ -192,78 +190,38 @@
     <option value="22">22:00</option>
     <option value="23">23:00</option>
   </select>
-  <br /> 
-  <body>
-      <meta http-equiv="refresh" content="15">
-  </body>
+  <br />   <br /> 
+  <table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+  
+<?php
 
-    <?php
+  include 'database.php';
 
-      include 'database.php';
+  $query = $query = "SELECT * FROM locations WHERE 1 ";
 
-      $query = "SELECT * FROM locations WHERE 1 ";
+  $result = connection2rds($query);
 
-      $row=connection2rds($query);
+while($row = mysqli_fetch_array($result))
 
-      $Id = $row[0];
-      $Lat = $row[1];
-      $Long = $row[2];
-      $Date=$row[3];
-      $Time=$row[4];
-      
-        if ($Lat == 0 and $Long == 0) {
-            
-        echo "<p> GPS NO CONECTADO </p>";
-        
-      } else {
-       
-        echo "<li>";
-        print "ID: $Id";
-        echo "<br>";
-        echo "<li>";
-        print "Latitud: $Lat";
-        echo "<br>";
-        echo "<li>";
-        print "Longitud: $Long";
-        echo "<br>";
-        echo "<li>";
-        print "Date: $Date";
-        echo "<li>";
-        print "Time: $Time";
-        echo "<br>";
-      
-      }
-      
-    ?>
+{
+echo "<tr>";
+echo "<td>" . $row['ID'] . "</td>";
+echo "<td>" . $row['Latitude'] . "</td>";
+echo "<td>" . $row['Longitude'] . "</td>";
+echo "<td>" . $row['Date'] . "</td>";
+echo "<td>" . $row['Time'] . "</td>";
+echo "</tr>";
+}
 
-  <style>
-    #map {
-      height: 500px;
-      width: 100%;
-    }
-  </style>
+echo "</table>";
 
-  <div id="map"></div>
-  <script>
-
-  var lat = "<?php echo $Lat; ?>";
-  var lon = "<?php echo $Long; ?>";
-  var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
-
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: myLatLng,});
-    var marker = new google.maps.Marker({ position: myLatLng,map: map, title:'Su auto'});
-  }
-
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
-  </script>
-
-  <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
-
-  <form action="historicotest.php">
-  <input type="submit" value="Historico" class="dropbtn">
-  </form>
+?>
 
 </html>
