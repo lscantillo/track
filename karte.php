@@ -205,11 +205,9 @@
     <th>Date</th>
     <th>Time</th>
   </tr>
-  </table>
 
 <?php
 
-  echo "<table>";
   include 'database.php';
 
   $query = querygenerator(0,0,0,0,0,0,0,0,0);
