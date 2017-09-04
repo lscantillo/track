@@ -215,16 +215,23 @@
   $query = querygenerator(0,0,0,0,0,0,0,0,0);
 
   $result = connection2rds($query);
-
+  echo "matrix".$result;
   $sz=count($result);
-
+  echo"size:";
+  echo $sz;
+  echo "for loop:";
   for ($i=0; $i < $sz; $i++) { 
     echo "<tr>";
     echo "<td>" . $result[0][i] . "</td>";
+    echo "<br />   <br /> ";
     echo "<td>" . $result[1][i] . "</td>";
+    echo "<br />   <br /> ";
     echo "<td>" . $result[2][i] . "</td>";
+    echo "<br />   <br /> ";
     echo "<td>" . $result[3][i] . "</td>";
+    echo "<br />   <br /> ";
     echo "<td>" . $result[4][i] . "</td>";
+    echo "<br />   <br /> ";
     echo "</tr>";
    }
 
