@@ -11,7 +11,6 @@
   <body>
       <meta http-equiv="refresh" content="15">
   </body>
-   <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
     <?php
 
       include 'database.php';
@@ -26,28 +25,6 @@
       $Date=$row[3];
       $Time=$row[4];
 
-      if ($Lat == 0 and $Long == 0) {
-            
-        echo "<p> GPS NO CONECTADO </p>";
-        
-      } else {
-       
-        echo "<li>";
-        print "ID: $Id";
-        echo "<br>";
-        echo "<li>";
-        print "Latitud: $Lat";
-        echo "<br>";
-        echo "<li>";
-        print "Longitud: $Long";
-        echo "<br>";
-        echo "<li>";
-        print "Date: $Date";
-        echo "<li>";
-        print "Time: $Time";
-        echo "<br>";
-      
-      }
     ?>
 
   <style>
@@ -74,8 +51,32 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
   </script>
 
- 
-  <form action="historico.php">
+  <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
+  <?php
+        if ($Lat == 0 and $Long == 0) {
+            
+        echo "<p> GPS NO CONECTADO </p>";
+        
+      } else {
+       
+        echo "<li>";
+        print "ID: $Id";
+        echo "<br>";
+        echo "<li>";
+        print "Latitud: $Lat";
+        echo "<br>";
+        echo "<li>";
+        print "Longitud: $Long";
+        echo "<br>";
+        echo "<li>";
+        print "Date: $Date";
+        echo "<li>";
+        print "Time: $Time";
+        echo "<br>";
+      
+      }
+      ?>
+  <form action="historicotest.php">
   <input type="submit" value="Historico" class="dropbtn">
   </form>
 
