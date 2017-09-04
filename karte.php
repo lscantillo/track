@@ -199,17 +199,19 @@
     <th>Date</th>
     <th>Time</th>
   </tr>
-  
+</table>
 <?php
 
   include 'database.php';
 
-  $query = $query = "SELECT * FROM locations WHERE 1 ";
+  $query = $query = "SELECT * FROM locations";
 
   $result = connection2rds($query);
+echo "<table style="width:100%">"
 
 while($row = mysqli_fetch_array($result))
-
+  
+  
 {
 echo "<tr>";
 echo "<td>" . $row['ID'] . "</td>";
@@ -223,5 +225,6 @@ echo "</tr>";
 echo "</table>";
 
 ?>
+
 
 </html>
