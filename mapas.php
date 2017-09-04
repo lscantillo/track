@@ -26,7 +26,7 @@
       $Time=$row[4];
 
     ?>
-
+  <br /> 
   <style>
     #map {
       height: 500px;
