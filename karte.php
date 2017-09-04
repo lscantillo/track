@@ -190,7 +190,7 @@
   </select>
   <br />   <br /> 
     <select id="howmany" name="Eventos a desplegar" >
-    <option value="0">Eventos a desplegar fin</option>
+    <option value="0">Eventos a desplegar</option>
     <option value="1">1</option>
     <option value="10">10</option>
     <option value="100">100</option>
