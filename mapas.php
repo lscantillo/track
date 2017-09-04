@@ -49,7 +49,7 @@
       
       }
     ?>
-
+  <br /> 
   <style>
     #map {
       height: 500px;
