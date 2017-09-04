@@ -11,6 +11,7 @@
   <body>
       <meta http-equiv="refresh" content="15">
   </body>
+   <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
     <?php
 
       include 'database.php';
@@ -73,8 +74,8 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
   </script>
 
-  <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
-  <form action="historicotest.php">
+ 
+  <form action="historico.php">
   <input type="submit" value="Historico" class="dropbtn">
   </form>
 
