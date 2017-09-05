@@ -71,7 +71,7 @@
 
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: myLatLng,});
-    var marker = new google.maps.Marker({ position: myLatLng,map: map});
+    var marker = new google.maps.Marker({ position: myLatLng,map: map,icon:image});
     var infoWindow = new google.maps.InfoWindow;
 			
 			  var infowincontent = document.createElement('div');
