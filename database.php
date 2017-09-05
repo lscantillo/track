@@ -113,7 +113,7 @@
 
     function dategenerator($y,$m,$d)
     {
-        $date="20".$y."-".$m."-".$d;
+        $date="'20".$y."-".$m."-".$d."'";
         return $date;
     }
 
