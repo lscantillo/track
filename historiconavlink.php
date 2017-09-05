@@ -160,11 +160,11 @@
   </body>
 
                       <div class="dropdown">
-                      <button class="dropbtn">Rutas</button>
+                      <button class="dropbtn">Búsqueda Rápida</button>
                       <div class="dropdown-content">
-                        <a href="#">10 Marcadores</a>
-                        <a href="#">25 Marcadores</a>
-                        <a href="#">50 Marcadores</a>
+                        <a href="#">1 Hora</a>
+                        <a href="#">2 Horas</a>
+                        <a href="#">3 Horas</a>
                       </div>
                       </div>
                      
