@@ -1,7 +1,8 @@
 <!DOCTYPE html >
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>      
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="./css/style.css">
 
    <?php
     $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
