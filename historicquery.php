@@ -48,9 +48,7 @@
     echo "</tr>";
   }
   echo "</table>";
-  echo "<br>";
-  echo "<br>";
-<form action="karte.php">
+ <form action="historico.php">
   <input type="submit" value="Regresar">
           </form>
   
