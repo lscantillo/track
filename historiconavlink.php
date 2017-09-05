@@ -4,11 +4,9 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>      
 
    <?php
-
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
+    $username = "abcr";
+    $password = "abcr1234";
     // Create connection
     $conn = new mysqli($servername, $username, $password);
 
@@ -155,8 +153,6 @@
                         <a href="#">50 Marcadores</a>
                       </div>
                       </div>
-                      <form action="mapas.php">
-                      <input type="submit" width="100px" value="Regresar">
-                      </form>
+                     
 
                       </html>
