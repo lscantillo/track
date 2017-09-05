@@ -10,7 +10,8 @@
   </head>
   <label for="timefilter"> Filtrar por tiempo : </label>
   <br />   <br /> 
-  <select id="year" name="Año inicio" >
+  <form action="historicquery.php" method="get">
+  <select id="year" name="yrbeg" >
     <option value="0">Año inicio</option>
     <option value="21">2021</option>
     <option value="20">2020</option>
@@ -21,7 +22,7 @@
     <option value="15">2015</option>
     <option value="14">2014</option>
   </select>
-  <select id="yeartil" name="Año fin" >
+  <select id="yeartil" name="yrend" >
     <option value="0">Año fin</option>
     <option value="21">2021</option>
     <option value="20">2020</option>
@@ -33,7 +34,7 @@
     <option value="14">2014</option>
   </select>
   <br />   <br /> 
-  <select id="month" name="Mes inicio" >
+  <select id="month" name="monbeg" >
     <option value="0">Mes inicio</option>
     <option value="1">Enero</option>
     <option value="2">Febrero</option>
@@ -48,7 +49,7 @@
     <option value="11">Noviembre</option>
     <option value="12">Diciembre</option>
   </select>
-  <select id="monthtil" name="Mes fin" >
+  <select id="monthtil" name="monend" >
     <option value="0">Mes fin</option>
     <option value="1">Enero</option>
     <option value="2">Febrero</option>
@@ -64,7 +65,7 @@
     <option value="12">Diciembre</option>
   </select>
   <br />   <br /> 
-  <select id="day" name="Día inicio" >
+  <select id="day" name="daybeg" >
       <option value="0">Día inicio</option>
       <option value="1">01</option>
       <option value="2">02</option>
@@ -99,7 +100,7 @@
       <option value="31">31</option>
   </select>
   </select>
-    <select id="daytil" name="Día fin" >
+    <select id="daytil" name="dayend" >
     <option value="0">Día fin</option>
     <option value="1">01</option>
     <option value="2">02</option>
@@ -134,7 +135,7 @@
     <option value="31">31</option>
   </select>
   <br />   <br /> 
-  <select id="hour" name="Hora inicio" >
+  <select id="hour" name="hourbeg" >
     <option value="-1">Hora inicio</option>
     <option value="0">00:00</option>
     <option value="1">01:00</option>
@@ -161,7 +162,7 @@
     <option value="22">22:00</option>
     <option value="23">23:00</option>
   </select>
-  <select id="hourtil" name="Hora fin" >
+  <select id="hourtil" name="hourend" >
     <option value="-1">Hora fin</option>
     <option value="0">00:00</option>
     <option value="1">01:00</option>
@@ -189,7 +190,7 @@
     <option value="23">23:00</option>
   </select>
   <br />   <br /> 
-    <select id="howmany" name="Eventos a desplegar" >
+    <select id="howmany" name="numevents" >
     <option value="0">Eventos a desplegar</option>
     <option value="1">1</option>
     <option value="10">10</option>
@@ -197,35 +198,6 @@
     <option value="1000">1000</option>
   </select>
   <br />   <br /> 
-  <table style="width:100%">
-  <tr>
-    <th>ID</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-    <th>Date</th>
-    <th>Time</th>
-  </tr>
-
-<?php
-  include 'database.php';
-
-  $query = querygenerator(0,0,0,0,0,0,0,0,0);
-
-  $result = painintheass($query);
-
-  while($row = mysqli_fetch_array($result))
-  {
-    echo "<tr>";
-    echo "<td>" . $row['ID'] . "</td>";
-    echo "<td>" . $row['Latitude'] . "</td>";
-    echo "<td>" . $row['Longitude'] . "</td>";
-    echo "<td>" . $row['Date'] . "</td>";
-    echo "<td>" . $row['Time'] . "</td>";
-    echo "</tr>";
-  }
-  echo "</table>";
-
-?>
-
-
+  <button type="submit">Submit</button><br>
+  </form>
 </html>
