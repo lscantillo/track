@@ -21,6 +21,19 @@
     <option value="16">2016</option>
     <option value="15">2015</option>
     <option value="14">2014</option>
+    <option value="13">2013</option>
+    <option value="12">2012</option>
+    <option value="11">2011</option>
+    <option value="10">2010</option>
+    <option value="09">2009</option>
+    <option value="08">2008</option>
+    <option value="07">2007</option>
+    <option value="06">2006</option>
+    <option value="05">2005</option>
+    <option value="04">2004</option>
+    <option value="03">2003</option>
+    <option value="02">2002</option>
+    <option value="01">2001</option>
   </select>
   <select id="yeartil" name="yrend" >
     <option value="0">Año fin</option>
@@ -32,50 +45,63 @@
     <option value="16">2016</option>
     <option value="15">2015</option>
     <option value="14">2014</option>
+    <option value="13">2013</option>
+    <option value="12">2012</option>
+    <option value="11">2011</option>
+    <option value="10">2010</option>
+    <option value="09">2009</option>
+    <option value="08">2008</option>
+    <option value="07">2007</option>
+    <option value="06">2006</option>
+    <option value="05">2005</option>
+    <option value="04">2004</option>
+    <option value="03">2003</option>
+    <option value="02">2002</option>
+    <option value="01">2001</option>
   </select>
   <br />   <br /> 
   <select id="month" name="monbeg" >
-    <option value="0">Mes inicio</option>
-    <option value="1">Enero</option>
-    <option value="2">Febrero</option>
-    <option value="3">Marzo</option>
-    <option value="4">Abril</option>
-    <option value="5">Mayo</option>
-    <option value="6">Junio</option>
-    <option value="7">Julio</option>
-    <option value="8">Agosto</option>
-    <option value="9">Septiembre</option>
+    <option value="00">Mes inicio</option>
+    <option value="01">Enero</option>
+    <option value="02">Febrero</option>
+    <option value="03">Marzo</option>
+    <option value="04">Abril</option>
+    <option value="05">Mayo</option>
+    <option value="06">Junio</option>
+    <option value="07">Julio</option>
+    <option value="08">Agosto</option>
+    <option value="09">Septiembre</option>
     <option value="10">Octubre</option>
     <option value="11">Noviembre</option>
     <option value="12">Diciembre</option>
   </select>
   <select id="monthtil" name="monend" >
-    <option value="0">Mes fin</option>
-    <option value="1">Enero</option>
-    <option value="2">Febrero</option>
-    <option value="3">Marzo</option>
-    <option value="4">Abril</option>
-    <option value="5">Mayo</option>
-    <option value="6">Junio</option>
-    <option value="7">Julio</option>
-    <option value="8">Agosto</option>
-    <option value="9">Septiembre</option>
+    <option value="00">Mes fin</option>
+    <option value="01">Enero</option>
+    <option value="02">Febrero</option>
+    <option value="03">Marzo</option>
+    <option value="04">Abril</option>
+    <option value="05">Mayo</option>
+    <option value="06">Junio</option>
+    <option value="07">Julio</option>
+    <option value="08">Agosto</option>
+    <option value="09">Septiembre</option>
     <option value="10">Octubre</option>
     <option value="11">Noviembre</option>
     <option value="12">Diciembre</option>
   </select>
   <br />   <br /> 
   <select id="day" name="daybeg" >
-      <option value="0">Día inicio</option>
-      <option value="1">01</option>
-      <option value="2">02</option>
-      <option value="3">03</option>
-      <option value="4">04</option>
-      <option value="5">05</option>
-      <option value="6">06</option>
-      <option value="7">07</option>
-      <option value="8">08</option>
-      <option value="9">09</option>
+      <option value="00">Día inicio</option>
+      <option value="01">01</option>
+      <option value="02">02</option>
+      <option value="03">03</option>
+      <option value="04">04</option>
+      <option value="05">05</option>
+      <option value="06">06</option>
+      <option value="07">07</option>
+      <option value="08">08</option>
+      <option value="09">09</option>
       <option value="10">10</option>
       <option value="11">11</option>
       <option value="12">12</option>
@@ -137,16 +163,16 @@
   <br />   <br /> 
   <select id="hour" name="hourbeg" >
     <option value="-1">Hora inicio</option>
-    <option value="0">00:00</option>
-    <option value="1">01:00</option>
-    <option value="2">02:00</option>
-    <option value="3">03:00</option>
-    <option value="4">04:00</option>
-    <option value="5">05:00</option>
-    <option value="6">06:00</option>
-    <option value="7">07:00</option>
-    <option value="8">08:00</option>
-    <option value="9">09:00</option>
+    <option value="00">00:00</option>
+    <option value="01">01:00</option>
+    <option value="02">02:00</option>
+    <option value="03">03:00</option>
+    <option value="04">04:00</option>
+    <option value="05">05:00</option>
+    <option value="06">06:00</option>
+    <option value="07">07:00</option>
+    <option value="08">08:00</option>
+    <option value="09">09:00</option>
     <option value="10">10:00</option>
     <option value="11">11:00</option>
     <option value="12">12:00</option>
@@ -164,16 +190,16 @@
   </select>
   <select id="hourtil" name="hourend" >
     <option value="-1">Hora fin</option>
-    <option value="0">00:00</option>
-    <option value="1">01:00</option>
-    <option value="2">02:00</option>
-    <option value="3">03:00</option>
-    <option value="4">04:00</option>
-    <option value="5">05:00</option>
-    <option value="6">06:00</option>
-    <option value="7">07:00</option>
-    <option value="8">08:00</option>
-    <option value="9">09:00</option>
+    <option value="00">00:00</option>
+    <option value="01">01:00</option>
+    <option value="02">02:00</option>
+    <option value="03">03:00</option>
+    <option value="04">04:00</option>
+    <option value="05">05:00</option>
+    <option value="06">06:00</option>
+    <option value="07">07:00</option>
+    <option value="08">08:00</option>
+    <option value="09">09:00</option>
     <option value="10">10:00</option>
     <option value="11">11:00</option>
     <option value="12">12:00</option>
@@ -198,6 +224,6 @@
     <option value="1000">1000</option>
   </select>
   <br />   <br /> 
-  <button type="submit">Buscar</button><br>
+  <button type="submit">Submit</button><br>
   </form>
 </html>
