@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
+$username = "abcr";
+$password = "abcr1234";
 
 function parseToXML($htmlStr)
 {
@@ -21,13 +21,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 // Set the active MySQL database
-$db_selected = mysqli_select_db($conn, "tracking");
+$db_selected = mysqli_select_db($conn, "designlocations");
 if (!$db_selected) {
   die ('Can\'t use db : ' .$db_selected->connect_error );
 }
 
 // Select all the rows in the markers table
-$query = "SELECT * FROM coordenadas WHERE 1 ";
+$query = "SELECT * FROM locations WHERE 1 ";
 $result = mysqli_query($conn, $query);
 if (!$result) {
   die('Invalid query: ' .$result->connect_error );
