@@ -51,13 +51,11 @@ while ($row = mysqli_fetch_assoc($result)){
   echo 'ID="' . $row['ID'] . '" ';
   echo 'Latitude="' . $row['Latitude'] . '" ';
   echo 'Longitude="' . $row['Longitude'] . '" ';
+  echo 'Date="' . $row['Date'] . '" ';
+  echo 'Time="' . $row['Time'] . '" ';
   echo '/>';
 }
-// while ($row = mysqli_fetch_array($result)) {
-//     $Id = $row['ID'];
-//     $Lat = $row['Latitude'];
-//     $Long = $row['Longitude'];
-//       }
+
 
 // End XML file
 echo '</markers>';
