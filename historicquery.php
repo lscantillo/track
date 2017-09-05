@@ -48,5 +48,10 @@
     echo "</tr>";
   }
   echo "</table>";
+  echo "<br>";
+  echo "<br>";
+<form action="karte.php">
+  <input type="submit" value="Regresar">
+          </form>
   
 ?>
