@@ -48,8 +48,6 @@
     echo "</tr>";
   }
   echo "</table>";
- <form action="historico.php">
-  <input type="submit" value="Regresar">
-          </form>
+ 
   
 ?>
