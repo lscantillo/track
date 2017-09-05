@@ -15,20 +15,14 @@
   mysqli_select_db($conn, "designlocations");
   
   $yb=$_POST['yrbeg'];
-  echo " yb: ".$yb;
   $ye=$_POST['yrend'];
   $mb=$_POST['monbeg'];
-  echo " mb: ".$mb;
   $me=$_POST['monend'];
   $db=$_POST['daybeg'];
-  echo " db: ".$db;
   $de=$_POST['dayend'];
   $hb=$_POST['hourbeg'];
-  echo " hb: ".$hb;
   $he=$_POST['hourend'];
   $limit=$_POST['numevents'];
-
-  echo $limit;
 
   $query = querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit);
   
