@@ -61,11 +61,13 @@
   <script>
     
 
-  var lat = "<?php echo $Lat; ?>";
-  var lon = "<?php echo $Long; ?>";
+ 
   var id = "<?php echo $Id; ?>";
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
+  var date= "<?php echo $Date; ?>";
+  var time = "<?php echo $Time; ?>";
+	  
   var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
   var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
 
@@ -89,9 +91,19 @@
             text.textContent ="Longitude: "+ lon;
             infowincontent.appendChild(text);
             infowincontent.appendChild(document.createElement('br'));
+	  
+	  	var text = document.createElement('text');
+             text.textContent ="Date: "+ date;
+             infowincontent.appendChild(text);
+             infowincontent.appendChild(document.createElement('br'));
+
+             var text = document.createElement('text');
+            text.textContent ="Time: "+ time;
+            infowincontent.appendChild(text);
+            infowincontent.appendChild(document.createElement('br'));
 			
 			
-			marker.addListener('click', function() {
+		marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
               });
