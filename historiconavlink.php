@@ -1,89 +1,152 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
   <head>
-  <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>      
 
-    <title> Web Tracking </title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./images/syrus.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+   <?php
+
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    // Create connection
+    $conn = new mysqli($servername, $username, $password);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    #echo "Connected successfully";
+    mysqli_select_db($conn, "designlocations");
+    
+    $query = "SELECT * FROM locations WHERE 1 ";
+
+    $result = mysqli_query($conn, $query);
+    $finfo = mysqli_fetch_field($result);
+    mysqli_data_seek($result, 1);
+    $row = mysqli_fetch_row($result);
+
+    while ($row = mysqli_fetch_array($result)) {
+
+        $Id = $row['ID'];
+        $Lat = $row['Latitude'];
+        $Long = $row['Longitude'];
+
+      }
+?>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 90%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 90%;
+        margin: 20;
+        padding: 20;
+      }
+    </style>
   </head>
-        <!-- <meta http-equiv="refresh" content="5"> -->
-            <?php
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      var id = "<?php echo $Id; ?>";
+      var lat = "<?php echo $Lat; ?>";
+      var lon = "<?php echo $Long; ?>";
+      var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+        function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          zoom: 16
+        });
+
+        var infoWindow = new google.maps.InfoWindow;
+
+          // Change this depending on the name of your PHP or XML file
+          downloadUrl('coordenadas.php', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var id = markerElem.getAttribute('ID');
+              var Latitude = markerElem.getAttribute('Latitude');
+              var Longitude = markerElem.getAttribute('Longitude');
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('Latitude')),
+                  parseFloat(markerElem.getAttribute('Longitude')));
+              var point2=[{lat: parseFloat(markerElem.getAttribute('Latitude')),
+                  lng: parseFloat(markerElem.getAttribute('Longitude'))}];
+
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = "ID: "+id;
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text = document.createElement('text');
+             text.textContent ="Latitude: "+ Latitude;
+             infowincontent.appendChild(text);
+             infowincontent.appendChild(document.createElement('br'));
+
+             var text = document.createElement('text');
+            text.textContent ="Longitude: "+ Longitude;
+            infowincontent.appendChild(text);
+            infowincontent.appendChild(document.createElement('br'));
+
+              var flightPath = new google.maps.Polyline({
+                path: point2,
+                geodesic: true,
+                strokeColor: '#000000',
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+              });
+
+              flightPath.setMap(map);
 
 
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                // Create connection
-                $conn = new mysqli($servername, $username, $password);
+              var marker = new google.maps.Marker({
+                map: map,
+                icon: image,
+                position: point
 
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                #echo "Connected successfully";
-                mysqli_select_db($conn, "designlocations");
-                #$query = 'select * from gatos WHERE Nombre LIKE '%" . $name .  "%' OR Patrón LIKE '%" . $name ."%'";';
-                $query = "SELECT * FROM locations WHERE 1 ";
-
-                $result = mysqli_query($conn, $query);
-                $finfo = mysqli_fetch_field($result);
-                mysqli_data_seek($result, 1);
-                $row = mysqli_fetch_row($result);
-
-                while ($row = mysqli_fetch_array($result)) {
-
-                  $Id = $row['ID'];
-                  $Lat = $row['Latitude'];
-                  $Long = $row['Longitude'];
-                  $Date=$row['Date'];
-                  $Time=$row['Time'];
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
+        }
 
 
 
-                  }
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
 
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
 
-            ?>
+        request.open('GET', url, true);
+        request.send(null);
+      }
 
-            <style>
-              #map {
-                height: 500px;
-                width: 100%;
-               }
-            </style>
+      function doNothing() {}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
+    </script>
+  </body>
 
-                <div id="map"></div>
-                <script>
-
-
-                var lat = "<?php echo $Lat; ?>";
-                var lon = "<?php echo $Long; ?>";
-                var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
-
-
-                    function initMap() {
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 16,
-                      center: myLatLng,
-                    });
-                    var marker = new google.maps.Marker({
-                      position: myLatLng,
-                      map: map,
-                      title:'Su auto'
-                    });
-                  }
-
-                </script>
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
-                </script>
-
-                  <h1 class="red-text ubuntu title">Historial de su vehículo </h1>
-
-                      <?php include 'database.php';?>
                       <div class="dropdown">
                       <button class="dropbtn">Rutas</button>
                       <div class="dropdown-content">
@@ -92,7 +155,7 @@
                         <a href="#">50 Marcadores</a>
                       </div>
                       </div>
-                      <form action="/track/mapas.php">
+                      <form action="mapas.php">
                       <input type="submit" width="100px" value="Regresar">
                       </form>
 
