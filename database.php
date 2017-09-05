@@ -65,10 +65,10 @@
                 if($db>0){
                     $ybg="Date >= ".dategenerator($yb,$mb,$db)." ";
                 }else{
-                    $ybg="Date >= ".dategenerator($yb,$mb,"00")." ";
+                    $ybg="Date >= ".dategenerator($yb,$mb,"01")." ";
                 }
             }else{
-                $ybg="Date >= ".dategenerator($yb,"00","00")." ";
+                $ybg="Date >= ".dategenerator($yb,"01","01")." ";
             }
         }
 
@@ -77,19 +77,19 @@
                 if($de>0){
                     $yen="Date <= ".dategenerator($ye,$me,$de)." ";
                 }else{
-                    $yen="Date <= ".dategenerator($ye,$me,"00")." ";
+                    $yen="Date <= ".dategenerator($ye,$me,"31")." ";
                 }
             }else{
-                $yen="Date <= ".dategenerator($ye,"00","00")." ";
+                $yen="Date <= ".dategenerator($ye,"12","31")." ";
             }
         }
 
         if($hb>=0 AND ($he!=0 AND $hb!=0)){
-            $hbg=" Time> ".$hb.":00:00 ";
+            $hbg=" Time >= ".$hb.":00:00 ";
         }
 
         if($he>=0 AND ($he!=0 AND $hb!=0)){
-            $hen=" Time< ".$he.":00:00 ";
+            $hen=" Time <= ".$he.":00:00 ";
         }
 
         if($limit>0){
