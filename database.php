@@ -63,24 +63,24 @@
         if($yb>0){
             if($mb>0){
                 if($db>0){
-                    $ybg="Date> ".dategenerator($yb,$mb,$db)." ";
+                    $ybg="Date>= ".dategenerator($yb,$mb,$db)." ";
                 }else{
-                    $ybg="Date> ".dategenerator($yb,$mb,"00")." ";
+                    $ybg="Date>= ".dategenerator($yb,$mb,"00")." ";
                 }
             }else{
-                $ybg="Date> ".dategenerator($yb,"00","00")." ";
+                $ybg="Date>= ".dategenerator($yb,"00","00")." ";
             }
         }
 
         if($ye>0){
             if($me>0){
                 if($de>0){
-                    $yen="Date< ".dategenerator($yb,$mb,$db)." ";
+                    $yen="Date<= ".dategenerator($ye,$me,$de)." ";
                 }else{
-                    $yen="Date< ".dategenerator($yb,$mb,"00")." ";
+                    $yen="Date<= ".dategenerator($ye,$me,"00")." ";
                 }
             }else{
-                $yen="Date< ".dategenerator($yb,"00","00")." ";
+                $yen="Date<= ".dategenerator($ye,"00","00")." ";
             }
         }
 
