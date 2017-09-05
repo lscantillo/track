@@ -34,6 +34,22 @@
         return $answer;
     }
 
+    function painintheass($query)
+    {
+        $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
+        $username = "abcr";
+        $password = "abcr1234";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+         #echo "Connected successfully";
+        mysqli_select_db($conn, "designlocations");
+
+        return mysqli_query($conn, $query);
+    }
 
     function querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit)
     {
@@ -80,23 +96,11 @@
             $lmt="LIMIT ".$limit;
         }
 
-
-        if(strlen($ybg)>0){
-            $query=whereand($query,$ybg);
-        }
-
-        if(strlen($yen)>0){
-            $query=whereand($query,$yen);
-        }
-
-        if(strlen($hbg)>0){
-            $query=whereand($query,$hbg);
-        }
-
-        if(strlen($hen)>0){
-            $query=whereand($query,$hen);
-        }
-
+        $query=whereand($query,$ybg);
+        $query=whereand($query,$yen);
+        $query=whereand($query,$hbg);
+        $query=whereand($query,$hen);
+        
         if(strlen($lmt)>0){
             if(strlen($query)>26){
                 $query=$query."AND ";
@@ -115,12 +119,16 @@
 
 
     function whereand($query,$string){
-        if(strlen($query)<26){
-            $query=$query."WHERE "; 
+        if(strlen($string>0)){
+            if(strlen($query)<26){
+                $query=$query."WHERE "; 
+            }else{
+                $query=$query."AND ";
+            }
+            return $query=$query.$string;
         }else{
-            $query=$query."AND ";
+            return $query;
         }
-        return $query=$query.$string;
     }
 ?>
 
