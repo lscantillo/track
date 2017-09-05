@@ -54,6 +54,7 @@
       var id = "<?php echo $Id; ?>";
       var lat = "<?php echo $Lat; ?>";
       var lon = "<?php echo $Long; ?>";
+            
       var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
       var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
         function initMap() {
@@ -73,6 +74,8 @@
               var id = markerElem.getAttribute('ID');
               var Latitude = markerElem.getAttribute('Latitude');
               var Longitude = markerElem.getAttribute('Longitude');
+              var date = markerElem.getAttribute('Date');
+              var time = markerElem.getAttribute('Time');
               var point = new google.maps.LatLng(
                   parseFloat(markerElem.getAttribute('Latitude')),
                   parseFloat(markerElem.getAttribute('Longitude')));
@@ -92,6 +95,16 @@
 
              var text = document.createElement('text');
             text.textContent ="Longitude: "+ Longitude;
+            infowincontent.appendChild(text);
+            infowincontent.appendChild(document.createElement('br'));
+              
+              var text = document.createElement('text');
+             text.textContent ="Date: "+ date;
+             infowincontent.appendChild(text);
+             infowincontent.appendChild(document.createElement('br'));
+
+             var text = document.createElement('text');
+            text.textContent ="Time: "+ time;
             infowincontent.appendChild(text);
             infowincontent.appendChild(document.createElement('br'));
 
