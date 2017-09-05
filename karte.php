@@ -10,7 +10,7 @@
   </head>
   <label for="timefilter"> Filtrar por tiempo : </label>
   <br />   <br /> 
-  <form action="historicquery.php" method="get">
+  <form action="historicquery.php" method="POST">
   <select id="year" name="yrbeg" >
     <option value="0">Año inicio</option>
     <option value="21">2021</option>
@@ -190,7 +190,7 @@
     <option value="23">23:00</option>
   </select>
   <br />   <br /> 
-    <select id="howmany" name="numevents" >
+  <select id="howmany" name="numevents" >
     <option value="0">Eventos a desplegar</option>
     <option value="1">1</option>
     <option value="10">10</option>
@@ -198,6 +198,6 @@
     <option value="1000">1000</option>
   </select>
   <br />   <br /> 
-  <button type="submit">Submit</button><br>
+  <button type="submit">Buscar</button><br>
   </form>
 </html>
