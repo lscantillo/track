@@ -207,29 +207,22 @@
   </tr>
 
 <?php
-
   include 'database.php';
 
   $query = querygenerator(0,0,0,0,0,0,0,0,0);
 
-  $result = connection2rds($query);
-  echo $result;
-  echo "<br />   <br /> ";
-  $sz=count($result);
-  echo"size: ";
-  echo $sz;
-  echo "<br />   <br /> ";
-  echo "for loop:";
-  for ($i=0; $i < $sz; $i++) { 
-    echo "<tr>";
-    echo "<td>" . $result[i][0] . "</td>";
-    echo "<td>" . $result[i][1] . "</td>";
-    echo "<td>" . $result[i][2] . "</td>";
-    echo "<td>" . $result[i][3] . "</td>";
-    echo "<td>" . $result[i][4] . "</td>";
-    echo "</tr>";
-   }
+  $result = painintheass($query);
 
+  while($row = mysqli_fetch_array($result))
+  {
+    echo "<tr>";
+    echo "<td>" . $row['ID'] . "</td>";
+    echo "<td>" . $row['Latitude'] . "</td>";
+    echo "<td>" . $row['Longitude'] . "</td>";
+    echo "<td>" . $row['Date'] . "</td>";
+    echo "<td>" . $row['Time'] . "</td>";
+    echo "</tr>";
+  }
   echo "</table>";
 
 ?>
