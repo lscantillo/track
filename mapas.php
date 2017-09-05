@@ -59,14 +59,42 @@
 
   <div id="map"></div>
   <script>
+    
 
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
+  var id = "<?php echo $Id; ?>";
+  var lat = "<?php echo $Lat; ?>";
+  var lon = "<?php echo $Long; ?>";
   var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+  var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
 
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: myLatLng,});
-    var marker = new google.maps.Marker({ position: myLatLng,map: map, title:'Su auto'});
+    var marker = new google.maps.Marker({ position: myLatLng,map: map});
+    var infoWindow = new google.maps.InfoWindow;
+			
+			  var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = "ID: "+id;
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
+
+              var text = document.createElement('text');
+             text.textContent ="Latitude: "+ lat;
+             infowincontent.appendChild(text);
+             infowincontent.appendChild(document.createElement('br'));
+
+             var text = document.createElement('text');
+            text.textContent ="Longitude: "+ lon;
+            infowincontent.appendChild(text);
+            infowincontent.appendChild(document.createElement('br'));
+			
+			
+			marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
   }
 
   </script>
