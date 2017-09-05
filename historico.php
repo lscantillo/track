@@ -30,8 +30,10 @@
             <footer>
               <iframe src="karte.php" width="100%" height="800px" frameborder="0"></iframe>
             </footer>
-            
-              <?php include 'historiconavlink.php';?>
+             <footer>
+              <iframe src="historiconavlink.php" width="100%" height="800px" frameborder="0"></iframe>
+            </footer>
+             
               
           </div>
         </div>
