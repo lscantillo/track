@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-  
+    <link rel="stylesheet" href="/time/jquery-timepicker-master/jquery.timepicker.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+    <script src="/time/jquery-timepicker-master/jquery.timepicker.min.js"></script>
+    
     <script>
     $( function() {
       $( "#dtstart" ).datepicker({
@@ -34,12 +35,36 @@
       });
     } );
     </script>
-  </head>
+    
+    <script>
+      $( function() {
+        $( '#tmstart' ).timepicker({
+          step: 15,
+          timeFormat: 'H:i',
+          show2400: true,
+        });
+      });  
+    </script>
+
+    <script>
+      $( function() {
+        $( '#tmend' ).timepicker({
+          step: 15,
+          timeFormat: 'H:i',
+          show2400: true,
+        });
+      });  
+    </script>
+    
+</head>
+
   <body>
-    <form action="historicquery.php" name="StartDate" method="POST">
+    <form action="recieve.php" name="StartDate" method="POST">
       <p>Start Date: <input name="date1" type="text" id="dtstart"></p>
+      <p>Start Time: <input name="time1" type="text" id="tmstart"></p>
       <p>End Date: <input name="date2" type="text" id="dtend"></p>
-      <input type="submit" name="submitdt" value="Submit date">
+      <p>End Time: <input name="time2" type="text" id="tmend"></p>
+      <input type="submit" name="submit" value="Submit date">
     </form>
   </body>
 </html>
