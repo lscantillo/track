@@ -34,6 +34,56 @@
         return $answer;
     }
 
+    function suscintquery ($fstdt,$scnddt,$hb,$he,$limit){
+        $query="SELECT * FROM locations ";
+        $ybg="";
+        $yen="";
+        $hbg="";
+        $hen="";
+        $lmt="";
+        $ybg="Date>= ".$fstdt." ";
+        $yen="Date<= ".$scnddt." ";
+
+        if($hb>=0 AND ($he!=0 AND $hb!=0)){
+            $hbg=" Time> ".$hb.":00:00 ";
+        }
+
+        if($he>=0 AND ($he!=0 AND $hb!=0)){
+            $hen=" Time< ".$he.":00:00 ";
+        }
+
+        if($limit>0){
+            $lmt="LIMIT ".$limit;
+        }
+
+
+        if(strlen($ybg)>0){
+            $query=whereand($query,$ybg);
+        }
+
+        if(strlen($yen)>0){
+            $query=whereand($query,$yen);
+        }
+
+        if(strlen($hbg)>0){
+            $query=whereand($query,$hbg);
+        }
+
+        if(strlen($hen)>0){
+            $query=whereand($query,$hen);
+        }
+
+        if(strlen($lmt)>0){
+            if(strlen($query)>26){
+                $query=$query."AND ";
+            }
+            $query=$query.$lmt;
+        }
+
+        return $query;
+
+    }
+
     function painintheass($query)
     {
         $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
