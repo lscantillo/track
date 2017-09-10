@@ -50,11 +50,11 @@
             $yen="Date <= '".$scnddt."'";
         }
         
-        if($hb>=0 AND ($he!=0 AND $hb!=0)){
+        if(strlen($hb)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
             $hbg=" Time> ".$hb.":00 ";
         }
 
-        if($he>=0 AND ($he!=0 AND $hb!=0)){
+        if(strlen($he)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
             $hen=" Time< ".$he.":00 ";
         }
 
