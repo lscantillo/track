@@ -43,21 +43,23 @@
         $lmt="";
         
         if(strlen($fstdt)>0){
-            $ybg="Date >= '".$fstdt."'";
+            $ybg="DateTime >= '".$fstdt;
+            if(strlen($hb)>0){
+                $ybg=$ybg." ".$hb.":00'";
+            }else{
+                $ybg=$ybg." 00:00:00'";
+            }
         }
 
         if(strlen($scnddt)>0){
-            $yen="Date <= '".$scnddt."'";
+            $yen="DateTime <= '".$scnddt;
+            if(strlen($he)>0){
+                $yen=$yen." ".$he.":59'";
+            }else{
+                $yen=$yen." 23:59:59'";
+            }
         }
         
-        if(strlen($hb)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
-            $hbg=" Time >= '".$hb.":00'";
-        }
-
-        if(strlen($he)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
-            $hen=" Time <= '".$he.":00'";
-        }
-
         if($limit>0){
             $lmt="LIMIT ".$limit;
         }
@@ -68,16 +70,6 @@
 
         if(strlen($yen)>0){
             $query=whereand($query,$yen);
-        }
-        
-        #echo "End query with years: ".$query;
-        
-        if(strlen($hbg)>0){
-            $query=whereand($query,$hbg);
-        }
-
-        if(strlen($hen)>0){
-            $query=whereand($query,$hen);
         }
 
         if(strlen($lmt)>0){
