@@ -41,8 +41,8 @@
         $hbg="";
         $hen="";
         $lmt="";
-        $ybg="Date>= ".$fstdt." ";
-        $yen="Date<= ".$scnddt." ";
+        $ybg="Date >= '".$fstdt."' ";
+        $yen="Date <= '".$scnddt."' ";
 
         if($hb>=0 AND ($he!=0 AND $hb!=0)){
             $hbg=" Time> ".$hb.":00:00 ";
@@ -56,15 +56,9 @@
             $lmt="LIMIT ".$limit;
         }
 
-
-        if(strlen($ybg)>0){
-            $query=whereand($query,$ybg);
-        }
-
-        if(strlen($yen)>0){
-            $query=whereand($query,$yen);
-        }
-
+        $query=whereand($query,$ybg);
+        $query=whereand($query,$yen);
+        
         if(strlen($hbg)>0){
             $query=whereand($query,$hbg);
         }
