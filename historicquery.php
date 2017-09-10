@@ -28,8 +28,7 @@
   echo "<th>ID</th>";
   echo "<th>Latitude</th>";
   echo "<th>Longitude</th>";
-  echo "<th>Date</th>";
-  echo "<th>Time</th>";
+  echo "<th>Date/Time</th>";
   echo "</tr>";
   
   while($row = mysqli_fetch_array($result))
@@ -38,8 +37,7 @@
     echo "<td>" . $row['ID'] . "</td>";
     echo "<td>" . $row['Latitude'] . "</td>";
     echo "<td>" . $row['Longitude'] . "</td>";
-    echo "<td>" . $row['Date'] . "</td>";
-    echo "<td>" . $row['Time'] . "</td>";
+    echo "<td>" . $row['DateTime'] . "</td>";
     echo "</tr>";
   }
   echo "</table>";
