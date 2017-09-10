@@ -62,16 +62,12 @@
             $lmt="LIMIT ".$limit;
         }
         
-        echo "First: ".$ybg;
         if(strlen($ybg)>0){
             $query=whereand($query,$ybg);
-            echo "Generated 1st query: ".$query;
         }
 
-        echo "Second: ".$yen;
         if(strlen($yen)>0){
             $query=whereand($query,$yen);
-            echo "Generated 2nd query: ".$query;
         }
         
         echo "End query with years: ".$query;
@@ -95,11 +91,16 @@
     function whereand($query,$string){
         echo "String: ".$string." Length: ".strlen($string);
         if(strlen($string>0)){
+            echo " String's length greater than 0. "
             if(strlen($query)<26){
+                echo " Query's length less than 26. "
                 $query=$query." WHERE "; 
             }else{
+                echo " Query's length greater than 26. "
                 $query=$query." AND ";
             }
+            
+            echo " Query with string appended. ".$query.$string;
             return $query=$query.$string;
         }else{
             return $query;
