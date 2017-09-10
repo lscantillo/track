@@ -18,6 +18,8 @@
 
   $query = querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit);
   
+  echo "Generated query: ".$query;
+
   $result = mysqli_query($conn, $query);
 
   echo '<table style="width:100%">';
