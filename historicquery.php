@@ -16,8 +16,6 @@
   
   $query=suscintquery($_POST['date1'],$_POST['date2'],"00","00",0);
 
-  $query = querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit);
-  
   echo "Generated query: ".$query;
 
   $result = mysqli_query($conn, $query);
