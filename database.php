@@ -35,17 +35,20 @@
     }
 
     function suscintquery ($fstdt,$scnddt,$hb,$he,$limit){
-        $query="SELECT * FROM locations WHERE ";
+        $query="SELECT * FROM locations";
         $ybg="";
         $yen="";
         $hbg="";
         $hen="";
         $lmt="";
         
-        $ybg="Date >= '".$fstdt."'";
-        $yen="Date <= '".$scnddt."' ";
-        
-        $query=$query.$ybg." AND ".$yen;
+        if($fstdt>0){
+            $ybg="Date >= '".$fstdt."'";
+        }
+
+        if($scnddt>0){
+            $yen="Date <= '".$scnddt."'";
+        }
         
         if($hb>=0 AND ($he!=0 AND $hb!=0)){
             $hbg=" Time> ".$hb.":00:00 ";
@@ -59,6 +62,14 @@
             $lmt="LIMIT ".$limit;
         }
         
+        if(strlen($ybg)>0){
+            $query=whereand($query,$ybg);
+        }
+
+        if(strlen($yen)>0){
+            $query=whereand($query,$yen);
+        }
+        
         if(strlen($hbg)>0){
             $query=whereand($query,$hbg);
         }
@@ -68,31 +79,24 @@
         }
 
         if(strlen($lmt)>0){
-            if(strlen($query)>26){
-                $query=$query."AND ";
-            }
-            $query=$query.$lmt;
+            $query=whereand($query,$lmt);
         }
 
         return $query;
 
     }
 
-    function painintheass($query)
-    {
-        $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
-        $username = "abcr";
-        $password = "abcr1234";
-        // Create connection
-        $conn = new mysqli($servername, $username, $password);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+    function whereand($query,$string){
+        if(strlen($string>0)){
+            if(strlen($query)<26){
+                $query=$query." WHERE "; 
+            }else{
+                $query=$query." AND ";
+            }
+            return $query=$query.$string;
+        }else{
+            return $query;
         }
-         #echo "Connected successfully";
-        mysqli_select_db($conn, "designlocations");
-
-        return mysqli_query($conn, $query);
     }
 
     function querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit)
@@ -147,7 +151,7 @@
         
         if(strlen($lmt)>0){
             if(strlen($query)>26){
-                $query=$query."AND ";
+                $query=$query." AND ";
             }
             $query=$query.$lmt;
         }
@@ -161,18 +165,23 @@
         return $date;
     }
 
-
-    function whereand($query,$string){
-        if(strlen($string>0)){
-            if(strlen($query)<26){
-                $query=$query."WHERE "; 
-            }else{
-                $query=$query."AND ";
-            }
-            return $query=$query.$string;
-        }else{
-            return $query;
+    function painintheass($query)
+    {
+        $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
+        $username = "abcr";
+        $password = "abcr1234";
+        // Create connection
+        $conn = new mysqli($servername, $username, $password);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
         }
+         #echo "Connected successfully";
+        mysqli_select_db($conn, "designlocations");
+
+        return mysqli_query($conn, $query);
     }
+
+
 ?>
 
