@@ -35,15 +35,18 @@
     }
 
     function suscintquery ($fstdt,$scnddt,$hb,$he,$limit){
-        $query="SELECT * FROM locations ";
+        $query="SELECT * FROM locations WHERE ";
         $ybg="";
         $yen="";
         $hbg="";
         $hen="";
         $lmt="";
-        $ybg="Date >= '".$fstdt."' ";
+        
+        $ybg="Date >= '".$fstdt."'";
         $yen="Date <= '".$scnddt."' ";
-
+        
+        $query=$query.$ybg." AND ".$yen;
+        
         if($hb>=0 AND ($he!=0 AND $hb!=0)){
             $hbg=" Time> ".$hb.":00:00 ";
         }
@@ -55,9 +58,6 @@
         if($limit>0){
             $lmt="LIMIT ".$limit;
         }
-
-        $query=whereand($query,$ybg);
-        $query=whereand($query,$yen);
         
         if(strlen($hbg)>0){
             $query=whereand($query,$hbg);
