@@ -51,11 +51,11 @@
         }
         
         if(strlen($hb)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
-            $hbg=" Time> ".$hb.":00 ";
+            $hbg=" Time >= ".$hb.":00 ";
         }
 
         if(strlen($he)>=0 AND (strlen($he)!=0 AND strlen($hb)!=0)){
-            $hen=" Time< ".$he.":00 ";
+            $hen=" Time <= ".$he.":00 ";
         }
 
         if($limit>0){
