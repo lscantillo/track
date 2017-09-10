@@ -93,6 +93,7 @@
     }
 
     function whereand($query,$string){
+        echo "String: ".$string." Length: ".strlen($string);
         if(strlen($string>0)){
             if(strlen($query)<26){
                 $query=$query." WHERE "; 
