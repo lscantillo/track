@@ -8,10 +8,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
       <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   </head>
-  <body>
-      <meta http-equiv="refresh" content="15">
+  <body>      
   </body>
+	<script>
+    function ajaxCall() {
+        $.ajax({
+            url: "database.php",
+            success: (function (result) {
+                $("#load").html(result);
+            })
+        })
+    };
+    ajaxCall(); // To output when the page loads
+    setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
+  </script>
+	
    <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
+    <div class="red-text ubuntu title2" id="load">
     <?php
 
       include 'database.php';
@@ -49,6 +62,7 @@
     
       }
     ?>
+ </div>
   <br /> 
   <style>
     #map {
