@@ -70,7 +70,7 @@
             $query=whereand($query,$yen);
         }
         
-        echo "End query with years: ".$query;
+        #echo "End query with years: ".$query;
         
         if(strlen($hbg)>0){
             $query=whereand($query,$hbg);
@@ -89,18 +89,12 @@
     }
 
     function whereand($query,$string){
-        echo "String: ".$string." Length: ".strlen($string);
-        if(strlen($string>0)){
-            echo " String's length greater than 0. "
+        if(strlen($string)>0){
             if(strlen($query)<26){
-                echo " Query's length less than 26. "
                 $query=$query." WHERE "; 
             }else{
-                echo " Query's length greater than 26. "
                 $query=$query." AND ";
             }
-            
-            echo " Query with string appended. ".$query.$string;
             return $query=$query.$string;
         }else{
             return $query;
