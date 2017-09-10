@@ -59,7 +59,7 @@
 </head>
 
   <body>
-    <form action="recieve.php" name="StartDate" method="POST">
+    <form action="historicquery.php" name="StartDate" method="POST">
       <p>Start Date: <input name="date1" type="text" id="dtstart"></p>
       <p>Start Time: <input name="time1" type="text" id="tmstart"></p>
       <p>End Date: <input name="date2" type="text" id="dtend"></p>
