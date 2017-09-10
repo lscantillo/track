@@ -15,10 +15,8 @@
   mysqli_select_db($conn, "designlocations");
 
   $st=$_POST['date1'];
-  echo "First date: ".$st;
   $nd=$_POST['date2'];  
-  echo "Second date: ".$nd;
-
+  
   $query=suscintquery($st,$nd,"00","00",0);
 
   echo "Generated query: ".$query;
