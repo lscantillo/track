@@ -16,7 +16,7 @@
     <script>
     $( function() {
       $( "#dtstart" ).datepicker({
-        dateFormat: "dd/mm/yy",  
+        dateFormat: "yy-mm-dd",  
         onSelect: function (){
           var dtend = $('#dtend');
           var minDate = $(this).datepicker('getDate');
@@ -30,7 +30,7 @@
     <script>
     $( function() {
       $( "#dtend" ).datepicker({
-      dateFormat: "yy/mm/dd",  
+      dateFormat: "yy-mm-dd",  
       });
     } );
     </script>
