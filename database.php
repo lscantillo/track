@@ -42,11 +42,11 @@
         $hen="";
         $lmt="";
         
-        if($fstdt>0){
+        if(strlen($fstdt)>0){
             $ybg="Date >= '".$fstdt."'";
         }
 
-        if($scnddt>0){
+        if(strlen($scnddt)>0){
             $yen="Date <= '".$scnddt."'";
         }
         
@@ -62,13 +62,19 @@
             $lmt="LIMIT ".$limit;
         }
         
+        echo "First: ".$ybg;
         if(strlen($ybg)>0){
             $query=whereand($query,$ybg);
+            echo "Generated 1st query: ".$query;
         }
 
+        echo "Second: ".$yen;
         if(strlen($yen)>0){
             $query=whereand($query,$yen);
+            echo "Generated 2nd query: ".$query;
         }
+        
+        echo "End query with years: ".$query;
         
         if(strlen($hbg)>0){
             $query=whereand($query,$hbg);
