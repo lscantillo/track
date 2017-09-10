@@ -14,15 +14,7 @@
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
   
-  $yb=$_POST['yrbeg'];
-  $ye=$_POST['yrend'];
-  $mb=$_POST['monbeg'];
-  $me=$_POST['monend'];
-  $db=$_POST['daybeg'];
-  $de=$_POST['dayend'];
-  $hb=$_POST['hourbeg'];
-  $he=$_POST['hourend'];
-  $limit=$_POST['numevents'];
+  $query=suscintquery($_POST['date1'],$_POST['date2'],"00","00",0);
 
   $query = querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit);
   
