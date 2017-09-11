@@ -72,58 +72,99 @@
   </style>
 
   <div id="map"></div>
-  <script>
-    
-
- 
+  <script> 
   var id = "<?php echo $Id; ?>";
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
   var date= "<?php echo $Date; ?>";
   var time = "<?php echo $Time; ?>";
 	  
-  var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
-  var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+     var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+       function initMap() {
+       var map = new google.maps.Map(document.getElementById('map'), {
+         center: myLatLng,
+         zoom: 16
+       });
+       var infoWindow = new google.maps.InfoWindow;
 
-  function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: myLatLng,});
-    var marker = new google.maps.Marker({ position: myLatLng,map: map,icon:image});
-    var infoWindow = new google.maps.InfoWindow;
-			
-			  var infowincontent = document.createElement('div');
-              var strong = document.createElement('strong');
-              strong.textContent = "ID: "+id;
-              infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('br'));
 
-              var text = document.createElement('text');
-             text.textContent ="Latitude: "+ lat;
-             infowincontent.appendChild(text);
+         // Change this depending on the name of your PHP or XML file
+         downloadUrl('markers.php', function(data) {
+
+           var xml = data.responseXML;
+           var markers = xml.documentElement.getElementsByTagName('marker');
+           var path = [];
+           Array.prototype.forEach.call(markers, function(markerElem) {
+             var id = markerElem.getAttribute('ID');
+             for (var i = 0; i < markers.length; i++) {
+               var Latitude = markerElem.getAttribute('Latitude');
+               var Longitude = markerElem.getAttribute('Longitude');
+            var point = new google.maps.LatLng(Latitude,Longitude);
+              path.push(point);
+    }
+    var polyline = new google.maps.Polyline({
+     path: path,
+     strokeColor: "#FF0000",
+     strokeOpacity: 1.0,
+     strokeWeight: 2
+   });
+   polyline.setMap(map);
+
+             var date = markerElem.getAttribute('Date');
+             var time = markerElem.getAttribute('Time');
+             var infowincontent = document.createElement('div');
+             var strong = document.createElement('strong');
+             strong.textContent = "ID: "+id;
+             infowincontent.appendChild(strong);
              infowincontent.appendChild(document.createElement('br'));
-
              var text = document.createElement('text');
-            text.textContent ="Longitude: "+ lon;
+            text.textContent ="Latitude: "+ Latitude;
             infowincontent.appendChild(text);
             infowincontent.appendChild(document.createElement('br'));
-	  
-	  	var text = document.createElement('text');
-             text.textContent ="Date: "+ date;
-             infowincontent.appendChild(text);
-             infowincontent.appendChild(document.createElement('br'));
+            var text = document.createElement('text');
+           text.textContent ="Longitude: "+ Longitude;
+           infowincontent.appendChild(text);
+           infowincontent.appendChild(document.createElement('br'));
 
              var text = document.createElement('text');
-            text.textContent ="Time: "+ time;
+            text.textContent ="Date: "+ date;
             infowincontent.appendChild(text);
             infowincontent.appendChild(document.createElement('br'));
-			
-			
-		marker.addListener('click', function() {
-                infoWindow.setContent(infowincontent);
-                infoWindow.open(map, marker);
-              });
-  }
+            var text = document.createElement('text');
+           text.textContent ="Time: "+ time;
+           infowincontent.appendChild(text);
+           infowincontent.appendChild(document.createElement('br'));
 
-  </script>
+             var marker = new google.maps.Marker({
+               map: map,
+               icon: image,
+               position: point
+             });
+             marker.addListener('click', function() {
+               infoWindow.setContent(infowincontent);
+               infoWindow.open(map, marker);
+             });
+           });
+         });
+       }
+     function downloadUrl(url, callback) {
+       var request = window.ActiveXObject ?
+           new ActiveXObject('Microsoft.XMLHTTP') :
+           new XMLHttpRequest;
+       request.onreadystatechange = function() {
+         if (request.readyState == 4) {
+           request.onreadystatechange = doNothing;
+           callback(request, request.status);
+         }
+       };
+       request.open('GET', url, true);
+       request.send(null);
+     }
+     function doNothing() {}
+
+
+   </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
   </script>
