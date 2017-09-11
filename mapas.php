@@ -90,7 +90,7 @@
 
 
          // Change this depending on the name of your PHP or XML file
-         downloadUrl('markers.php', function(data) {
+         downloadUrl('coordenadas.php', function(data) {
 
            var xml = data.responseXML;
            var markers = xml.documentElement.getElementsByTagName('marker');
