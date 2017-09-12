@@ -2,6 +2,7 @@
 <html>
   <head>
   <meta charset="utf-8">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <title> Web Tracking </title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="./images/syrus.ico">
