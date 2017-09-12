@@ -37,7 +37,7 @@
       $Lat = $row[1];
       $Long = $row[2];
       $Date=$row[3];
-      $Time=$row[4];
+     // $Time=$row[4];
 
       if ($Lat == 0 and $Long == 0) {
             
@@ -55,9 +55,9 @@
         print "Longitud: $Long";
         echo "<br>";
         echo "<li>";
-        print "Date: $Date";
+        print "DateTime: $Date";
         echo "<li>";
-        print "Time: $Time";
+       // print "Time: $Time";
         echo "<br>";
     
       }
@@ -112,7 +112,7 @@
    polyline.setMap(map);
 
              var date = markerElem.getAttribute('Date');
-             var time = markerElem.getAttribute('Time');
+             
              var infowincontent = document.createElement('div');
              var strong = document.createElement('strong');
              strong.textContent = "ID: "+id;
@@ -131,10 +131,7 @@
             text.textContent ="Date: "+ date;
             infowincontent.appendChild(text);
             infowincontent.appendChild(document.createElement('br'));
-            var text = document.createElement('text');
-           text.textContent ="Time: "+ time;
-           infowincontent.appendChild(text);
-           infowincontent.appendChild(document.createElement('br'));
+            
 
              var marker = new google.maps.Marker({
                map: map,
