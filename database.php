@@ -25,11 +25,11 @@
             $Id = $row['ID'];
             $Lat = $row['Latitude'];
             $Long = $row['Longitude'];
-            $Date=$row['Date'];
-            $Time=$row['Time'];
+            $DateTime=$row['DateTime'];
+            //$Time=$row['Time'];
     	}
 
-        $answer = [$Id,$Lat,$Long,$Date,$Time];
+        $answer = [$Id,$Lat,$Long,$DateTime];
 
         return $answer;
     }
