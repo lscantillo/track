@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
       <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   </head>
-  <body>      
+  <body>
   </body>
 	<script>
     function ajaxCall() {
@@ -23,12 +23,12 @@
     ajaxCall(); // To output when the page loads
     setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
   </script>
-	
+
    <h1 class="red-text ubuntu title">Las coordenadas del vehículo son: </h1>
     <div class="red-text ubuntu title2" id="load">
     <?php include 'database2.php';?>
  </div>
-  <br /> 
+  <br />
   <style>
     #map {
       height: 500px;
@@ -37,12 +37,12 @@
   </style>
 
   <div id="map"></div>
-  <script> 
+  <script>
   var id = "<?php echo $Id; ?>";
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
   var date= "<?php echo $Date; ?>";
-  
+
      var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
        function initMap() {
@@ -51,75 +51,71 @@
          zoom: 16
        });
        var infoWindow = new google.maps.InfoWindow;
-
-
          // Change this depending on the name of your PHP or XML file
-	    setInterval(function mapload(){
-      $.ajax({
-            url: "coordenadas.php",
-             // data: form_data,
-            success: function(result)
-            {
-              //var json_obj = $.parseJSON(data);//parse JSON
+         setInterval(function mapload(){
+               $.ajax({
+                     url: "coordenadass.php",
+                      // data: form_data,
+                     success: function(result)
+                     {
+                       //var json_obj = $.parseJSON(data);
+                       downloadUrl('coordenadas.php', function(data) {
+                         var xml = data.responseXML;
+                         var markers = xml.documentElement.getElementsByTagName('marker');
+                         var path = [];
+                         Array.prototype.forEach.call(markers, function(markerElem) {
+                           var id = markerElem.getAttribute('ID');
+                           for (var i = 0; i < markers.length; i++) {
+                             var Latitude = markerElem.getAttribute('Latitude');
+                             var Longitude = markerElem.getAttribute('Longitude');
+                          var point = new google.maps.LatLng(Latitude,Longitude);
+                            path.push(point);
+                  }
+                  var polyline = new google.maps.Polyline({
+                   path: path,
+                   strokeColor: "#FF0000",
+                   strokeOpacity: 1.0,
+                   strokeWeight: 2
+                 });
+                 polyline.setMap(map);
+                           var date = markerElem.getAttribute('Date');
 
-              downloadUrl('coordenadas.php', function(data) {
-                        var xml = data.responseXML;
-                        var markers = xml.documentElement.getElementsByTagName('marker');
-                        var path = [];
-                        Array.prototype.forEach.call(markers, function(markerElem) {
-                          var id = markerElem.getAttribute('ID');
-                          for (var i = 0; i < markers.length; i++) {
-                            var Latitude = markerElem.getAttribute('Latitude');
-                            var Longitude = markerElem.getAttribute('Longitude');
-                         var point = new google.maps.LatLng(Latitude,Longitude);
-                           path.push(point);
-                 }
-                 var polyline = new google.maps.Polyline({
-                  path: path,
-                  strokeColor: "#FF0000",
-                  strokeOpacity: 1.0,
-                  strokeWeight: 2
-                });
-                polyline.setMap(map);
-                          var date = markerElem.getAttribute('Date');
-                          
-                          var infowincontent = document.createElement('div');
-                          var strong = document.createElement('strong');
-                          strong.textContent = "ID: "+id;
-                          infowincontent.appendChild(strong);
+                           var infowincontent = document.createElement('div');
+                           var strong = document.createElement('strong');
+                           strong.textContent = "ID: "+id;
+                           infowincontent.appendChild(strong);
+                           infowincontent.appendChild(document.createElement('br'));
+                           var text = document.createElement('text');
+                          text.textContent ="Latitude: "+ Latitude;
+                          infowincontent.appendChild(text);
                           infowincontent.appendChild(document.createElement('br'));
                           var text = document.createElement('text');
-                         text.textContent ="Latitude: "+ Latitude;
+                         text.textContent ="Longitude: "+ Longitude;
                          infowincontent.appendChild(text);
                          infowincontent.appendChild(document.createElement('br'));
-                         var text = document.createElement('text');
-                        text.textContent ="Longitude: "+ Longitude;
-                        infowincontent.appendChild(text);
-                        infowincontent.appendChild(document.createElement('br'));
-                          var text = document.createElement('text');
-                         text.textContent ="Date: "+ date;
-                         infowincontent.appendChild(text);
-                         infowincontent.appendChild(document.createElement('br'));
-                         
-                          var marker = new google.maps.Marker({
-                            map: map,
-                            icon: image,
-                            position: point
-                          });
-                          marker.addListener('click', function() {
-                            infoWindow.setContent(infowincontent);
-                            infoWindow.open(map, marker);
-                          });
-                        });
-                      });
-                    }
-             //Change this depending on the name of your PHP or XML file
-              
-            },
-            dataType: "xml"//set to JSON
-          })
-}, 5 * 1000);   
-        //vugguv
+                           var text = document.createElement('text');
+                          text.textContent ="Date: "+ date;
+                          infowincontent.appendChild(text);
+                          infowincontent.appendChild(document.createElement('br'));
+
+                           var marker = new google.maps.Marker({
+                             map: map,
+                             icon: image,
+                             position: point
+                           });
+                           marker.addListener('click', function() {
+                             infoWindow.setContent(infowincontent);
+                             infoWindow.open(map, marker);
+                           });
+                         });
+                       });
+                       //parse JSON
+
+                     },
+                     dataType: "xml"//set to JSON
+                   })
+         }, 5 * 1000);
+       }
      function downloadUrl(url, callback) {
        var request = window.ActiveXObject ?
            new ActiveXObject('Microsoft.XMLHTTP') :
@@ -134,13 +130,11 @@
        request.send(null);
      }
      function doNothing() {}
-
-
    </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
   </script>
-  
-  
+
+
 
 </html>
