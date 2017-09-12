@@ -54,61 +54,72 @@
 
 
          // Change this depending on the name of your PHP or XML file
-         downloadUrl('coordenadas.php', function(data) {
+	    setInterval(function mapload(){
+      $.ajax({
+            url: "markers.php",
+             // data: form_data,
+            success: function(result)
+            {
+              //var json_obj = $.parseJSON(data);//parse JSON
 
-           var xml = data.responseXML;
-           var markers = xml.documentElement.getElementsByTagName('marker');
-           var path = [];
-           Array.prototype.forEach.call(markers, function(markerElem) {
-             var id = markerElem.getAttribute('ID');
-             for (var i = 0; i < markers.length; i++) {
-               var Latitude = markerElem.getAttribute('Latitude');
-               var Longitude = markerElem.getAttribute('Longitude');
-            var point = new google.maps.LatLng(Latitude,Longitude);
-              path.push(point);
-    }
-    var polyline = new google.maps.Polyline({
-     path: path,
-     strokeColor: "#FF0000",
-     strokeOpacity: 1.0,
-     strokeWeight: 2
-   });
-   polyline.setMap(map);
-
-             var date = markerElem.getAttribute('Date');
-             
-             var infowincontent = document.createElement('div');
-             var strong = document.createElement('strong');
-             strong.textContent = "ID: "+id;
-             infowincontent.appendChild(strong);
-             infowincontent.appendChild(document.createElement('br'));
-             var text = document.createElement('text');
-            text.textContent ="Latitude: "+ Latitude;
-            infowincontent.appendChild(text);
-            infowincontent.appendChild(document.createElement('br'));
-            var text = document.createElement('text');
-           text.textContent ="Longitude: "+ Longitude;
-           infowincontent.appendChild(text);
-           infowincontent.appendChild(document.createElement('br'));
-
-             var text = document.createElement('text');
-            text.textContent ="Date: "+ date;
-            infowincontent.appendChild(text);
-            infowincontent.appendChild(document.createElement('br'));
-            
-
-             var marker = new google.maps.Marker({
-               map: map,
-               icon: image,
-               position: point
-             });
-             marker.addListener('click', function() {
-               infoWindow.setContent(infowincontent);
-               infoWindow.open(map, marker);
-             });
-           });
-         });
-       }
+              downloadUrl('coordenadas.php', function(data) {
+                        var xml = data.responseXML;
+                        var markers = xml.documentElement.getElementsByTagName('marker');
+                        var path = [];
+                        Array.prototype.forEach.call(markers, function(markerElem) {
+                          var id = markerElem.getAttribute('ID');
+                          for (var i = 0; i < markers.length; i++) {
+                            var Latitude = markerElem.getAttribute('Latitude');
+                            var Longitude = markerElem.getAttribute('Longitude');
+                         var point = new google.maps.LatLng(Latitude,Longitude);
+                           path.push(point);
+                 }
+                 var polyline = new google.maps.Polyline({
+                  path: path,
+                  strokeColor: "#FF0000",
+                  strokeOpacity: 1.0,
+                  strokeWeight: 2
+                });
+                polyline.setMap(map);
+                          var date = markerElem.getAttribute('Date');
+                          
+                          var infowincontent = document.createElement('div');
+                          var strong = document.createElement('strong');
+                          strong.textContent = "ID: "+id;
+                          infowincontent.appendChild(strong);
+                          infowincontent.appendChild(document.createElement('br'));
+                          var text = document.createElement('text');
+                         text.textContent ="Latitude: "+ Latitude;
+                         infowincontent.appendChild(text);
+                         infowincontent.appendChild(document.createElement('br'));
+                         var text = document.createElement('text');
+                        text.textContent ="Longitude: "+ Longitude;
+                        infowincontent.appendChild(text);
+                        infowincontent.appendChild(document.createElement('br'));
+                          var text = document.createElement('text');
+                         text.textContent ="Date: "+ date;
+                         infowincontent.appendChild(text);
+                         infowincontent.appendChild(document.createElement('br'));
+                         
+                          var marker = new google.maps.Marker({
+                            map: map,
+                            icon: image,
+                            position: point
+                          });
+                          marker.addListener('click', function() {
+                            infoWindow.setContent(infowincontent);
+                            infoWindow.open(map, marker);
+                          });
+                        });
+                      });
+                    }
+             //Change this depending on the name of your PHP or XML file
+              
+            },
+            dataType: "xml"//set to JSON
+          })
+}, 5 * 1000);   
+        //vugguv
      function downloadUrl(url, callback) {
        var request = window.ActiveXObject ?
            new ActiveXObject('Microsoft.XMLHTTP') :
