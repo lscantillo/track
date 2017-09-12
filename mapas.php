@@ -56,8 +56,7 @@
         echo "<br>";
         echo "<li>";
         print "DateTime: $Date";
-        echo "<li>";
-       // print "Time: $Time";
+        // print "Time: $Time";
         echo "<br>";
     
       }
@@ -77,8 +76,7 @@
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
   var date= "<?php echo $Date; ?>";
-  var time = "<?php echo $Time; ?>";
-	  
+  
      var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
        function initMap() {
