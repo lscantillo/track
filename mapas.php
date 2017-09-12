@@ -56,7 +56,7 @@
          // Change this depending on the name of your PHP or XML file
 	    setInterval(function mapload(){
       $.ajax({
-            url: "markers.php",
+            url: "coordenadas.php",
              // data: form_data,
             success: function(result)
             {
