@@ -51,8 +51,8 @@ while ($row = mysqli_fetch_assoc($result)){
   echo 'ID="' . $row['ID'] . '" ';
   echo 'Latitude="' . $row['Latitude'] . '" ';
   echo 'Longitude="' . $row['Longitude'] . '" ';
-  echo 'Date="' . $row['Date'] . '" ';
-  echo 'Time="' . $row['Time'] . '" ';
+  echo 'Date-Time="' . $row['DateTime'] . '" ';
+  //echo 'Time="' . $row['Time'] . '" ';
   echo '/>';
 }
 
