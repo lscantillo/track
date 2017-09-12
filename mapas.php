@@ -78,7 +78,7 @@
                    strokeWeight: 2
                  });
                  polyline.setMap(map);
-                           var date = markerElem.getAttribute('Date');
+                           var date = markerElem.getAttribute('DateTime');
 
                            var infowincontent = document.createElement('div');
                            var strong = document.createElement('strong');
@@ -94,7 +94,7 @@
                          infowincontent.appendChild(text);
                          infowincontent.appendChild(document.createElement('br'));
                            var text = document.createElement('text');
-                          text.textContent ="Date: "+ date;
+                          text.textContent ="DateTime: "+ date;
                           infowincontent.appendChild(text);
                           infowincontent.appendChild(document.createElement('br'));
 
