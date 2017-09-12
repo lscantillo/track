@@ -25,7 +25,7 @@ def main():
         while True:
             data, addr = s.recvfrom(65536)
             print("Raw data received: " + str(data))
-            info = str(data)[2:]
+            info = str(data)
             if data:
                 itIs, EventDef, seco, Year, Month, Mnum, Day, Hour, Minutes, Seconds, lat, lon = getMess(info)
                 if itIs == 1:
