@@ -29,7 +29,7 @@
               </header>
             </article>
             <footer>
-              <iframe src="mapas.php" width="100%" height="800px" frameborder="0"></iframe>
+              <iframe src="tiemporeal.php" width="100%" height="800px" frameborder="0"></iframe>
             </footer>
           </div>
         </div>
