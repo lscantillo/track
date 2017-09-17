@@ -46,7 +46,7 @@
 	  function moveToLocation(Latitude, Longitude){
                   var center = new google.maps.LatLng(Latitude, Longitude);
                   // using global variable:
-                  map.panTo(center);
+                  
               }
 
      var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
@@ -54,7 +54,7 @@
        function initMap() {
        var map = new google.maps.Map(document.getElementById('map'), {
          center: myLatLng,
-	  panControl: true,
+	  
          zoom: 16
        });
        var infoWindow = new google.maps.InfoWindow;
