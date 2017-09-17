@@ -39,10 +39,12 @@
     echo "<td>" . $row['Longitude'] . "</td>";
     echo "<td>" . $row['DateTime'] . "</td>";
     echo "</tr>";
-    $cordenadas = "".$row['Latitude'].", ".$row['Longitude']."";
+    $cordenadas = "{".$row['Latitude'].", ".$row['Longitude']."}";
+    
 //Generamos el array.
     $array_cordenadas = explode(",", $cordenadas);
        echo "$cordenadas";
+       echo ",";
   }
   echo "</table>";
  
