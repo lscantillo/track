@@ -43,8 +43,8 @@
   var lon = "<?php echo $Long; ?>";
   var date= "<?php echo $Date; ?>";
 	  var path = [];
-	  function moveToLocation(lat, lon){
-                  var center = new google.maps.LatLng(lat, lon);
+	  function moveToLocation(Latitude, Longitude){
+                  var center = new google.maps.LatLng(Latitude, Longitude);
                   // using global variable:
                   map.panTo(center);
               }
