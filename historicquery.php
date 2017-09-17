@@ -30,7 +30,7 @@
   echo "<th>Longitude</th>";
   echo "<th>Date/Time</th>";
   echo "</tr>";
-  $hist();
+ 
   while($row = mysqli_fetch_array($result))
   {
     echo "<tr>";
@@ -39,13 +39,9 @@
     echo "<td>" . $row['Longitude'] . "</td>";
     echo "<td>" . $row['DateTime'] . "</td>";
     echo "</tr>";
-    $cordenadas = "{ lat:".$row['Latitude'].",lng:".$row['Longitude']."}";
-    echo "$cordenadas";
-    $i=0;
-    hist(i)=  $cordenadas
-      $i=$i+1;
+   
   }
   echo "</table>";
-  echo"$hist()";
+ 
   
 ?>
