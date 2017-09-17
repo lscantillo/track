@@ -39,7 +39,8 @@
   <div id="map"></div>
   <script>
 
-
+     var lat = "<?php echo $Lat; ?>";
+     var lon = "<?php echo $Long; ?>";
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
        function initMap() {
          var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
