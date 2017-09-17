@@ -42,6 +42,7 @@
     $cordenadas = "".$row['Latitude'].", ".$row['Longitude']."";
 //Generamos el array.
     $array_cordenadas = explode(",", $cordenadas);
+      echo "$array_cordenadas";
   }
   echo "</table>";
  
