@@ -87,7 +87,7 @@
                          }
                       });
                      },
-                     dataType: "json"//set to JSON
+                     dataType: "json"//Tipo de datos JSON
                    })
          }, 5 * 1000);
 
