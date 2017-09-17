@@ -42,12 +42,19 @@
   var lat = "<?php echo $Lat; ?>";
   var lon = "<?php echo $Long; ?>";
   var date= "<?php echo $Date; ?>";
+	  var path = [];
+	  function moveToLocation(lat, lon){
+                  var center = new google.maps.LatLng(lat, lon);
+                  // using global variable:
+                  map.panTo(center);
+              }
 
      var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
        function initMap() {
        var map = new google.maps.Map(document.getElementById('map'), {
          center: myLatLng,
+	  panControl: true,
          zoom: 16
        });
        var infoWindow = new google.maps.InfoWindow;
@@ -62,7 +69,7 @@
                        downloadUrl('coordenadas.php', function(data) {
                          var xml = data.responseXML;
                          var markers = xml.documentElement.getElementsByTagName('marker');
-                         var path = [];
+                         
                          Array.prototype.forEach.call(markers, function(markerElem) {
                            var id = markerElem.getAttribute('ID');
                            for (var i = 0; i < markers.length; i++) {
@@ -77,6 +84,7 @@
                    strokeOpacity: 1.0,
                    strokeWeight: 2
                  });
+		 polyline.setPath(map);	 
                  polyline.setMap(map);
                            var date = markerElem.getAttribute('Date-Time');
 
