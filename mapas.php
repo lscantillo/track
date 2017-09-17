@@ -84,8 +84,9 @@
                    strokeOpacity: 1.0,
                    strokeWeight: 2
                  });
-		 polyline.setPath(map);	 
+		 
                  polyline.setMap(map);
+		 moveToLocation(parseFloat(Latitude),parseFloat(Longitude));
                            var date = markerElem.getAttribute('Date-Time');
 
                            var infowincontent = document.createElement('div');
