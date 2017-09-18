@@ -62,13 +62,13 @@
         }
         
         if($limit>0){
-            $lmt="LIMIT ".$limit;
+            $lmt=" LIMIT ".$limit;
         }
         
         if (strlen($place)>0){
             $array = lookup($place);
-            $plc="Latitude >= '".($array['latitude']-0.025)."' AND Latitude <= '".($array['latitude']+0.025);
-            $plc=$plc."' AND Longitude >= '".($array['longitude']-0.025)."' AND Longitude <= '".($array['longitude']+0.025)."'";
+            $plc="'Latitude' >= ".($array['latitude']-0.025)." AND 'Latitude' <= ".($array['latitude']+0.025);
+            $plc=$plc." AND 'Longitude' >= ".($array['longitude']-0.025)." AND 'Longitude' <= ".($array['longitude']+0.025);
         }
         
         if(strlen($plc)>0){
@@ -84,7 +84,7 @@
         }
 
         if(strlen($lmt)>0){
-            $query=whereand($query,$lmt);
+            $query=$query.$lmt;
         }
 
         return $query;
