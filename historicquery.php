@@ -14,10 +14,7 @@
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
 
-  #$st=$_POST['date1'];
-  #$nd=$_POST['date2'];  
-  
-  $query=suscintquery($_POST['date1'],$_POST['date2'],$_POST['time1'],$_POST['time2'],0);
+  $query=suscintquery($_POST['date1'],$_POST['date2'],$_POST['time1'],$_POST['time2'], $_POST["plc"], $_POST["lmt"]);
 
   echo "Generated query: ".$query;
 
