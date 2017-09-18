@@ -74,6 +74,13 @@
       <p>End Date: <input name="date2" type="text" id="dtend"></p>
       <p>End Time: <input name="time2" type="text" id="tmend"></p>
       <p>Location: <input type="text" name="plc" id='textt' placeholder="Filtrar por lugar" class="controls" size="40"></p>
+      <p><select id="howmany" name="lmt" >
+        <option value="0">Eventos a desplegar</option>
+        <option value="1">1</option>
+        <option value="10">10</option>
+        <option value="100">100</option>
+        <option value="1000">1000</option>
+      </select></p>
       <input type="submit" name="submit" value="Buscar">
     </form>
   </body>
