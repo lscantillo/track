@@ -13,6 +13,8 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="/time/jquery-timepicker-master/jquery.timepicker.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=Hi"
+        async defer></script>
     
     <script>
     $( function() {
@@ -56,6 +58,13 @@
       });  
     </script>
     
+    <script type="text/javascript">
+    function Hi(){
+     var id1 = document.getElementById('textt');
+     var autocomplete = new google.maps.places.Autocomplete(id1); 
+    };
+    </script>
+    
 </head>
 
   <body>
@@ -64,7 +73,8 @@
       <p>Start Time: <input name="time1" type="text" id="tmstart"></p>
       <p>End Date: <input name="date2" type="text" id="dtend"></p>
       <p>End Time: <input name="time2" type="text" id="tmend"></p>
-      <input type="submit" name="submit" value="Submit date">
+      <p>Location: <input type="text" name="plc" id='textt' placeholder="Filtrar por lugar" class="controls" size="40"></p>
+      <input type="submit" name="submit" value="Buscar">
     </form>
   </body>
 </html>
