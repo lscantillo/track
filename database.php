@@ -67,8 +67,9 @@
         
         if (strlen($place)>0){
             $array = lookup($place);
-            $plc="'Latitude' >= ".($array['latitude']-0.025)." AND 'Latitude' <= ".($array['latitude']+0.025);
-            $plc=$plc." AND 'Longitude' >= ".($array['longitude']-0.025)." AND 'Longitude' <= ".($array['longitude']+0.025);
+            #$plc="Latitude >= ".($array['latitude']-0.025)." AND Latitude <= ".($array['latitude']+0.025);
+            #$plc=$plc." AND Longitude >= ".($array['longitude']-0.025)." AND Longitude <= ".($array['longitude']+0.025);
+            $plc=" Longitude >= ".($array['longitude']-0.025)." AND Longitude <= ".($array['longitude']+0.025);
         }
         
         if(strlen($plc)>0){
