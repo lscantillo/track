@@ -69,12 +69,12 @@
 
   <body>
     <form action="historicquery.php" name="StartDate" method="POST">
-      <p>Start Date: <input name="date1" type="text" id="dtstart"></p>
-      <p>Start Time: <input name="time1" type="text" id="tmstart"></p>
-      <p>End Date: <input name="date2" type="text" id="dtend"></p>
-      <p>End Time: <input name="time2" type="text" id="tmend"></p>
-      <p>Location: <input type="text" name="plc" id='textt' placeholder="Filtrar por lugar" class="controls" size="40"></p>
-      <p><select id="howmany" name="lmt" >
+      <p>Fecha incial: <input name="date1" type="text" id="dtstart"></p>
+      <p>Hora inicial: <input name="time1" type="text" id="tmstart"></p>
+      <p>Fecha final: <input name="date2" type="text" id="dtend"></p>
+      <p>Hora final: <input name="time2" type="text" id="tmend"></p>
+      <p>Ubicación: <input type="text" name="plc" id='textt' placeholder="Filtrar por lugar" class="controls" size="40"></p>
+      <p>Límite de resultados: <select id="howmany" name="lmt" >
         <option value="0">Eventos a desplegar</option>
         <option value="1">1</option>
         <option value="10">10</option>
