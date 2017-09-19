@@ -27,7 +27,7 @@
   echo "<th>Longitude</th>";
   echo "<th>Date/Time</th>";
   echo "</tr>";
-  $hist=[];
+ // $hist=[];
   while($row = mysqli_fetch_array($result))
   {
     echo "<tr>";
@@ -36,10 +36,10 @@
     echo "<td>" . $row['Longitude'] . "</td>";
     echo "<td>" . $row['DateTime'] . "</td>";
     echo "</tr>";
-    $hist[]=$row;
+    //$hist[]=$row;
    
   }
   echo "</table>";
-  echo json_encode($hist);
+  //echo json_encode($hist);
   
 ?>
