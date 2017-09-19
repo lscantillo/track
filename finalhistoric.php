@@ -5,7 +5,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style.css">
+    
     <title></title>
   </head>
 <div >
@@ -13,9 +13,7 @@
   $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
   $username = "abcr";
   $password = "abcr1234";
-  // $servername = "localhost";
-  // $username = "root";
-  // $password = "";
+ 
   // Create connection
   $conn = new mysqli($servername, $username, $password);
 
@@ -41,11 +39,7 @@
 
       $Id = $row['ID'];
       $Lat = $row['Latitude'];
-      $Long = $row['Longitude'];
-
-
-      //$cordenadas= "{ lat:".$row['Latitude'].",lng:".$row['Longitude']."}";
-      //echo "$cordenadas";
+      $Long = $row['Longitude'];      
     $hist[]=$row;
 
     }
@@ -116,9 +110,7 @@
                       });
                       myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
-
-                      // $('#table_hist').append("<tr><td>" + ID + "</td><td>" + LATITUDE + "</td><td>" + LONGITUDE + "</td><td>" + TIME + "</td><tr>").hide();
+                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);                      
                     });
                 },
                 dataType: "json"//set to JSON
