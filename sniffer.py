@@ -12,7 +12,9 @@ def main():
     db = MySQLdb.connect('designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com', 'abcr', 'abcr1234', 'designlocations')
     cursor = db.cursor()
     print("Retrieving latest database data.")
-    startid = cursor.execute("""SELECT id FROM locations ORDER BY id DESC LIMIT 1""")
+    cursor.execute("""SELECT id FROM locations ORDER BY id DESC LIMIT 1""")
+    startid = cursor.fetchone()
+    startid = startid[0]
     print("Latest ID = " +str(startid))
     print("Creating socket object.")
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
