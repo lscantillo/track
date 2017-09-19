@@ -5,55 +5,44 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    
+
     <title></title>
   </head>
+  <?php include 'finalquery.php' ?>
 <div >
   <?php
   $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
   $username = "abcr";
   $password = "abcr1234";
- 
+
   // Create connection
   $conn = new mysqli($servername, $username, $password);
-
   // Check connection
   if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
   }
   #echo "Connected successfully";
   mysqli_select_db($conn, "desinglocations");
-
   $query = "SELECT * FROM locations WHERE 1 ";
-
   $result = mysqli_query($conn, $query);
   $finfo = mysqli_fetch_field($result);
   mysqli_data_seek($result, 1);
   $row = mysqli_fetch_row($result);
-
-
   $hist=[];
-
-
   while ($row = mysqli_fetch_array($result)) {
-
       $Id = $row['ID'];
       $Lat = $row['Latitude'];
-      $Long = $row['Longitude'];      
+      $Long = $row['Longitude'];
     $hist[]=$row;
-
     }
-
             ?>
 </div>
   <body>
 
         <style>
-
       #map {
         height: 80%;
       }
-
       html, body {
         height: 80%;
         margin: 20;
@@ -64,13 +53,11 @@
   <body>
     <div id="map"></div>
     <script>
-
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
-
     function initMap() {
             var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
              var myOptions = {
@@ -81,25 +68,21 @@
                  scaleControl: true,
                  mapTypeId: google.maps.MapTypeId.ROADMAP
              }
-
           map = new google.maps.Map(document.getElementById("map"), myOptions);
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
-                url: "historicquery.php",
+                url: "finalquery.php",
                  // data: form_data,
                 success: function(hist)
                 {
-
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
-
                     $(json_hist).each(function() {
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
                       var LONGITUDE = this.Longitude;
-
                       myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
                       myPath.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
@@ -110,13 +93,12 @@
                       });
                       myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);                      
+                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
                     });
                 },
                 dataType: "json"//set to JSON
               })
     }, 1 * 1000);
-
   }
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
@@ -126,8 +108,6 @@
                    });
                    return marker;
               }
-
-
     </script>
 
     <script async defer
@@ -136,3 +116,4 @@
 
   </body>
 </html>
+
