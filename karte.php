@@ -68,7 +68,7 @@
 </head>
 
   <body>
-    <form action="historicquery.php" name="StartDate" method="POST">
+    <form action="finalquery.php" name="StartDate" method="POST">
       <p>Fecha incial: <input name="date1" type="text" id="dtstart"></p>
       <p>Hora inicial: <input name="time1" type="text" id="tmstart"></p>
       <p>Fecha final: <input name="date2" type="text" id="dtend"></p>
