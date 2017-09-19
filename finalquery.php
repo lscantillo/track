@@ -12,7 +12,7 @@
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
   $query=suscintquery($_POST['date1'],$_POST['date2'],$_POST['time1'],$_POST['time2'], $_POST["plc"], $_POST["lmt"]);
-  echo "Generated query: ".$query;
+  
   $result = mysqli_query($conn, $query);
   
  $hist=[];
