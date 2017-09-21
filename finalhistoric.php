@@ -96,7 +96,7 @@
                       addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map2);
                     });
                 },
-                dataType: "json"//set to JSON
+                dataType: "json"//tipo de dato JSON
               })
     }, 1 * 1000);
   }
