@@ -87,7 +87,7 @@
                       myPath2.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
                         path: myPath2,
-                        strokeColor: '#FF0000',
+                        strokeColor: '#0000FF',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                       });
