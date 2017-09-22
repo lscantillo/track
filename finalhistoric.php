@@ -44,9 +44,8 @@
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
-                  var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
                     function initMap(){
-                            
+                            var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
                              var myOptions = {
                                  zoom: 16,
                                  center: myLatLng,
@@ -77,7 +76,7 @@
                 dataType: "json"//set to JSON
               })
     });
-  }
+
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
