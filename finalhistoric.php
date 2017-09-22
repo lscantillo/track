@@ -47,6 +47,7 @@
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
+                type: '_POST',
                 url: "finalquery.php",
                  // data: form_data,
                 success: function(hist)
