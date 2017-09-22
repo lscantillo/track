@@ -47,8 +47,7 @@
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
-                type: '_POST',
-                url: "finalquery.php",
+                 url: "finalquery.php",
                  // data: form_data,
                 success: function(hist)
                 {
@@ -63,7 +62,7 @@
                       myPath.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
                         path: myPath,
-                        strokeColor: '#FF0000',
+                        strokeColor: '#0000FF',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                       });
@@ -74,7 +73,7 @@
                 },
                 dataType: "json"//set to JSON
               })
-    }, 1 * 1000);
+    });
   }
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
