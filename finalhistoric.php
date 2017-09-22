@@ -7,8 +7,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
     <title></title>
-  </head>
-  
+  </head>  
 <div >
   <?php
   $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
@@ -28,12 +27,12 @@
   $finfo = mysqli_fetch_field($result);
   mysqli_data_seek($result, 1);
   $row = mysqli_fetch_row($result);
-  $hist=[];
+  
   while ($row = mysqli_fetch_array($result)) {
       $Id = $row['ID'];
       $Lat = $row['Latitude'];
       $Long = $row['Longitude'];
-    $hist[]=$row;
+  
     }
             ?>
 </div>
