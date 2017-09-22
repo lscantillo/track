@@ -28,37 +28,14 @@
   <body>
     <div id="map"></div>
     <script>
+    var id = "<?php echo $Id; ?>";
+    var lat = "<?php echo $Lat; ?>";
+    var lon = "<?php echo $Long; ?>";
+    var myPath = [];
+    var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
 
   //  setInterval(function mapload(){
        $(document).ready(function() {
-
-         var id = "<?php echo $Id; ?>";
-         var lat = "<?php echo $Lat; ?>";
-         var lon = "<?php echo $Long; ?>";
-         var myPath2 = [];
-         var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
-         function initMap() {
-                 var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
-                  var myOptions = {
-                      zoom: 16,
-                      center: myLatLng,
-                      panControl: true,
-                      zoomControl: true,
-                      scaleControl: true,
-                      mapTypeId: google.maps.MapTypeId.ROADMAP
-                  }
-               map = new google.maps.Map(document.getElementById("map"), myOptions);
-             }
-
-             function addMarker(latLng, map) {
-                        var marker = new google.maps.Marker({
-                            position: latLng,
-                            map: map,
-                            icon: image
-                        });
-                        return marker;
-                   }
-
           $.ajax({
                  url: "finalquery.php",
                  // data: form_data,
@@ -67,20 +44,32 @@
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
-                      initMap();
+                  var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+                    function initMap(){
+                            
+                             var myOptions = {
+                                 zoom: 16,
+                                 center: myLatLng,
+                                 panControl: true,
+                                 zoomControl: true,
+                                 scaleControl: true,
+                                 mapTypeId: google.maps.MapTypeId.ROADMAP
+                             }
+                          map = new google.maps.Map(document.getElementById("map"), myOptions);
+                        }
                     $(json_hist).each(function() {
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
                       var LONGITUDE = this.Longitude;
                       myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
-                      myPath2.push(myCoord2);
+                      myPath.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
                         path: myPath,
                         strokeColor: '#0000FF',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                       });
-                      myPathTotal2.setPath(myPath2)
+                      myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
                       addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
                     });
@@ -88,8 +77,15 @@
                 dataType: "json"//set to JSON
               })
     });
-
-
+  }
+        function addMarker(latLng, map) {
+                   var marker = new google.maps.Marker({
+                       position: latLng,
+                       map: map,
+                       icon: image
+                   });
+                   return marker;
+              }
     </script>
 
     <script async defer
