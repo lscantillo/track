@@ -10,7 +10,7 @@
   </head>
   <?php include 'finalquery.php' ?>
 <div >
-
+ 
 </div>
   <body>
 
@@ -33,7 +33,7 @@
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
-
+  
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
@@ -44,7 +44,7 @@
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
-                    function initMap(){
+                    function initMap() {
                             var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
                              var myOptions = {
                                  zoom: 16,
@@ -76,7 +76,7 @@
                 dataType: "json"//set to JSON
               })
     });
-
+  
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
