@@ -871,6 +871,14 @@
     	right: 50px;
     }
 
+	iframe{
+		color: white;
+		font-weight: bold;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+
     #filtercontrols{
     position: fixed;
     top: 126px;
