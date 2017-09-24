@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+	Ex Machina by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>ABCR Design: Filtrado histórico</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
+        async defer></script>
+        <script>
+   		function initMap(){
+   		var latlng = new google.maps.LatLng(39.305, -76.617);	
+       	map = new google.maps.Map(document.getElementById("map"),{
+    		zoom: 16,
+    		center: latlng
+    	});
+    	var id1 = document.getElementById('textt');
+        var autocomplete = new google.maps.places.Autocomplete(id1);
+    	};  
+		</script>
+		<script type="text/javascript">
+    	$(function () {
+        	$('#initdate').datetimepicker();
+        	$('#enddate').datetimepicker({
+            		useCurrent: false //Important! See issue #1075
+        		});
+        	$("#initdate").on("dp.change", function (e) {
+            		$('#enddate').data("DateTimePicker").minDate(e.date);
+        	});
+        	$("#enddate").on("dp.change", function (e) {
+            		$('#initdate').data("DateTimePicker").maxDate(e.date);
+        	});
+    	});
+		</script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	</head>
+	<body class="left-sidebar">
+
+	<!-- Header -->
+		<div id="header">
+			<div class="container">
+					
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="#">a b c r design</a></h1>
+					</div>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">Rastreo</a></li>
+							<li class="active"><a href="historico.html">Histórico</a></li>							
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<!-- Header -->
+		
+	<!-- Banner -->
+	<div id="map"></div>
+	<div id="filtercontrols">
+              <form name="Places" method="POST">
+              <input type='text' class="form-control" id='initdate' />
+			  <input type='text' class="form-control" id='enddate' />
+              <input type="text" name="this" id='textt' placeholder="Filtrar por ubicación" class="controls" size="40">
+              <input type="submit" class= "apply" name="submit" value="Aplicar">
+              </form>
+    </div>
+	<!-- /Banner -->
+
+	<!-- Main -->
+		
+
+	</body>
+</html>
