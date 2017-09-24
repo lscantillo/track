@@ -1,4 +1,3 @@
-<div id="magicbox">
 <?php
       include 'database.php';
       $query = "SELECT * FROM locations WHERE 1 ";
@@ -13,7 +12,7 @@
         echo "<p> GPS NO CONECTADO </p>";
         
       } else {
-       
+        echo '<style = "font-color: #ffffff"> </style>';
         echo "<p>";
         print "Último ID: $Id";
         echo "</p>";
@@ -29,4 +28,3 @@
     
       }
     ?>
-</div>
