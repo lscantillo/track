@@ -149,7 +149,7 @@
 
 			<div id="map"></div>
 			<div id="magicbox">
-
+				<?php include 'database2.php' ?>
 				<?php if ($Lat == 0 and $Long == 0) {
 
 	        echo "<p> GPS NO CONECTADO </p>";
