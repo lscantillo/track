@@ -14,23 +14,26 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
         async defer></script>
-				<script>
-				function ajaxCall() {
-						$.ajax({
-								url: "database2.php",
-								success: (function (result) {
-										$("#load").html(result);
-								})
-						})
-				};
-				ajaxCall(); // To output when the page loads
-				setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
-</script>
-		
-		
 
-<div class="red-text ubuntu title2" id="load">
-	<?php include 'database2.php';?>
+				<script >
+
+								function ajaxCall() {
+										$.ajax({
+												url: "database2.php",
+												success: (function (result) {
+														$("#load").html(result);
+												})
+										})
+								};
+								ajaxCall(); // To output when the page loads
+								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+
+				</script>
+
+
+
+<div id="load">
+<?php include 'database2.php' ?>
 </div>
 
 				<script>
@@ -125,8 +128,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li class="active"><a href="index.php">Rastreo</a></li>
-							<li><a href="historico.php">Histórico</a></li>
+							<li class="active"><a href="index.html">Rastreo</a></li>
+							<li><a href="historico.html">Histórico</a></li>
 						</ul>
 					</nav>
 
@@ -135,57 +138,54 @@
 	<!-- Header -->
 
 	<!-- Banner -->
-		<script >
-				function ajaxCall() {
-				$.ajax({
-			        url: "database2.php",
-				success: (function (result) {
-				$("#magicbox").html(result);
-				})
-				})
-				};
-				 ajaxCall(); // To output when the page loads
-				 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-                </script>
+      <div id="map"></div>
 
-			<div id="map"></div>
+
+			<script >
+							function ajaxCall() {
+									$.ajax({
+											url: "database2.php",
+											success: (function (result) {
+													$("#magicbox").html(result);
+											})
+									})
+							};
+							ajaxCall(); // To output when the page loads
+							setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+
+			</script>
+
+
 			<div id="magicbox">
-				<?php include 'database2.php' ?>
+
+				<?php include_once 'database2.php' ?>
+
 				<?php if ($Lat == 0 and $Long == 0) {
 
-	        echo "<p> GPS NO CONECTADO </p>";
+					echo "<p> GPS NO CONECTADO </p>";
 
-	      } else {
-
-
-	        print "Último ID: $Id";
-	        echo "<br>";
+				} else {
+					print "Último ID: $Id";
+					echo "<br>";
 					echo "<p></p>";
 
-
-
-	        print "Latitud: $Lat";
-	        echo "<br>";
+					print "Latitud: $Lat";
+					echo "<br>";
 					echo "<p></p>";
 
-
-	        print "Longitud: $Long";
-	        echo "<br>";
+					print "Longitud: $Long";
+					echo "<br>";
 					echo "<p></p>";
 
+					print "Tiempo: $Date";
+					// print "Time: $Time";
+				}
+				?>
+
+			</div>
 
 
 
-	        print "Tiempo: $Date";
-	        // print "Time: $Time";
-
-	      } ?>
-
-				<!-- <p>Último ID: 1</p>
-            	<p>Latitud: 10</p>
-            	<p>Longitud: 10</p>
-            	<p>Tiempo: Hoy</p> -->
-         	</div>
 
 	<!-- /Banner -->
 
