@@ -34,31 +34,19 @@
         return $answer;
     }
 
-    function suscintquery ($fstdt,$scnddt,$hb,$he,$place,$limit){
+    function suscintquery ($fstdt,$scnddt,$place,$limit){
         $query="SELECT * FROM locations";
         $ybg="";
         $yen="";
-        $hbg="";
-        $hen="";
         $plc="";
         $lmt="";
         
         if(strlen($fstdt)>0){
             $ybg="DateTime >= '".$fstdt;
-            if(strlen($hb)>0){
-                $ybg=$ybg." ".$hb.":00'";
-            }else{
-                $ybg=$ybg." 00:00:00'";
-            }
         }
 
         if(strlen($scnddt)>0){
             $yen="DateTime <= '".$scnddt;
-            if(strlen($he)>0){
-                $yen=$yen." ".$he.":59'";
-            }else{
-                $yen=$yen." 23:59:59'";
-            }
         }
         
         if($limit>0){
@@ -134,90 +122,5 @@
         return $array;
  
     }
-
-    function querygenerator($yb,$ye,$mb,$me,$db,$de,$hb,$he,$limit)
-    {
-        $query="SELECT * FROM locations ";
-        $ybg="";
-        $yen="";
-        $hbg="";
-        $hen="";
-        $lmt="";
-
-        if($yb>0){
-            if($mb>0){
-                if($db>0){
-                    $ybg="Date >= ".dategenerator($yb,$mb,$db)." ";
-                }else{
-                    $ybg="Date >= ".dategenerator($yb,$mb,"01")." ";
-                }
-            }else{
-                $ybg="Date >= ".dategenerator($yb,"01","01")." ";
-            }
-        }
-
-        if($ye>0){
-            if($me>0){
-                if($de>0){
-                    $yen="Date <= ".dategenerator($ye,$me,$de)." ";
-                }else{
-                    $yen="Date <= ".dategenerator($ye,$me,"31")." ";
-                }
-            }else{
-                $yen="Date <= ".dategenerator($ye,"12","31")." ";
-            }
-        }
-
-        if($hb>=0 AND ($he!=0 AND $hb!=0)){
-            $hbg=" Time >= ".$hb.":00:00 ";
-        }
-
-        if($he>=0 AND ($he!=0 AND $hb!=0)){
-            $hen=" Time <= ".$he.":00:00 ";
-        }
-
-        if($limit>0){
-            $lmt="LIMIT ".$limit;
-        }
-
-        $query=whereand($query,$ybg);
-        $query=whereand($query,$yen);
-        $query=whereand($query,$hbg);
-        $query=whereand($query,$hen);
-        
-        if(strlen($lmt)>0){
-            if(strlen($query)>26){
-                $query=$query." AND ";
-            }
-            $query=$query.$lmt;
-        }
-
-        return $query;
-    }
-
-    function dategenerator($y,$m,$d)
-    {
-        $date="'20".$y."-".$m."-".$d."'";
-        return $date;
-    }
-
-    function painintheass($query)
-    {
-        $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
-        $username = "abcr";
-        $password = "abcr1234";
-        // Create connection
-        $conn = new mysqli($servername, $username, $password);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-         #echo "Connected successfully";
-        mysqli_select_db($conn, "designlocations");
-
-        return mysqli_query($conn, $query);
-    }
-
-
 ?>
 
