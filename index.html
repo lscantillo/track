@@ -13,28 +13,32 @@
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
-        async defer></script>
+        	async defer></script>
+	</head>
+  	<body class="homepage">
+  	</body>
         <script>
     	function ajaxCall() {
         	$.ajax({
-            	url: "database2.php",
-            		success: (function (result) {
-                		$("#load").html(result);
-            		})
+        		url: "database2.php",
+           			success: (function (result) {
+                			$("#load").html(result);
+            			})
         		})
     		};
-    		ajaxCall(); // To output when the page loads
-    		setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
-		</script>
+    	ajaxCall(); // To output when the page loads
+    	setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
+	</script>
+	
         <script>
-   		function initMap(){
+   	function initMap(){
    		var latlng = new google.maps.LatLng(39.305, -76.617);	
-       	map = new google.maps.Map(document.getElementById("map"),{
-    		zoom: 16,
-    		center: latlng
-    	}); 
+       		map = new google.maps.Map(document.getElementById("map"),{
+    		zoom: 16,center: latlng
+	    	}); 
     	};  
 		</script>
+		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
@@ -44,9 +48,6 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
-	</head>
-	<body class="homepage">
-
 	<!-- Header -->
 		<div id="header">
 			<div class="container">
