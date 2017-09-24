@@ -7,24 +7,5 @@
       $Long = $row[2];
       $Date=$row[3];
      // $Time=$row[4];
-      if ($Lat == 0 and $Long == 0) {
-            
-        echo "<p> GPS NO CONECTADO </p>";
-        
-      } else {
-        echo '<style = "font-color: #ffffff"> </style>';
-        echo "<p>";
-        print "Último ID: $Id";
-        echo "</p>";
-        echo "<p>";
-        print "Latitud: $Lat";
-        echo "</p>";
-        echo "<p>";
-        print "Longitud: $Long";
-        echo "</p>";
-        echo "<p>";
-        print "Tiempo: $Date";
-        echo "</p>";
-    
-      }
+      
     ?>
