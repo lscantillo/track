@@ -51,7 +51,6 @@
                  // data: form_data,
                 success: function(hist)
                 {
-                    
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
@@ -72,12 +71,10 @@
                       addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
                     });
                 },
-            
                 dataType: "json"//set to JSON
               })
     });
   }
-       
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
