@@ -13,19 +13,18 @@
         
       } else {
        
-        echo "<li>";
-        print "ID: $Id";
-        echo "<br>";
-        echo "<li>";
+        echo "<p>";
+        print "Último ID: $Id";
+        echo "</p>";
+        echo "<p>";
         print "Latitud: $Lat";
-        echo "<br>";
-        echo "<li>";
+        echo "</p>";
+        echo "<p>";
         print "Longitud: $Long";
-        echo "<br>";
-        echo "<li>";
-        print "DateTime: $Date";
-        // print "Time: $Time";
-        echo "<br>";
+        echo "</p>";
+        echo "<p>";
+        print "Tiempo: $Date";
+        echo "</p>";
     
       }
     ?>
