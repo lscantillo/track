@@ -25,6 +25,6 @@
    
   }
   
-  json_encode($hist);
+  echo json_encode($hist);
   
 ?>
