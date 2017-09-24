@@ -26,6 +26,19 @@
 				ajaxCall(); // To output when the page loads
 				setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
 </script>
+		
+		<script >
+				function ajaxCall() {
+						$.ajax({
+								url: "database2.php",
+								success: (function (result) {
+										$("#magicbox").html(result);
+								})
+						})
+				};
+				ajaxCall(); // To output when the page loads
+				setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+</script>
 
 <div class="red-text ubuntu title2" id="load">
 	<?php include 'database2.php';?>
