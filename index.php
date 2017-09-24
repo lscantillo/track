@@ -146,7 +146,7 @@
 									$.ajax({
 											url: "database2.php",
 											success: (function (result) {
-													$("#magicbox").html(result);
+													$("magicbox").html(result);
 											})
 									})
 							};
