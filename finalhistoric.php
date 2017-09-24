@@ -72,11 +72,12 @@
                       //addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
                     });
                 },
-              addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
+            
                 dataType: "json"//set to JSON
               })
     });
   }
+        addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
