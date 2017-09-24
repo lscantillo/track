@@ -14,15 +14,84 @@
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
         async defer></script>
-        <script>
-   		function initMap(){
-   		var latlng = new google.maps.LatLng(39.305, -76.617);	
-       	map = new google.maps.Map(document.getElementById("map"),{
-    		zoom: 16,
-    		center: latlng
-    	}); 
-    	};  
-		</script>
+ <script>
+
+     var lat = "<?php echo $Lat; ?>";
+     var lon = "<?php echo $Long; ?>";
+     var myPath = [];
+     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+       function initMap() {
+         var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+          var myOptions = {
+              zoom: 16,
+              center: myLatLng,
+              panControl: true,
+              zoomControl: true,
+              scaleControl: true,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+         // Create map object with options
+         map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+         var ID_ST = 0;
+          var infoWindow = new google.maps.InfoWindow;
+         setInterval(function mapload(){
+               $.ajax({
+                     url: "dbcoordenadas.php",
+                      // data: form_data,
+                     success: function(data)
+                     {
+                       var json_obj = jQuery.parseJSON(JSON.stringify(data));
+                       // Data Treatment in order to obtain the new latlng coordinates.
+                       $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+                         var ID = this.ID;
+                         var LATITUD = this.Latitude;
+                         var LONGITUD = this.Longitude;
+                         if (ID_ST != this.ID) {
+                           point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
+                           myPath.push(point);
+                           var myPathTotal = new google.maps.Polyline({
+                              path: myPath,
+                              strokeColor: '#FF0000',
+                              strokeOpacity: 1.0,
+                              strokeWeight: 5
+                           });
+                           myPathTotal.setPath(myPath)
+                           myPathTotal.setMap(map);
+                           addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
+                           var center = new google.maps.LatLng(LATITUD, LONGITUD);
+                           map.panTo(center);
+                           ID_ST = this.ID;
+                         }
+                      });
+                     },
+                     dataType: "json"//Tipo de datos JSON
+                   })
+         }, 5 * 1000);
+
+       }
+       function addMarker(latLng, map) {
+                  var marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map,
+                      icon: image
+                  });
+                  return marker;
+             }
+
+   </script>
+<script>
+    function ajaxCall() {
+        $.ajax({
+            url: "database2.php",
+            success: (function (result) {
+                $("#load").html(result);
+            })
+        })
+    };
+    ajaxCall(); // To output when the page loads
+    setInterval(ajaxCall, (5 * 1000)); // x * 1000 to get it in seconds
+  </script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
