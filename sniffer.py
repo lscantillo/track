@@ -79,7 +79,7 @@ def getMess(m):
  
  
 def getTime(wks, days, scnd):
-    seco = wks * 7 * 24 * 60 * 60 + (days + 3657) * 24 * 60 * 60 + scnd
+    seco = wks * 7 * 24 * 60 * 60 + (days + 3657) * 24 * 60 * 60 + scnd - 5 * 60 * 60
     t = time.localtime(seco)
     posmonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     Year = t.tm_year
