@@ -125,8 +125,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li class="active"><a href="index.html">Rastreo</a></li>
-							<li><a href="historico.html">Histórico</a></li>
+							<li class="active"><a href="index.php">Rastreo</a></li>
+							<li><a href="historico.php">Histórico</a></li>
 						</ul>
 					</nav>
 
