@@ -51,6 +51,7 @@
                  // data: form_data,
                 success: function(hist)
                 {
+                    <?php include 'finalquery.php' ?>
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
