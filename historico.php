@@ -126,18 +126,35 @@
     <script type="text/javascript">
     $(function () {
         $('#datetimepicker').datetimepicker({
-            format: 'yyyy-MM-dd hh:mm:ss'
+            format: 'yyyy-MM-dd hh:mm:00',
+            pickSeconds: false
         });
         $('#datetimepicker2').datetimepicker({
-            format: 'yyyy-MM-dd hh:mm:ss',
-            useCurrent: false //Important! See issue #1075
+            format: 'yyyy-MM-dd hh:mm:00',
+            useCurrent: false, //Important! See issue #1075
+            pickSeconds: false
         });
-        $("#datetimepicker").on("dp.change", function (e) {
-            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+        $('#datetimepicker').on('changeDate', function(ev){
+            var startpicker = $( '#datetimepicker').data('datetimepicker');
+            var endpicker = $( '#datetimepicker2').data('datetimepicker');
+            var minDate = startpicker.getDate();
+            var Date2 = endpicker.getDate();
+            if (minDate > Date2) {
+                endpicker.setDate(minDate)
+            }
+            endpicker.startDate = minDate;
         });
-        $("#datetimepicker2").on("dp.change", function (e) {
-            $('#datetimepicker').data("DateTimePicker").maxDate(e.date);
+        $('#datetimepicker2').on('changeDate', function(ev){
+            var startpicker = $( '#datetimepicker').data('datetimepicker');
+            var endpicker = $( '#datetimepicker2').data('datetimepicker');
+            var minDate = startpicker.getDate();
+            var Date2 = endpicker.getDate();
+            if (minDate > Date2) {
+                endpicker.setDate(minDate)
+            }
+            endpicker.startDate = minDate;
         });
+
     });
 
     </script>
