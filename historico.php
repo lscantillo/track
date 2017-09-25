@@ -91,13 +91,13 @@
     	<form action="finalhistoric.php" name="Places" method="POST">
     		<div style="float: left">
         		<div id="datetimepicker" class="input-append date">
-      				<input type="text"></input>
+      				<input type="text" placeholder="Fecha Inicial de Filtrado"></input>
       				<span class="add-on">
         				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       				</span>
     			</div>
     			<div id="datetimepicker2" class="input-append date">
-      				<input type="text"></input>
+      				<input type="text" placeholder="Fecha Final de Filtrado"></input>
       				<span class="add-on">
         				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       				</span>
