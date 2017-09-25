@@ -11,7 +11,7 @@
   }
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
-  $query=suscintquery($_POST['date1'],$_POST['date2'],$_POST['time1'],$_POST['time2'], $_POST["plc"], $_POST["lmt"]);
+  $query=suscintquery($_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
   
   $result = mysqli_query($conn, $query);
   
@@ -25,6 +25,6 @@
    
   }
   
-  echo json_encode($hist);
+  $markers= json_encode($hist);
   
 ?>
