@@ -6,6 +6,26 @@
       $Lat = $row[1];
       $Long = $row[2];
       $Date=$row[3];
-     // $Time=$row[4];
+     if ($Lat == 0 and $Long == 0) {
+
+        echo "<p> GPS NO CONECTADO </p>";
+
+      } else {
+
+        print "Último ID: $Id";
+        echo "<br>";
+        echo "<p></p>";
+
+        print "Latitud: $Lat";
+        echo "<br>";
+        echo "<p></p>";
+
+        print "Longitud: $Long";
+        echo "<br>";
+        echo "<p></p>";
+
+        print "Tiempo: $Date";
+
+      }
       
     ?>
