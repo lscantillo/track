@@ -1,5 +1,9 @@
 <!DOCTYPE HTML>
-
+<!--
+	Ex Machina by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
 	<head>
 		<title>ABCR Design: Tu solución web de rastreo</title>
@@ -26,7 +30,24 @@
 
 				</script>
 
+				<!-- <script >
 
+								function ajaxCall() {
+										$.ajax({
+												url: "database2.php",
+												success: (function (result) {
+														$("#load").html(result);
+												})
+										})
+								};
+								ajaxCall(); // To output when the page loads
+								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+
+				</script>
+
+<div id="load">
+<?php include_once 'database2.php' ?>
+</div> -->
 
 				<script>
     <?php include_once 'database2.php' ?>
@@ -67,7 +88,7 @@
                            myPath.push(point);
                            var myPathTotal = new google.maps.Polyline({
                               path: myPath,
-                              strokeColor: '#e95d3c',
+                              strokeColor: '#0000FF',
                               strokeOpacity: 1.0,
                               strokeWeight: 5
                            });
@@ -133,7 +154,30 @@
 <?php include_once 'database2.php' ?>
       <div id="map"></div>
 			<div id="magicbox">
+											<!-- <?php include_once 'database2.php' ?> -->
 
+											<!-- <?php if ($Lat == 0 and $Long == 0) {
+
+												echo "<p> GPS NO CONECTADO </p>";
+
+											} else {
+
+												print "Último ID: $Id";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Latitud: $Lat";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Longitud: $Long";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Tiempo: $Date";
+
+											}
+											?> -->
 			</div>
 
 	<!-- /Banner -->
