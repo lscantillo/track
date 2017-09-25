@@ -32,25 +32,7 @@
         var autocomplete = new google.maps.places.Autocomplete(id1);
     	};  
 		</script>
-		<script type="text/javascript">
-    	$(function () {
-        	$('#initdate').datetimepicker();
-        	$('#enddate').datetimepicker({
-            		useCurrent: false //Important! See issue #1075
-        		});
-        	$("#initdate").on("dp.change", function (e) {
-            		$('#enddate').data("DateTimePicker").minDate(e.date);
-        	});
-        	$("#enddate").on("dp.change", function (e) {
-            		$('#initdate').data("DateTimePicker").maxDate(e.date);
-        	});
-    	});
-		</script>
-
-		<script type="text/javascript">
-
-		</script>
-
+		
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
