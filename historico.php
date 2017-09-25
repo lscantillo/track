@@ -10,10 +10,16 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
+		<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" media="screen"
+    	href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+
 		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
+
+
         async defer></script>
         <script>
    		function initMap(){
@@ -40,6 +46,11 @@
         	});
     	});
 		</script>
+
+		<script type="text/javascript">
+
+		</script>
+
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
 		<script src="js/init.js"></script>
@@ -76,18 +87,59 @@
 		
 	<!-- Banner -->
 	<div id="map"></div>
-	<div id="filtercontrols">
-              <form name="Places" method="POST">
-              <input type='text' class="form-control" id='initdate' />
-			  <input type='text' class="form-control" id='enddate' />
-              <input type="text" name="this" id='textt' placeholder="Filtrar por ubicación" class="controls" size="40">
-              <input type="submit" class= "apply" name="submit" value="Aplicar">
-              </form>
+	<div id="filtercontrols" style="width: 530px">
+    	<form action="finalhistoric.php" name="Places" method="POST">
+    		<div style="float: left">
+        		<div id="datetimepicker" class="input-append date">
+      				<input type="text"></input>
+      				<span class="add-on">
+        				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      				</span>
+    			</div>
+    			<div id="datetimepicker2" class="input-append date">
+      				<input type="text"></input>
+      				<span class="add-on">
+        				<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      				</span>
+    			</div>
+    		</div>
+    		<div style="float: right">
+  				<input type="text" name="plc" id='plc' placeholder="Filtrar por ubicación (opcional)" class="controls" size="40">
+            	<input type="submit" class= "apply" name="submit" value="Aplicar">
+            </div>
+        </form>
     </div>
-	<!-- /Banner -->
 
-	<!-- Main -->
-		
+    <script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
 
-	</body>
+    <script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'yyyy-MM-dd hh:mm:ss'
+        });
+        $('#datetimepicker2').datetimepicker({
+            format: 'yyyy-MM-dd hh:mm:ss',
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker").on("dp.change", function (e) {
+            $('#datetimepicker2').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker2").on("dp.change", function (e) {
+            $('#datetimepicker').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+
+    </script>
+    	</body>
 </html>
