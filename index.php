@@ -88,7 +88,7 @@
                            myPath.push(point);
                            var myPathTotal = new google.maps.Polyline({
                               path: myPath,
-                              strokeColor: '#0000FF',
+                              strokeColor: '#e95d3c',
                               strokeOpacity: 1.0,
                               strokeWeight: 5
                            });
