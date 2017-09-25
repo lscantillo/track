@@ -34,12 +34,11 @@
         return $answer;
     }
 
-    function suscintquery ($fstdt,$scnddt,$place,$limit){
+    function suscintquery ($fstdt,$scnddt,$place){
         $query="SELECT * FROM locations";
         $ybg="";
         $yen="";
         $plc="";
-        $lmt="";
         
         if(strlen($fstdt)>0){
             $ybg="DateTime >= '".$fstdt;
@@ -47,10 +46,6 @@
 
         if(strlen($scnddt)>0){
             $yen="DateTime <= '".$scnddt;
-        }
-        
-        if($limit>0){
-            $lmt=" LIMIT ".$limit;
         }
         
         if (strlen($place)>0){
@@ -69,10 +64,6 @@
 
         if(strlen($yen)>0){
             $query=whereand($query,$yen);
-        }
-
-        if(strlen($lmt)>0){
-            $query=$query.$lmt;
         }
 
         return $query;
