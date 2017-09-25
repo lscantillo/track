@@ -76,8 +76,8 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="index.html">Rastreo</a></li>
-							<li class="active"><a href="historico.html">Histórico</a></li>							
+							<li><a href="index.php">Rastreo</a></li>
+							<li class="active"><a href="historico.php">Histórico</a></li>							
 						</ul>
 					</nav>
 
