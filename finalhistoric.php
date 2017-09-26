@@ -20,8 +20,7 @@
 
     <title>ABCR Design: Filtrado histórico</title>
   </head>
-  <?php include 'finalquery.php' ?>
-
+    <!-- <?php include_once 'finalquery.php' ?> -->
   <body>
    <div id="header">
       <div class="container">
@@ -73,7 +72,7 @@
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
-                 type: 'POST',
+                 
                  url: "finalquery.php",
                  // data: form_data,
                 success: function(hist)
