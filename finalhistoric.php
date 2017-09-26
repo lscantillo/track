@@ -20,7 +20,7 @@
 
     <title>ABCR Design: Filtrado histórico</title>
   </head>
-    <?php include 'finalquery.php' ?>
+    <?php include 'finalquery2.php' ?>
   <body>
    <div id="header">
       <div class="container">
