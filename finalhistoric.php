@@ -57,6 +57,7 @@
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
+    infoWindows = Array();
     markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
