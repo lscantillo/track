@@ -56,15 +56,7 @@
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
-       function addMarker(latLng, map) {
-                   var marker = new google.maps.Marker({
-                       position: latLng,
-                       map: map,
-                       icon: image
-                   });
-                  // markers.push(marker);
-                   return marker;
-              }
+     
     //markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
@@ -109,7 +101,15 @@
               })
     });
   }
-       
+         function addMarker(latLng, map) {
+                   var marker = new google.maps.Marker({
+                       position: latLng,
+                       map: map,
+                       icon: image
+                   });
+                  // markers.push(marker);
+                   return marker;
+              }
     </script>
 
     <script async defer
