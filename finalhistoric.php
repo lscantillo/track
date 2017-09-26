@@ -101,7 +101,7 @@
               })
     });
   }
-        function addMarker(latLng, map) {
+        function addMarker(latLng, map2) {
                    var marker = new google.maps.Marker({
                        position: latLng,
                        map: map2,
