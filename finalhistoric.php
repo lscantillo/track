@@ -125,7 +125,7 @@
                       });
                       myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID map);
+                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                     });
                 },
                 dataType: "json"//set to JSON
