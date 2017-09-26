@@ -70,7 +70,7 @@
 	<!-- Banner -->
 	<div id="map"></div>
 	<div id="filtercontrols" style="width: 530px">
-    	<form action="finalhistoric.php" name="Places" method="POST">
+    	<form action="karte.php" name="Places" method="POST">
     		<div style="float: left">
         		<div id="datetimepicker" class="input-append date">
       				<input type="text"></input>
