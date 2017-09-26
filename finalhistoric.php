@@ -85,7 +85,7 @@
   //  setInterval(function mapload(){
       //  $(document).ready(function() {
           $.ajax({
-                 url: "finalquery.php",
+                 url: "finalquery2.php",
                  // data: form_data,
                 success: function(hist)
                 {
