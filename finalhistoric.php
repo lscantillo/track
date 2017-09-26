@@ -77,9 +77,7 @@
                  // data: form_data,
                 success: function(hist)
                 {
-                    var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-                    INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
-                    INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
+                    var json_hist = jQuery.parseJSON(JSON.stringify(hist));                   
                     $(json_hist).each(function() {
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
