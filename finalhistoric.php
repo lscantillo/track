@@ -53,12 +53,11 @@
     </div>
     <script>
       $(document).ready(function() {
-
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
-    //markers = Array();
+    markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
             var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
@@ -72,14 +71,31 @@
              }
           map = new google.maps.Map(document.getElementById("map"), myOptions);
         }
-
-        function addMarker(latLng, map) {
+        function addMarker(latLng,time,id, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
                        map: map,
-                       icon: image
+                       icon: image,
+                       infoWindowIndex: id2
                    });
                   // markers.push(marker);
+
+                  var content = '<div id="Marker_Time">' +
+      '<h6>' + 'Información' + '</h6>' +
+      '<p>' + time + '</p>' + '</div>';
+
+    var infoWindow = new google.maps.InfoWindow({
+      content: content
+    });
+                  google.maps.event.addListener(marker, 'click',
+                function(event) {
+                  infoWindow.open(map, marker);
+                  // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
+                }
+    );
+
+    infoWindows.push(infoWindow);
+    markers.push(marker);
                    return marker;
               }
   //  setInterval(function mapload(){
@@ -89,7 +105,7 @@
                  // data: form_data,
                 success: function(hist)
                 {
-                  
+
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     initMap();
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
@@ -98,6 +114,7 @@
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
                       var LONGITUDE = this.Longitude;
+                      var TIME=this.DateTime
                       myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
                       myPath.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
@@ -108,14 +125,12 @@
                       });
                       myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
+                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID map);
                     });
                 },
                 dataType: "json"//set to JSON
               })
     });
-
-
     </script>
 
     <script async defer
