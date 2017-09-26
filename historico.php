@@ -52,7 +52,7 @@
 					
 				<!-- Logo -->
 					<div id="logo">
-						<h1><a href="#">a b c r design</a></h1>
+						<h1><a href="index.php">a b c r design</a></h1>
 					</div>
 				
 				<!-- Nav -->
