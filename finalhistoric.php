@@ -52,6 +52,8 @@
 
     </div>
     <script>
+      $(document).ready(function() {
+
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
@@ -69,15 +71,26 @@
                  mapTypeId: google.maps.MapTypeId.ROADMAP
              }
           map = new google.maps.Map(document.getElementById("map"), myOptions);
-  //  setInterval(function mapload(){
-       $(document).ready(function() {
-          $.ajax({
+        }
 
+        function addMarker(latLng, map) {
+                   var marker = new google.maps.Marker({
+                       position: latLng,
+                       map: map,
+                       icon: image
+                   });
+                  // markers.push(marker);
+                   return marker;
+              }
+  //  setInterval(function mapload(){
+      //  $(document).ready(function() {
+          $.ajax({
                  url: "finalquery.php",
                  // data: form_data,
                 success: function(hist)
                 {
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
+                    initMap();
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
                     INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
                     $(json_hist).each(function() {
@@ -100,16 +113,8 @@
                 dataType: "json"//set to JSON
               })
     });
-  }
-        function addMarker(latLng, map) {
-                   var marker = new google.maps.Marker({
-                       position: latLng,
-                       map: map,
-                       icon: image
-                   });
-                  // markers.push(marker);
-                   return marker;
-              }
+
+
     </script>
 
     <script async defer
