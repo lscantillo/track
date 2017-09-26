@@ -43,7 +43,7 @@
   <!-- Header -->
 
   <!-- Banner -->
-  <div id="map"></div>
+  <div id="map2"></div>
   <div id="filtercontrols">
 
               <form action=historico.php>
@@ -55,7 +55,7 @@
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
-    var myPath = [];
+    var myPath2 = [];
     //markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
@@ -68,7 +68,7 @@
                  scaleControl: true,
                  mapTypeId: google.maps.MapTypeId.ROADMAP
              }
-          map = new google.maps.Map(document.getElementById("map"), myOptions);
+          map2 = new google.maps.Map(document.getElementById("map2"), myOptions);
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
@@ -85,16 +85,16 @@
                       var LATITUDE = this.Latitude;
                       var LONGITUDE = this.Longitude;
                       myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
-                      myPath.push(myCoord2);
+                      myPath2.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
-                        path: myPath,
+                        path: myPath2,
                         strokeColor: '#e95d3c',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                       });
-                      myPathTotal2.setPath(myPath)
-                      myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map);
+                      myPathTotal2.setPath(myPath2)
+                      myPathTotal2.setMap(map2);
+                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE), map2);
                     });
                 },
                 dataType: "json"//set to JSON
@@ -104,7 +104,7 @@
         function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
-                       map: map,
+                       map: map2,
                        icon: image
                    });
                   // markers.push(marker);
