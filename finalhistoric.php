@@ -44,7 +44,7 @@
   <!-- Header -->
 
   <!-- Banner -->
-  <div id="map"></div>
+  <div id="map2"></div>
   <div id="filtercontrols">
 
               <form action=historico.php>
@@ -68,7 +68,7 @@
                  scaleControl: true,
                  mapTypeId: google.maps.MapTypeId.ROADMAP
              }
-          map = new google.maps.Map(document.getElementById("map"), myOptions);
+          map = new google.maps.Map(document.getElementById("map2"), myOptions);
   //  setInterval(function mapload(){
        $(document).ready(function() {
           $.ajax({
