@@ -56,7 +56,6 @@
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
-     
     //markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
@@ -79,7 +78,8 @@
                 success: function(hist)
                 {
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-                
+                    INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
+                    INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
                     $(json_hist).each(function() {
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
@@ -101,7 +101,7 @@
               })
     });
   }
-         function addMarker(latLng, map) {
+        function addMarker(latLng, map) {
                    var marker = new google.maps.Marker({
                        position: latLng,
                        map: map,
