@@ -28,7 +28,7 @@
     		zoom: 16,
     		center: latlng
     	});
-    	var id1 = document.getElementById('textt');
+    	var id1 = document.getElementById('plc');
         var autocomplete = new google.maps.places.Autocomplete(id1);
     	};  
 		</script>
