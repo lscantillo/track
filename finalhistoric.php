@@ -38,7 +38,7 @@
       var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
       var myOptions = {
           zoom: 10,
-          center: myLatlng,
+          center: myLatLng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           mapTypeControl: false
       };
