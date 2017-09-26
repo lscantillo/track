@@ -15,8 +15,8 @@
   
   $result = mysqli_query($conn, $query);
   
- $hist=[];
-//$hist= array();
+ //$hist=[];
+$hist= array();
   while($row = mysqli_fetch_array($result))
   {
       $Id = $row['ID'];
