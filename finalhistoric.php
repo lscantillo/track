@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+//BACKUP finalhistoric.php
 <html>
   <head>
     <meta charset="utf-8">
@@ -19,7 +20,8 @@
 
     <title>ABCR Design: Filtrado histórico</title>
   </head>
-   <?php include 'finalquery.php' ?>
+  <?php include 'finalquery.php' ?>
+
   <body>
    <div id="header">
       <div class="container">
@@ -55,7 +57,6 @@
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
     var myPath = [];
-    //markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
             var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
@@ -105,7 +106,6 @@
                        map: map,
                        icon: image
                    });
-                    //markers.push(marker);
                    return marker;
               }
     </script>
