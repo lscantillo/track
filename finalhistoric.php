@@ -76,7 +76,7 @@
                        position: latLng,
                        map: map,
                        icon: image,
-                       infoWindowIndex: id2
+                       infoWindowIndex: id
                    });
                   // markers.push(marker);
 
