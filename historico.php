@@ -23,7 +23,7 @@
         async defer></script>
         <script>
    		function initMap(){
-   		var latlng = new google.maps.LatLng(39.305, -76.617);	
+   		var latlng = new google.maps.LatLng(11.0183135,-74.8416722);	
        	map = new google.maps.Map(document.getElementById("map"),{
     		zoom: 16,
     		center: latlng
