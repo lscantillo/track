@@ -99,11 +99,19 @@
     markers.push(marker);
                    return marker;
               }
+        dtpicker='<?=$_POST['datetimepicker']?>';
+        dtpicker2='<?=$_POST['datetimepicker2']?>';
+        plc='<?=$_POST['plc']?>';
   //  setInterval(function mapload(){
       //  $(document).ready(function() {
           $.ajax({
+                 type: 'POST',
                  url: "finalquery.php",
-                 // data: form_data,
+                 data: {
+                   datetimepicker: dtpicker,
+                   datetimepicker2: dtpicker2,
+                   plc: plc
+                 },
                 success: function(hist)
                 {
 
