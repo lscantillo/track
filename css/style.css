@@ -869,7 +869,23 @@
     	position: fixed;
     	bottom: 15px;
     	right: 50px;
-    }
+    	}
+
+	#magicbox2
+	{
+	background-color: #000;
+	border-radius: 5px;
+	font-weight: bold;
+    	text-align: center;
+    	color: white;
+    	padding: 10px;
+    	border: 20px white;
+    	width: 240px;
+    	height: 168px;
+    	position: fixed;
+    	bottom: 15px;
+    	left: 50px;
+    	} 
 
 	#iframe{
 		color: white;
