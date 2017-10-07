@@ -179,6 +179,12 @@
 											}
 											?> -->
 			</div>
+	    	<div id="magicbox2">
+			<p>Último ID: 2</p>
+                	<p>Latitud: 20</p>
+                	<p>Longitud: 20</p>
+                	<p>Tiempo: Hoy</p>
+		</div>  
 
 	<!-- /Banner -->
 
