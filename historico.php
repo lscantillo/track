@@ -22,7 +22,7 @@
 
         async defer></script>
         <script>
-   		function initMap(){
+   		$(document).ready(function initMap(){
    		var latlng = new google.maps.LatLng(11.0183135,-74.8416722);	
        	map = new google.maps.Map(document.getElementById("map"),{
     		zoom: 16,
@@ -30,7 +30,7 @@
     	});
     	var id1 = document.getElementById('plc');
         var autocomplete = new google.maps.places.Autocomplete(id1);
-    	};  
+    	});  
 		</script>
 		
 		<script src="js/skel.min.js"></script>
