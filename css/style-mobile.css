@@ -175,14 +175,19 @@
 
 	#banner
 	{
-		padding: 19em 0em;
+		height: 120%;
+	}
+
+	#map
+	{
+		padding: 100% 0em;
 	}
 
 	#magicbox{
-	background-color: #e95d3c;
-	line-height: 40%;
-	border-radius: 5px;
-	font-weight: bold;
+		background-color: #e95d3c;
+		line-height: 40%;
+		border-radius: 5px;
+		font-weight: bold;
     	text-align: center;
     	color: white;
     	padding: 10px;
@@ -195,10 +200,10 @@
 	}
 
 	#magicbox2{
-	background-color: #000;
-	line-height: 40%;
-	border-radius: 5px;
-	font-weight: bold;
+		background-color: #000;
+		line-height: 40%;
+		border-radius: 5px;
+		font-weight: bold;
     	text-align: center;
     	color: white;
     	padding: 10px;
@@ -210,6 +215,31 @@
     	left: 20%;
 	}
 
+    #filtercontrols{
+    position: absolute;
+    top: 16%;
+    left: 4%;
+	}
+
+	#filtercontrols .controls{
+		width: 168px;
+	}
+
+	#filtercontrols .apply{
+		position: relative;
+		left:0%;
+
+	}
+
+	#datesfilter{
+		clear: both;
+		width: 50%;
+	}
+
+	#locationfilter{
+		clear: both;
+		float: none;
+	}
 
 /*********************************************************************************/
 /* Main                                                                          */
@@ -233,6 +263,30 @@
 		margin-top: 3em;
 		padding-top: 3em;
 	}
+
+
+	#map
+	{
+		position: relative;
+		padding: 25em 0em;
+	}
+
+	#magicbutton
+	{
+		background-color: #00ff00;
+		border-radius: 5px;
+		font-weight: bold;
+    	text-align: center;
+    	color: white;
+    	padding: 10px;
+    	border: 20px white;
+    	width: 240px;
+    	height: 168px;
+    	position: fixed;
+    	bottom: 15px;
+    	right: 50px;
+	}
+
 	
 /*********************************************************************************/
 /* Footer                                                                        */
