@@ -105,9 +105,9 @@
              }
    </script>
 
-	 
+
 <!-- NUEVO AUTO INICIO -->
-	 <script>
+	 <!-- <script>
 <?php include_once 'database22.php' ?>
 var lat2 = "<?php echo $Lat2; ?>";
 var lon2 = "<?php echo $Long2; ?>";
@@ -169,7 +169,7 @@ var image2 = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transp
 						 });
 						 return marker;
 				}
-</script>
+</script> -->
 
 <!-- NUEVO AUTO FIN -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
