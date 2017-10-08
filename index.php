@@ -16,7 +16,6 @@
         async defer></script>
 
 				<script >
-
 								function ajaxCall() {
 										$.ajax({
 												url: "database2.php",
@@ -27,33 +26,25 @@
 								};
 								ajaxCall(); // To output when the page loads
 								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
 				</script>
 
-				<!-- <script >
-
-								function ajaxCall() {
+				<script >
+								function ajaxCall2() {
 										$.ajax({
-												url: "database2.php",
+												url: "database22.php",
 												success: (function (result) {
-														$("#load").html(result);
+														$("#magicbox2").html(result);
 												})
 										})
 								};
-								ajaxCall(); // To output when the page loads
+								ajaxCall2(); // To output when the page loads
 								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
 				</script>
-
-<div id="load">
-<?php include_once 'database2.php' ?>
-</div> -->
 
 				<script>
     <?php include_once 'database2.php' ?>
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
-
      var myPath = [];
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
        function initMap() {
@@ -68,7 +59,6 @@
           }
          // Create map object with options
          map = new google.maps.Map(document.getElementById("map"), myOptions);
-
          var ID_ST = 0;
           var infoWindow = new google.maps.InfoWindow;
          setInterval(function mapload(){
@@ -104,7 +94,6 @@
                      dataType: "json"//Tipo de datos JSON
                    })
          }, 5 * 1000);
-
        }
        function addMarker(latLng, map) {
                   var marker = new google.maps.Marker({
@@ -114,8 +103,73 @@
                   });
                   return marker;
              }
-
    </script>
+//NUEVO AUTO INICIO
+	 <script>
+<?php include_once 'database22.php' ?>
+var lat2 = "<?php echo $Lat2; ?>";
+var lon2 = "<?php echo $Long2; ?>";
+var myPath2 = [];
+var image2 = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/64/truck-front-02-48.png';
+	function initMap() {
+		var myLatLng2 = {lat: parseFloat(lat), lng: parseFloat(lon)};
+		 var myOptions2 = {
+				 zoom: 16,
+				 center: myLatLng2,
+				 panControl: true,
+				 zoomControl: true,
+				 scaleControl: true,
+				 mapTypeId: google.maps.MapTypeId.ROADMAP
+		 }
+		// Create map object with options
+		map2 = new google.maps.Map(document.getElementById("map"), myOptions2);
+		var ID_ST = 0;
+		 var infoWindow = new google.maps.InfoWindow;
+		setInterval(function mapload(){
+					$.ajax({
+								url: "dbcoordenadas2.php",
+								 // data: form_data,
+								success: function(data2)
+								{
+									var json_obj2 = jQuery.parseJSON(JSON.stringify(data2));
+									// Data Treatment in order to obtain the new latlng coordinates.
+									$(jQuery.parseJSON(JSON.stringify(data2))).each(function() {
+										var ID2 = this.ID;
+										var LATITUD2 = this.Latitude;
+										var LONGITUD2 = this.Longitude;
+										if (ID_ST != this.ID) {
+											point2 = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
+											myPath.push(point2);
+											var myPathTotal2 = new google.maps.Polyline({
+												 path: myPath2,
+												 strokeColor: '#2E64FE',
+												 strokeOpacity: 1.0,
+												 strokeWeight: 5
+											});
+											myPathTotal2.setPath(myPath2)
+											myPathTotal.setMap(map2);
+											addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map2);
+											var center = new google.maps.LatLng(LATITUD2, LONGITUD2);
+											map2.panTo(center);
+											ID_ST = this.ID;
+										}
+								 });
+								},
+								dataType: "json"//Tipo de datos JSON
+							})
+		}, 5 * 1000);
+	}
+	function addMarker2(latLng, map2) {
+						 var marker = new google.maps.Marker({
+								 position: latLng,
+								 map: map2,
+								 icon: image
+						 });
+						 return marker;
+				}
+</script>
+
+//NUEVO AUTO FIN
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
@@ -152,39 +206,10 @@
 
 	<!-- Banner -->
 <?php include_once 'database2.php' ?>
+<?php include_once 'database22.php' ?>
       <div id="map"></div>
-			<div id="magicbox">
-											<!-- <?php include_once 'database2.php' ?> -->
-
-											<!-- <?php if ($Lat == 0 and $Long == 0) {
-
-												echo "<p> GPS NO CONECTADO </p>";
-
-											} else {
-
-												print "Último ID: $Id";
-												echo "<br>";
-												echo "<p></p>";
-
-												print "Latitud: $Lat";
-												echo "<br>";
-												echo "<p></p>";
-
-												print "Longitud: $Long";
-												echo "<br>";
-												echo "<p></p>";
-
-												print "Tiempo: $Date";
-
-											}
-											?> -->
-			</div>
-	    	<div id="magicbox2">
-			<p>Último ID: 2</p>
-                	<p>Latitud: 20</p>
-                	<p>Longitud: 20</p>
-                	<p>Tiempo: Hoy</p>
-		</div>  
+			<div id="magicbox"></div>
+	    	<div id="magicbox2"></div>
 
 	<!-- /Banner -->
 
