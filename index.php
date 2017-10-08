@@ -38,7 +38,7 @@
 										})
 								};
 								ajaxCall2(); // To output when the page loads
-								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+								setInterval(ajaxCall2, (5 * 1000));  // x * 1000 to get it in seconds
 				</script>
 
 				<script>
