@@ -104,7 +104,9 @@
                   return marker;
              }
    </script>
-//NUEVO AUTO INICIO
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
+	async defer></script>
+<!-- NUEVO AUTO INICIO -->
 	 <script>
 <?php include_once 'database22.php' ?>
 var lat2 = "<?php echo $Lat2; ?>";
@@ -169,7 +171,7 @@ var image2 = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transp
 				}
 </script>
 
-//NUEVO AUTO FIN
+<!-- NUEVO AUTO FIN -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
