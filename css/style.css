@@ -901,6 +901,19 @@
     left: 125px;
 	}
 
+	#filtercontrols .controls{
+		width: 32ch;
+	}
+
+
+	#datesfilter{
+		float: left;
+	}
+
+	#locationfilter{
+		float: right;
+	}
+
 	.apply{
 		background-color: #e95d3c;
 		color: white;
@@ -1038,4 +1051,3 @@
 	{
 		color: #333 !important;
 	}
-
