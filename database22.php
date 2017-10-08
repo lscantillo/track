@@ -20,6 +20,9 @@
         echo "<br>";
         echo "<p></p>";
         print "Tiempo: $Date2";
+        echo "<br>";
+        echo "<p></p>";
+        print "RPM: $RPM";
       }
 
     ?>
