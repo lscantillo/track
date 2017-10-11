@@ -1,41 +1,194 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Ex Machina by TEMPLATED
+    templated.co @templatedco
+    Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title> Web Tracking </title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" href="./images/syrus.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+	<head>
+		<title>ABCR Design: Tu solución web de rastreo</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&libraries=places&callback=initMap"
+        async defer></script>
 
-  </head>
-  <body>
-    <div class="row main-container middle-xs center-xs">
-      <div class="col-md.8 col-sm-10 col-xs-11 col-lg-7">
-        <div class="box">
-          <div class="card">
-                        <header class="main-header">
-                          <nav class="main-nav">
-                            <a href="index.php" class="nav-link ubuntu">Inicio</a>
-                            <a href="menu.php" class="nav-link ubuntu">Tracking</a>
-                            <a href="historico.php" class="nav-link ubuntu">Historico</a>
-                          </nav>
-                        </header>
-                        <article class="body">
-                          <header class="text-center">
-                            <img src="./images/logo.png" height="200" alt="Logo Devesoft">
-                            <h1 class="red-text ubuntu title tresD">Sistema de Telemetría</h1>
+				<script >
 
-                          </header>
-                        </article>
+								function ajaxCall() {
+										$.ajax({
+												url: "database2.php",
+												success: (function (result) {
+														$("#magicbox").html(result);
+												})
+										})
+								};
+								ajaxCall(); // To output when the page loads
+								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
 
-          </div>
+				</script>
 
+				<!-- <script >
 
-        </div>
-      </div>
-  </div>
+								function ajaxCall() {
+										$.ajax({
+												url: "database2.php",
+												success: (function (result) {
+														$("#load").html(result);
+												})
+										})
+								};
+								ajaxCall(); // To output when the page loads
+								setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
 
+				</script>
 
-  </body>
+<div id="load">
+<?php include_once 'database2.php' ?>
+</div> -->
+
+				<script>
+    <?php include_once 'database2.php' ?>
+     var lat = "<?php echo $Lat; ?>";
+     var lon = "<?php echo $Long; ?>";
+
+     var myPath = [];
+     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+       function initMap() {
+         var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+          var myOptions = {
+              zoom: 16,
+              center: myLatLng,
+              panControl: true,
+              zoomControl: true,
+              scaleControl: true,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+          }
+         // Create map object with options
+         map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+         var ID_ST = 0;
+          var infoWindow = new google.maps.InfoWindow;
+         setInterval(function mapload(){
+               $.ajax({
+                     url: "dbcoordenadas.php",
+                      // data: form_data,
+                     success: function(data)
+                     {
+                       var json_obj = jQuery.parseJSON(JSON.stringify(data));
+                       // Data Treatment in order to obtain the new latlng coordinates.
+                       $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+                         var ID = this.ID;
+                         var LATITUD = this.Latitude;
+                         var LONGITUD = this.Longitude;
+                         if (ID_ST != this.ID) {
+                           point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
+                           myPath.push(point);
+                           var myPathTotal = new google.maps.Polyline({
+                              path: myPath,
+                              strokeColor: '#e95d3c',
+                              strokeOpacity: 1.0,
+                              strokeWeight: 5
+                           });
+                           myPathTotal.setPath(myPath)
+                           myPathTotal.setMap(map);
+                           addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
+                           var center = new google.maps.LatLng(LATITUD, LONGITUD);
+                           map.panTo(center);
+                           ID_ST = this.ID;
+                         }
+                      });
+                     },
+                     dataType: "json"//Tipo de datos JSON
+                   })
+         }, 5 * 1000);
+
+       }
+       function addMarker(latLng, map) {
+                  var marker = new google.maps.Marker({
+                      position: latLng,
+                      map: map,
+                      icon: image
+                  });
+                  return marker;
+             }
+
+   </script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+
+	</head>
+	<body class="homepage">
+
+	<!-- Header -->
+		<div id="header">
+			<div class="container">
+
+				<!-- Logo -->
+					<div id="logo">
+						<h1><a href="index.php">a b c r design</a></h1>
+					</div>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li class="active"><a href="index.php">Rastreo</a></li>
+							<li><a href="historico.php">Histórico</a></li>
+						</ul>
+					</nav>
+
+			</div>
+		</div>
+	<!-- Header -->
+
+	<!-- Banner -->
+<?php include_once 'database2.php' ?>
+      <div id="map"></div>
+			<div id="magicbox">
+											<!-- <?php include_once 'database2.php' ?> -->
+
+											<!-- <?php if ($Lat == 0 and $Long == 0) {
+
+												echo "<p> GPS NO CONECTADO </p>";
+
+											} else {
+
+												print "Último ID: $Id";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Latitud: $Lat";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Longitud: $Long";
+												echo "<br>";
+												echo "<p></p>";
+
+												print "Tiempo: $Date";
+
+											}
+											?> -->
+			</div>
+	    	<div id="magicbox2">
+			<p>Último ID: 2</p>
+                	<p>Latitud: 20</p>
+                	<p>Longitud: 20</p>
+                	<p>Tiempo: Hoy</p>
+		</div>  
+
+	<!-- /Banner -->
+
+	<!-- Main -->
+
+	</body>
 </html>
