@@ -149,12 +149,12 @@
     <!-- Header -->
 
     <!-- Banner -->
-<?php include_once 'database2.php' ?>
+
 	    
       <div id="map"></div>
             <div id="magicbox">
             </div>
-<?php include_once 'database22.php' ?>
+
             <div id="magicbox2">
             </div>  
 
