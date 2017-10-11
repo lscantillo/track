@@ -48,7 +48,7 @@
                 </script>
 
                 <script>
-    // <?php include_once 'database2.php' ?>
+    
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
 
