@@ -56,6 +56,7 @@
      var lon = "<?php echo $Long; ?>";
 
      var myPath = [];
+     var myPath2 = [];
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
      var image2 = 'https://i.imgur.com/FGEuaWh.png';
        function initMap() {
@@ -120,15 +121,15 @@
                          var LONGITUD2 = this.Longitude;
                          if (ID_ST != this.ID2) {
                            point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
-                           myPath.push(point2);
-                           var myPathTotal = new google.maps.Polyline({
-                              path: myPath,
+                           myPath2.push(point2);
+                           var myPathTotal2 = new google.maps.Polyline({
+                              path: myPath2,
                               strokeColor: '#000',
                               strokeOpacity: 1.0,
                               strokeWeight: 5
                            });
-                           myPathTotal.setPath(myPath)
-                           myPathTotal.setMap(map);
+                           myPathTotal2.setPath(myPath2)
+                           myPathTotal2.setMap(map);
                            addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map);
                            ID_ST = this.ID2;
                          }
