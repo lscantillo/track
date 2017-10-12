@@ -22,9 +22,9 @@
             $Lat2 = $row['Latitude'];
             $Long2 = $row['Longitude'];
             $DateTime2=$row['DateTime'];
-            //$Time=$row['Time'];
+            $RPM=$row['RPM'];
     	}
-        $answer = [$Id2,$Lat2,$Long2,$DateTime2];
+        $answer = [$Id2,$Lat2,$Long2,$DateTime2,$RPM];
         return $answer;
     }
     function suscintquery ($fstdt,$scnddt,$place){
