@@ -48,15 +48,16 @@
                 </script>
 
                 <script>
-	<?php	
-	ob_start();
+  <?php 
+  ob_start();
      include_once 'database2.php'; 
-	$output = ob_end_clean(); ?>
+  $output = ob_end_clean(); ?>
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
 
      var myPath = [];
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
+     var image2 = 'https://i.imgur.com/FGEuaWh.png';
        function initMap() {
          // var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
           var myOptions = {
@@ -71,6 +72,7 @@
          map = new google.maps.Map(document.getElementById("map"), myOptions);
 
          var ID_ST = 0;
+         var ID_ST2 = 0;
           var infoWindow = new google.maps.InfoWindow;
          setInterval(function mapload(){
                $.ajax({
@@ -104,6 +106,36 @@
                      },
                      dataType: "json"//Tipo de datos JSON
                    })
+
+             $.ajax({
+                     url: "dbcoordenadas2.php",
+                      // data: form_data,
+                     success: function(data)
+                     {
+                       var json_obj = jQuery.parseJSON(JSON.stringify(data));
+                       // Data Treatment in order to obtain the new latlng coordinates.
+                       $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+                         var ID2 = this.ID;
+                         var LATITUD2 = this.Latitude;
+                         var LONGITUD2 = this.Longitude;
+                         if (ID_ST != this.ID2) {
+                           point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
+                           myPath.push(point2);
+                           var myPathTotal = new google.maps.Polyline({
+                              path: myPath,
+                              strokeColor: '#000',
+                              strokeOpacity: 1.0,
+                              strokeWeight: 5
+                           });
+                           myPathTotal.setPath(myPath)
+                           myPathTotal.setMap(map);
+                           addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map);
+                           ID_ST = this.ID2;
+                         }
+                      });
+                     },
+                     dataType: "json"//Tipo de datos JSON
+                   })
          }, 5 * 1000);
 
        }
@@ -115,6 +147,14 @@
                   });
                   return marker;
              }
+     function addMarker2(latLng, map) {
+          var marker = new google.maps.Marker({
+              position: latLng,
+              map: map,
+              icon: image2
+          });
+          return marker;
+     }
 
    </script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -153,7 +193,7 @@
 
     <!-- Banner -->
 
-	    
+      
       <div id="map"></div>
             <div id="magicbox">
             </div>
