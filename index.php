@@ -99,8 +99,8 @@
                            myPathTotal.setPath(myPath)
                            myPathTotal.setMap(map);
                            addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
-                           var center = new google.maps.LatLng(LATITUD, LONGITUD);
-                           map.panTo(center);
+                           // var center = new google.maps.LatLng(LATITUD, LONGITUD);
+                           // map.panTo(center);
                            ID_ST = this.ID;
                          }
                       });
