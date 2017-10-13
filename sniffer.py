@@ -39,7 +39,7 @@ def main():
                     print("Event " + str(startid1) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
                     datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
                     print("It was triggered at time " + datetime + " by: App")
-                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid2, lat, lon, datetime))
+                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid1, lat, lon, datetime))
                     db.commit()
                 if itIs == 2:
                     startid2 = startid2 + 1
