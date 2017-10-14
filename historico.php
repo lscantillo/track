@@ -87,8 +87,8 @@
             </div>
             <div id="locationfilter">
                 <input type="text" name="plc" id='plc' placeholder="Filtrar por ubicación (opcional)" class="controls"><br>
-                Camión Naranja <input type="checkbox" name="just1" class="radio" value="1" checked>
-                Camión Negro <input type="checkbox" name="just2" class="radio" value="2" checked>
+                Camión Naranja <input type="checkbox" name="orng" value="true" checked>
+                Camión Negro <input type="checkbox" name="blck" value="true" checked>
                 <input type="submit" class= "apply" name="submit" value="Aplicar">
             </div>
         </form>
