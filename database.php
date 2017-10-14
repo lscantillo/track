@@ -34,8 +34,8 @@
         return $answer;
     }
 
-    function suscintquery ($fstdt,$scnddt,$place){
-        $query="SELECT * FROM locations";
+    function suscintquery ($lctn,$fstdt,$scnddt,$place){
+        $query="SELECT * FROM ".$lctn;
         $ybg="";
         $yen="";
         $plc="";
