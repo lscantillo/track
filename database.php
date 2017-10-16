@@ -35,7 +35,7 @@
     }
 
     function suscintquery ($lctn,$fstdt,$scnddt,$place){
-        $query="SELECT * FROM ".$lctn;
+        $query="SELECT * FROM .$lctn";
         $ybg="";
         $yen="";
         $plc="";
