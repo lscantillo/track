@@ -11,39 +11,22 @@
   }
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
-  //$query=suscintquery($_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
+  $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
 
-  //$result = mysqli_query($conn, $query);
+  $result = mysqli_query($conn, $query);
 
  $hist=[];
 //$hist= array();
-
-if ($_POST['orng']){
-  $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
-  $hist=asking($conn, $query, $hist);
-  echo json_encode($hist);
-}
-if ($_POST['blck']){
-  $query=suscintquery("locations2",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
-  $hist=asking($conn, $query, $hist);
-  echo json_encode($hist);
-}
-
-function asking ($conn, $query, $hist){
-  $result = mysqli_query($conn, $query);
-                //$hist= array();
   while($row = mysqli_fetch_array($result))
   {
-    $Id = $row['ID'];
-    $Lat = $row['Latitude'];
-    $Long = $row['Longitude'];
-    $hist[]=$row;
+      $Id = $row['ID'];
+      $Lat = $row['Latitude'];
+      $Long = $row['Longitude'];
+      $hist[]=$row;
+
   }
 
-  return $hist;
-}
-
  // $markers= json_encode($hist);
-// echo json_encode($hist);
+ echo json_encode($hist);
 
 ?>
