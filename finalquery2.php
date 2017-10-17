@@ -13,6 +13,8 @@
   mysqli_select_db($conn, "designlocations");
 
   $hist=[];
+  $hist2=[];
+
 
   if ($_POST['orng']){
     $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
@@ -22,7 +24,7 @@
 
   else($_POST['blck']){
     $query=suscintquery("locations2",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
-    $hist=asking($conn, $query, $hist);   
+    $hist2=asking($conn, $query, $hist2);   
     
   }
 
