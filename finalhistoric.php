@@ -85,35 +85,33 @@
                        icon: image,
                        infoWindowIndex: id
                    });
+       var content = '<div id="Marker_Time">' +
+      '<h6>' + 'Información' + '</h6>' +
+      '<p>' + time + '</p>' + '</div>'; 
+          var infoWindow = new google.maps.InfoWindow({
+          content: content
+                  });
+          google.maps.event.addListener(marker, 'click',
+          function(event) {
+                  infoWindow.open(map, marker);
+                  // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
+                }
+          ); 
+              infoWindows.push(infoWindow);
+              markers.push(marker);
+              return marker;
+
                  }
-        function addMarker2(latLng,time,id,rpm, map) {
+          function addMarker2(latLng,time,id,rpm, map) {
                    var marker2 = new google.maps.Marker({
                        position: latLng,
                        map: map,
                        icon: image,
                        infoWindowIndex: id
                    });
-                 }
-                  // markers.push(marker);
-
-                  var content = '<div id="Marker_Time">' +
-      '<h6>' + 'Información' + '</h6>' +
-      '<p>' + time + '</p>' + '</div>';
-
       var content2 = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
       '<p>' + time2 + '</p>' +'<p>' + rpm +'</p>' + '</div>' ;
-
-
-    var infoWindow = new google.maps.InfoWindow({
-      content: content
-    });
-                  google.maps.event.addListener(marker, 'click',
-                function(event) {
-                  infoWindow.open(map, marker);
-                  // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
-                }
-    );
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
@@ -122,15 +120,14 @@
                   infoWindow.open(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
-    );
+    );   
+        infoWindows2.push(infoWindow2)
+    markers2.push(marker2);
+                   return marker2;              
+                 }
+                  // markers.push(marker);
 
-    infoWindows.push(infoWindow);
-    infoWindows2.push(infoWindow2)
-    markers.push(marker);
-                   return marker;
-    markers2.push(marker);
-                   return marker;
-              
+             
         dtpicker='<?=$_POST['datetimepicker']?>';
         dtpicker2='<?=$_POST['datetimepicker2']?>';
         plc='<?=$_POST['plc']?>';
@@ -146,7 +143,6 @@
                  },
                 success: function(hist,hist2)
                 {
-
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     initMap();
                     INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
