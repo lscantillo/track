@@ -53,6 +53,9 @@
     </div>
     <script>
       $(document).ready(function() {
+     ob_start();
+     include_once 'database2.php2';
+     $output= obd_end_clean();
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
     var lon = "<?php echo $Long; ?>";
@@ -106,7 +109,7 @@
       //  $(document).ready(function() {
           $.ajax({
                  type: 'POST',
-                 url: "finalquery.php",
+                 url: "finalquery2.php",
                  data: {
                    datetimepicker: dtpicker,
                    datetimepicker2: dtpicker2,
