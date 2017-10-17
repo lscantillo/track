@@ -55,9 +55,7 @@
     <script>
       $(document).ready(function() {     
      
-    <!--var id = "<?php echo $Id; ?>";-->
-    <!--var lat = "<?php echo $Lat; ?>";-->
-    <!--var lon = "<?php echo $Long; ?>";-->
+    
     var lat = "48.85809";
     var lon = "2.294694";
     var myPath = [];
