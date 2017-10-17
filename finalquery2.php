@@ -17,18 +17,17 @@
   if ($_POST['orng']){
     $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
     $hist=asking($conn, $query, $hist);    
-    echo json_encode($hist);
-
+    ;
   }
 
-  if ($_POST['blck']){
+  else($_POST['blck']){
     $query=suscintquery("locations2",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
     $hist=asking($conn, $query, $hist);   
-    echo json_encode($hist);
-
+    
   }
 
   // $markers= json_encode($hist);
+  echo json_encode($hist);
   $historico=json_encode($hist);
 
   function asking ($conn, $query, $hist){
