@@ -141,7 +141,7 @@
                    datetimepicker2: dtpicker2,
                    plc: plc
                  },
-                success: function(hist,hist2)
+                success: function(hist)
                 {
                     var json_hist = jQuery.parseJSON(JSON.stringify(hist));
                     initMap();
@@ -164,6 +164,20 @@
                       myPathTotal2.setMap(map);
                       addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                         });
+                },
+                dataType: "json"//set to JSON
+              })
+
+          $.ajax({
+                 type: 'POST',
+                 url: "finalquery2.php",
+                 data: {
+                   datetimepicker: dtpicker,
+                   datetimepicker2: dtpicker2,
+                   plc: plc
+                 },
+                success: function(hist2)
+                {
                     var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
                     initMap();
                     INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
@@ -186,9 +200,9 @@
                       myPathTotal2b.setMap(map);
                       addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
                     });
-                },
-                dataType: "json"//set to JSON
-              })
+                  }
+                  dataType: "json"
+                  })
     });
     </script>
 
