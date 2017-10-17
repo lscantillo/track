@@ -54,7 +54,7 @@
     <script>
       $(document).ready(function() {
      ob_start();
-     include_once 'database2.php2';
+     include_once 'database2.php';
      $output= obd_end_clean();
     var id = "<?php echo $Id; ?>";
     var lat = "<?php echo $Lat; ?>";
