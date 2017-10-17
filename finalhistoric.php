@@ -102,7 +102,7 @@
 
       var content2 = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
-      '<p>' + time2 + '</p>' +'<p>' + rpm +'</p>' + '</div>' +
+      '<p>' + time2 + '</p>' +'<p>' + rpm +'</p>' + '</div>' ;
 
 
     var infoWindow = new google.maps.InfoWindow({
