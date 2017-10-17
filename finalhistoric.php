@@ -86,7 +86,7 @@
                        infoWindowIndex: id
                    });
                  }
-        function addMarker2(latLng,time,id,rpm map) {
+        function addMarker2(latLng,time,id,rpm, map) {
                    var marker2 = new google.maps.Marker({
                        position: latLng,
                        map: map,
