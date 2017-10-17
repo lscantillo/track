@@ -156,28 +156,7 @@
               addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                 });
         
-            var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-
-            INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
-            INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
-            $(json_hist2).each(function() {
-              var ID2 = this.ID;
-              var LATITUDE2 = this.Latitude;
-              var LONGITUDE2 = this.Longitude;
-              var TIME2 =this.DateTime;
-              var rpm = this.RPM;
-              myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
-              myPath2.push(myCoord2b);
-              var myPathTotal2b = new google.maps.Polyline({
-                path: myPath,
-                strokeColor: '#000',
-                strokeOpacity: 1.0,
-                strokeWeight: 5
-              });
-              myPathTotal2b.setPath(myPath)
-              myPathTotal2b.setMap(map);
-              addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
-            })
+           
           </script>
 
 
