@@ -100,7 +100,6 @@
               infoWindows.push(infoWindow);
               markers.push(marker);
               return marker;
-
                  }
           function addMarker2(latLng,time,id,rpm, map) {
                    var marker2 = new google.maps.Marker({
@@ -126,85 +125,60 @@
                    return marker2;              
                  }
                   // markers.push(marker);
-
              
-        dtpicker='<?=$_POST['datetimepicker']?>';
-        dtpicker2='<?=$_POST['datetimepicker2']?>';
-        plc='<?=$_POST['plc']?>';
   //  setInterval(function mapload(){
       //  $(document).ready(function() {
-          $.ajax({
-                 type: 'POST',
-                 url: "finalquery2.php",
-                 data: {
-                   datetimepicker: dtpicker,
-                   datetimepicker2: dtpicker2,
-                   plc: plc
-                 },
-                success: function(hist)
-                {
-                    var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-                    initMap();
-                    INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
-                    INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
-                    $(json_hist).each(function() {
-                      var ID = this.ID;
-                      var LATITUDE = this.Latitude;
-                      var LONGITUDE = this.Longitude;
-                      var TIME=this.DateTime;
-                      myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
-                      myPath.push(myCoord2);
-                      var myPathTotal2 = new google.maps.Polyline({
-                        path: myPath,
-                        strokeColor: '#e95d3c',
-                        strokeOpacity: 1.0,
-                        strokeWeight: 5
-                      });
-                      myPathTotal2.setPath(myPath)
-                      myPathTotal2.setMap(map);
-                      addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
-                        });
-                },
-                dataType: "json"//set to JSON
-              })
 
-          $.ajax({
-                 type: 'POST',
-                 url: "finalquery2.php",
-                 data: {
-                   datetimepicker: dtpicker,
-                   datetimepicker2: dtpicker2,
-                   plc: plc
-                 },
-                success: function(hist2)
-                {
-                    var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-                    initMap();
-                    INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
-                    INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
-                    $(json_hist2).each(function() {
-                      var ID2 = this.ID;
-                      var LATITUDE2 = this.Latitude;
-                      var LONGITUDE2 = this.Longitude;
-                      var TIME2 =this.DateTime;
-                      var rpm = this.RPM;
-                      myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
-                      myPath2.push(myCoord2b);
-                      var myPathTotal2b = new google.maps.Polyline({
-                        path: myPath,
-                        strokeColor: '#000',
-                        strokeOpacity: 1.0,
-                        strokeWeight: 5
-                      });
-                      myPathTotal2b.setPath(myPath)
-                      myPathTotal2b.setMap(map);
-                      addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
-                    });
-                  },
-                  dataType: "json"
-                  })
-    });
-    </script>
+  <?php 
+  ob_start();
+     include_once 'finalquery2.php'; 
+  $output = ob_end_clean(); ?>
+
+            var json_hist = jQuery.parseJSON(JSON.stringify(hist));
+
+            INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
+            INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
+            $(json_hist).each(function() {
+              var ID = this.ID;
+              var LATITUDE = this.Latitude;
+              var LONGITUDE = this.Longitude;
+              var TIME=this.DateTime;
+              myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
+              myPath.push(myCoord2);
+              var myPathTotal2 = new google.maps.Polyline({
+                path: myPath,
+                strokeColor: '#e95d3c',
+                strokeOpacity: 1.0,
+                strokeWeight: 5
+              });
+              myPathTotal2.setPath(myPath)
+              myPathTotal2.setMap(map);
+              addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
+                });
+        
+            var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
+
+            INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
+            INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
+            $(json_hist2).each(function() {
+              var ID2 = this.ID;
+              var LATITUDE2 = this.Latitude;
+              var LONGITUDE2 = this.Longitude;
+              var TIME2 =this.DateTime;
+              var rpm = this.RPM;
+              myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
+              myPath2.push(myCoord2b);
+              var myPathTotal2b = new google.maps.Polyline({
+                path: myPath,
+                strokeColor: '#000',
+                strokeOpacity: 1.0,
+                strokeWeight: 5
+              });
+              myPathTotal2b.setPath(myPath)
+              myPathTotal2b.setMap(map);
+              addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
+            });
+
 
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
