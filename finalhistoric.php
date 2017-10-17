@@ -155,7 +155,7 @@
                       var ID = this.ID;
                       var LATITUDE = this.Latitude;
                       var LONGITUDE = this.Longitude;
-                      var TIME=this.DateTime
+                      var TIME=this.DateTime;
                       myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
                       myPath.push(myCoord2);
                       var myPathTotal2 = new google.maps.Polyline({
@@ -167,7 +167,7 @@
                       myPathTotal2.setPath(myPath)
                       myPathTotal2.setMap(map);
                       addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
-
+                        });
                     var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
                     initMap();
                     INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
