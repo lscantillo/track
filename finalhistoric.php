@@ -178,6 +178,7 @@
               myPathTotal2b.setMap(map);
               addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
             });
+          </script>
 
 
     <script async defer
