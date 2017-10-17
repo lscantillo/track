@@ -51,26 +51,24 @@
               </form>
 
     </div>
-    <?php 
-     ob_start();
-     include_once 'database2.php';
-     $output= obd_end_clean();
-     ?>
+   
     <script>
       $(document).ready(function() {     
      
-    var id = "<?php echo $Id; ?>";
-    var lat = "<?php echo $Lat; ?>";
-    var lon = "<?php echo $Long; ?>";
+    <!--var id = "<?php echo $Id; ?>";-->
+    <!--var lat = "<?php echo $Lat; ?>";-->
+    <!--var lon = "<?php echo $Long; ?>";-->
+    var lat = "48.85809";
+    var lon = "2.294694";
     var myPath = [];
     infoWindows = Array();
     markers = Array();
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     function initMap() {
-            var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+             
              var myOptions = {
                  zoom: 16,
-                 center: myLatLng,
+                 center: new google.maps.LatLng(parseFloat(lat),parseFloat(lon)),
                  panControl: true,
                  zoomControl: true,
                  scaleControl: true,
