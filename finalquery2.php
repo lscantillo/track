@@ -18,6 +18,7 @@
     $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
     $hist=asking($conn, $query, $hist);
     $historico=json_encode($hist);
+    echo json_encode($hist);
 
   }
 
@@ -25,6 +26,7 @@
     $query=suscintquery("locations2",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
     $hist=asking($conn, $query, $hist);
     $historico=json_encode($hist);
+    echo json_encode($hist);
 
   }
 
