@@ -106,7 +106,7 @@
       //  $(document).ready(function() {
           $.ajax({
                  type: 'POST',
-                 url: "finalquery.php",
+                 url: "finalquery2.php",
                  data: {
                    datetimepicker: dtpicker,
                    datetimepicker2: dtpicker2,
