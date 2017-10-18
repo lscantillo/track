@@ -162,18 +162,10 @@
                   });
             }else{
               var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-              if (json_hist2[json_hist2.length - 1] != undefined) {
+            
                 INIT_LAT =parseFloat(json_hist2[json_hist2.length - 1].Latitude) ;
                 INIT_LON =parseFloat(json_hist2[json_hist2.length - 1].Longitude);
 
-              }else {
-                INIT_LAT =0.0;
-                INIT_LON =0.0;
-                function myFunction() {
-                alert("Hello\nHow are you?");
-                      }
-                      myFunction();
-              }
 
 
             }
