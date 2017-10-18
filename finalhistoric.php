@@ -124,10 +124,7 @@
     markers2.push(marker2);
                    return marker2;              
                  }
-                  // markers.push(marker);
-             
-  //  setInterval(function mapload(){
-      //  $(document).ready(function() {
+      });
 
   <?php 
   ob_start();
