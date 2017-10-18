@@ -20,7 +20,7 @@
 
     <title>ABCR Design: Filtrado histórico</title>
   </head>
-    
+
   <body>
    <div id="header">
       <div class="container">
@@ -51,11 +51,10 @@
               </form>
 
     </div>
-   
+
     <script>
-      $(document).ready(function() {     
-     
-    
+    //  $(document).ready(function() {
+
     var lat = "48.85809";
     var lon = "2.294694";
     var myPath = [];
@@ -67,7 +66,7 @@
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     var image2 = 'https://i.imgur.com/FGEuaWh.png';
     function initMap() {
-             
+
              var myOptions = {
                  zoom: 16,
                  center: new google.maps.LatLng(parseFloat(lat),parseFloat(lon)),
@@ -87,7 +86,7 @@
                    });
        var content = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
-      '<p>' + time + '</p>' + '</div>'; 
+      '<p>' + time + '</p>' + '</div>';
           var infoWindow = new google.maps.InfoWindow({
           content: content
                   });
@@ -96,7 +95,7 @@
                   infoWindow.open(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
-          ); 
+          );
               infoWindows.push(infoWindow);
               markers.push(marker);
               return marker;
@@ -119,23 +118,22 @@
                   infoWindow.open(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
-    );   
+    );
         infoWindows2.push(infoWindow2)
     markers2.push(marker2);
-                   return marker2;              
+                   return marker2;
                  }
-      });
-
-  <?php 
-  ob_start();
-     include_once 'finalquery2.php'; 
-  $output = ob_end_clean(); ?>
+    //  });
+            <?php
+            ob_start();
+               include_once 'finalquery2.php';
+            $output = ob_end_clean(); ?>
             var myPath = [];
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
-            var hist2 = <?php echo json_encode($hist2); ?>;    
+            var hist2 = <?php echo json_encode($hist2); ?>;
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-            //initMap();
+            initMap();
             INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
             INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
             $(json_hist).each(function() {
@@ -156,9 +154,9 @@
               myPathTotal2.setMap(map);
               addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                 });
-              
+
              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-             //initMap();
+             initMap();
             INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
             INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
             $(json_hist2).each(function() {
@@ -176,12 +174,11 @@
                 strokeOpacity: 1.0,
                 strokeWeight: 5
               });
-
               myPathTotal2b.setPath(myPath)
               myPathTotal2b.setMap(map);
               addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
-            });         
-           
+            });
+
           </script>
 
 
