@@ -119,7 +119,7 @@
     });
                   google.maps.event.addListener(marker2, 'click',
                 function(event) {
-                  infoWindow2.open(map, marker);
+                  infoWindow2.open(map, marker2);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
     );
