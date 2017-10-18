@@ -66,10 +66,10 @@
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     var image2 = 'https://i.imgur.com/FGEuaWh.png';
     function initMap() {
-
+             var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
              var myOptions = {
                  zoom: 16,
-                 center: new google.maps.LatLng(parseFloat(lat),parseFloat(lon)),
+                 center: myLatLng,
                  panControl: true,
                  zoomControl: true,
                  scaleControl: true,
@@ -132,10 +132,10 @@
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;
-            var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-            initMap();
+            var json_hist = jQuery.parseJSON(JSON.stringify(hist));            
             INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
             INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
+            initMap();
             $(json_hist).each(function() {
               var ID = this.ID;
               var LATITUDE = this.Latitude;
@@ -156,7 +156,7 @@
                 });
 
              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-             initMap();
+             //initMap();
             INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
             INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
             $(json_hist2).each(function() {
