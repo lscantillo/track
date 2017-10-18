@@ -133,7 +133,7 @@
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;    
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-
+            initMap();
             INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
             INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
             $(json_hist).each(function() {
@@ -155,6 +155,7 @@
                 });
               
              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
+             initMap();
             INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
             INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
             $(json_hist2).each(function() {
