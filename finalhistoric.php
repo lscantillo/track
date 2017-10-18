@@ -112,7 +112,7 @@
                    });
       var content2 = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
-      '<p>' + time + '</p>' +'<p>' + 'RPM: 'rpm +'</p>' + '</div>' ;
+       '<p>' + time + '</p>' +'<p>' + 'RPM: '+ rpm +'</p>' + '</div>' ;
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
