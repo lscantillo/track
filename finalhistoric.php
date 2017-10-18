@@ -53,7 +53,7 @@
     </div>
 
     <script>
-      $(document).ready(function() {
+      //$(document).ready(function() {
 
     var lat = "48.85809";
     var lon = "2.294694";
@@ -123,7 +123,7 @@
     markers2.push(marker2);
                    return marker2;
                  }
-      });
+     // });
             <?php
             ob_start();
                include_once 'finalquery2.php';
