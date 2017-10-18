@@ -133,7 +133,7 @@
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;    
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-            initMap();
+            //initMap();
             INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
             INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
             $(json_hist).each(function() {
@@ -141,7 +141,8 @@
               var LATITUDE = this.Latitude;
               var LONGITUDE = this.Longitude;
               var TIME=this.DateTime;
-              myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
+              var myCoord2 = {lat:  parseFloat(LATITUDE), lng: parseFloat(LONGITUDE)};
+              //myCoord2 = new google.maps.LatLng(parseFloat(LATITUDE), parseFloat(LONGITUDE));
               myPath.push(myCoord2);
               var myPathTotal2 = new google.maps.Polyline({
                 path: myPath,
@@ -155,7 +156,7 @@
                 });
               
              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-             initMap();
+             //initMap();
             INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
             INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
             $(json_hist2).each(function() {
@@ -164,7 +165,8 @@
               var LONGITUDE2 = this.Longitude;
               var TIME2 =this.DateTime;
               var rpm = this.RPM;
-              myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
+              var myCoord2b = {lat:  parseFloat(LATITUDE2), lng: parseFloat(LONGITUDE2)};
+              //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
               myPath2.push(myCoord2b);
               var myPathTotal2b = new google.maps.Polyline({
                 path: myPath,
