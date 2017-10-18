@@ -108,7 +108,7 @@
                    var marker2 = new google.maps.Marker({
                        position: latLng,
                        map: map,
-                       icon: image,
+                       icon: image2,
                        infoWindowIndex: id
                    });
       var content2 = '<div id="Marker_Time">' +
