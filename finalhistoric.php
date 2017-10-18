@@ -113,7 +113,7 @@
                    });
       var content2 = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
-      '<p>' + time2 + '</p>' +'<p>' + rpm +'</p>' + '</div>' ;
+      '<p>' + time + '</p>' +'<p>' + rpm +'</p>' + '</div>' ;
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
@@ -173,12 +173,12 @@
               //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
               myPath2.push(myCoord2b);
               var myPathTotal2b = new google.maps.Polyline({
-                path: myPath,
+                path: myPath2,
                 strokeColor: '#000',
                 strokeOpacity: 1.0,
                 strokeWeight: 5
               });
-              myPathTotal2b.setPath(myPath)
+              myPathTotal2b.setPath(myPath2)
               myPathTotal2b.setMap(map);
               addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
             });
