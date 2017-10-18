@@ -130,6 +130,8 @@
   ob_start();
      include_once 'finalquery2.php'; 
   $output = ob_end_clean(); ?>
+            var myPath = [];
+            var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;    
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
