@@ -160,9 +160,11 @@
                 myPathTotal2.setMap(map);
                 addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                   });
-            }else{
-              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
+            }
 
+            if (json_hist[json_hist.length - 1] == undefined) {
+
+              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
                 INIT_LAT =parseFloat(json_hist2[json_hist2.length - 1].Latitude) ;
                 INIT_LON =parseFloat(json_hist2[json_hist2.length - 1].Longitude);
 
