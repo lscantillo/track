@@ -112,7 +112,7 @@
                    });
       var content2 = '<div id="Marker_Time">' +
       '<h6>' + 'Información' + '</h6>' +
-       '<p>' + time + '</p>' +'<p>' + 'RPM: '+ rpm +'</p>' + '</div>' ;
+      '<p>' + time + '</p>' +'<p>' + 'RPM: '+ rpm +'</p>' + '</div>' ;
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
@@ -136,8 +136,9 @@
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
-            if (json_hist[json_hist.length - 1] != undefined) {
 
+
+            if (json_hist[json_hist.length - 1] != undefined) {
               INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
               INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
               initMap();
@@ -159,6 +160,22 @@
                 myPathTotal2.setMap(map);
                 addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                   });
+            }else{
+              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
+              if (json_hist2[json_hist2.length - 1] != undefined) {
+                INIT_LAT =parseFloat(json_hist2[json_hist2.length - 1].Latitude) ;
+                INIT_LON =parseFloat(json_hist2[json_hist2.length - 1].Longitude);
+
+              }else {
+                INIT_LAT =0.0;
+                INIT_LON =0.0;
+                function myFunction() {
+                alert("Hello\nHow are you?");
+                      }
+                      myFunction();
+              }
+
+
             }
 
 
