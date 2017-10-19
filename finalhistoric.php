@@ -70,9 +70,9 @@
     var image2 = 'https://i.imgur.com/FGEuaWh.png';
     function initMap() {
              //var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
-             var myLatLng = {lat: 11.0157807, lng: -74.8473365};
+             var myLatLng = {lat: 11.007671, lng:  -74.828327};
              var myOptions = {
-                 zoom: 18,
+                 zoom: 21,
                  center: myLatLng,
                  panControl: true,
                  zoomControl: true,
@@ -197,3 +197,4 @@
 
   </body>
 </html>
+
