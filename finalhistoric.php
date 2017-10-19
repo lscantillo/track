@@ -69,9 +69,10 @@
     var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
     var image2 = 'https://i.imgur.com/FGEuaWh.png';
     function initMap() {
-             var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
+             //var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
+             var myLatLng = {lat: 11.0157807, lng: -74.8473365};
              var myOptions = {
-                 zoom: 16,
+                 zoom: 18,
                  center: myLatLng,
                  panControl: true,
                  zoomControl: true,
@@ -137,7 +138,7 @@
             var hist2 = <?php echo json_encode($hist2); ?>;
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
 
-
+              initMap();
             if (json_hist[json_hist.length - 1] != undefined) {
               INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
               INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
@@ -162,40 +163,12 @@
                   });
             }
 
-            if (json_hist[json_hist.length - 1] == undefined) {
-
-              var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
-                INIT_LAT =parseFloat(json_hist2[json_hist2.length - 1].Latitude) ;
-                INIT_LON =parseFloat(json_hist2[json_hist2.length - 1].Longitude);
-                initMap();
-                $(json_hist2).each(function() {
-                  var ID2 = this.ID;
-                  var LATITUDE2 = this.Latitude;
-                  var LONGITUDE2 = this.Longitude;
-                  var TIME2 =this.DateTime;
-                  var rpm = this.RPM;
-                  var myCoord2b = {lat:  parseFloat(LATITUDE2), lng: parseFloat(LONGITUDE2)};
-                  //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
-                  myPath2.push(myCoord2b);
-                  var myPathTotal2b = new google.maps.Polyline({
-                    path: myPath2,
-                    strokeColor: '#000',
-                    strokeOpacity: 1.0,
-                    strokeWeight: 5
-                  });
-                  myPathTotal2b.setPath(myPath2)
-                  myPathTotal2b.setMap(map);
-                  addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
-                });
-
-            }
-
             //inicio
             var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
             if (json_hist2[json_hist2.length - 1] != undefined) {
             INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
             INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
-            initMap();
+            //initMap();
            $(json_hist2).each(function() {
              var ID2 = this.ID;
              var LATITUDE2 = this.Latitude;
