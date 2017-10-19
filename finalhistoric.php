@@ -72,7 +72,7 @@
              //var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
              var myLatLng = {lat: 11.009993, lng:  -74.826355};
              var myOptions = {
-                 zoom: 12,
+                 zoom: 14,
                  center: myLatLng,
                  panControl: true,
                  zoomControl: true,
