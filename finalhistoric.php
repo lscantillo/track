@@ -167,15 +167,35 @@
               var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
                 INIT_LAT =parseFloat(json_hist2[json_hist2.length - 1].Latitude) ;
                 INIT_LON =parseFloat(json_hist2[json_hist2.length - 1].Longitude);
+                initMap();
+                $(json_hist2).each(function() {
+                  var ID2 = this.ID;
+                  var LATITUDE2 = this.Latitude;
+                  var LONGITUDE2 = this.Longitude;
+                  var TIME2 =this.DateTime;
+                  var rpm = this.RPM;
+                  var myCoord2b = {lat:  parseFloat(LATITUDE2), lng: parseFloat(LONGITUDE2)};
+                  //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
+                  myPath2.push(myCoord2b);
+                  var myPathTotal2b = new google.maps.Polyline({
+                    path: myPath2,
+                    strokeColor: '#000',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 5
+                  });
+                  myPathTotal2b.setPath(myPath2)
+                  myPathTotal2b.setMap(map);
+                  addMarker2(new google.maps.LatLng(LATITUDE2, LONGITUDE2),TIME2,ID2,rpm, map);
+                });
 
             }
 
             //inicio
             var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
             if (json_hist2[json_hist2.length - 1] != undefined) {
-            //initMap();
-           INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
-           INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
+            INIT_LAT2 = parseFloat(json_hist2[json_hist2.length - 1].Latitude);
+            INIT_LON2 = parseFloat(json_hist2[json_hist2.length - 1].Longitude);
+            initMap();
            $(json_hist2).each(function() {
              var ID2 = this.ID;
              var LATITUDE2 = this.Latitude;
@@ -200,7 +220,6 @@
 
 
           </script>
-
 
 
   </body>
