@@ -211,10 +211,11 @@
           function move2(){
             <?php
             ob_start();
-            include 'database22.php';
+            include_once 'dbcoordenadas2.php';
             $output = ob_end_clean(); ?>
-               var lat2 = "<?php echo $Lat2; ?>";
-               var lon2 = "<?php echo $Long2; ?>";
+              var json2ob = "<?php echo json_encode($data2) ?>";
+               var lat2 = parseFloat(json2ob[0].Latitude);
+               var lon2 = parseFloat(json2ob[0].Longitude);
 
               var div2 = document.getElementById('magicbox2');
               var latlng2 = new google.maps.LatLng(lat2, lon2);
@@ -223,12 +224,13 @@
           function move1(){
             <?php
             ob_start();
-            include_once 'database2.php';
+            include_once 'dbcoordenadas.php';
             $output = ob_end_clean(); ?>
-              var lat = "<?php echo $Lat; ?>";
-              var lon = "<?php echo $Long; ?>";
+              var jsonob = "<?php echo json_encode($data) ?>";
+               var lat1 = parseFloat(jsonob[0].Latitude);
+               var lon1 = parseFloat(jsonob[0].Longitude);
               var div1 = document.getElementById('magicbox');
-              var latlng1 = new google.maps.LatLng(lat, lon);
+              var latlng1 = new google.maps.LatLng(lat1, lon1);
               map.panTo(latlng1)
           };
 
