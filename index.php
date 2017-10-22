@@ -209,7 +209,7 @@
 
        <script>
           function move2(){
-              var vector[] = myPath;
+              var vector= myPath;
               vector.toString();
               document.getElementById("magicbox2").innerHTML = vector;
               var lat2 = parseFloat(myPath[myPath.length - 1].Latitude);
