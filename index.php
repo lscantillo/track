@@ -193,47 +193,35 @@
 
     <!-- /Banner -->
 
-       <script id="xmove">
-      
-          function rmove2(){
-              <?php
-                    ob_start();
-                    include 'dbcoordenadas2.php';
-                    $output = ob_end_clean(); ?>
-              json2ob = <?php echo json_encode($data2) ?>;
-              lat2 = parseFloat(json2ob.Latitude);
-              lon2 = parseFloat(json2ob.Longitude);
-              console.log(lat2)
-              div2 = document.getElementById('magicbox2');
-              latlng2 = new google.maps.LatLng(lat2, lon2);                      
-          };
-          setInterval(rmove2, (5 * 1000));
-          
-          function rmove1(){
-               <?php
-                  ob_start();
-                  include 'dbcoordenadas.php';
-                  $output = ob_end_clean(); ?>
-
-               jsonob = <?php echo json_encode($data) ?>;
-               lat1 = parseFloat(jsonob.Latitude);
-               lon1 = parseFloat(jsonob.Longitude);
-               console.log(lat1)
-               div1 = document.getElementById('magicbox');
-               latlng1 = new google.maps.LatLng(lat1, lon1);
+       <script>
+  
     
-          };
-          setInterval(rmove1, (5 * 1000));
-
-
           function move1(){
-            map.panTo(latlng1);
-          }
-
+            $.ajax({ url:'dbcoordenadas.php',
+                     success: function(result){
+                       jsonob = <?php echo json_encode($data) ?>;
+                       lat1 = parseFloat(jsonob.Latitude);
+                       lon1 = parseFloat(jsonob.Longitude);
+                       console.log(lat1)
+                       div1 = document.getElementById('magicbox');
+                       latlng1 = new google.maps.LatLng(lat1, lon1);
+                       map.panTo(latlng1);
+                     };
+                   });
+          };
           function move2(){
-            map.panTo(latlng2);
-          }          
-
+            $.ajax({ url:'dbcoordenadas.php',
+                     success: function(result){
+                        json2ob = <?php echo json_encode($data2) ?>;
+                        lat2 = parseFloat(json2ob.Latitude);
+                        lon2 = parseFloat(json2ob.Longitude);
+                        console.log(lat2)
+                        div2 = document.getElementById('magicbox2');
+                        latlng2 = new google.maps.LatLng(lat2, lon2); 
+                        map.panTo(latlng2);
+                      };
+                    });
+          };          
           </script>
 
     </body>
