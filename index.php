@@ -16,7 +16,6 @@
         async defer></script>
 
                 <script >
-
                                 function ajaxCall() {
                                         $.ajax({
                                                 url: "database2.php",
@@ -27,13 +26,11 @@
                                 };
                                 ajaxCall(); // To output when the page loads
                                 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
                 </script>
-        
-        
+
+
 
                 <script >
-
                                 function ajaxCall() {
                                         $.ajax({
                                                 url: "database22.php",
@@ -44,17 +41,15 @@
                                 };
                                 ajaxCall(); // To output when the page loads
                                 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
                 </script>
 
                 <script>
-  <?php 
+  <?php
   ob_start();
-     include 'database2.php'; 
+     include 'database2.php';
   $output = ob_end_clean(); ?>
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
-
      var myPath = [];
      var myPath2 = [];
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
@@ -71,7 +66,6 @@
           }
          // Create map object with options
          map = new google.maps.Map(document.getElementById("map"), myOptions);
-
          var ID_ST = 0;
          var ID_ST2 = 0;
           var infoWindow = new google.maps.InfoWindow;
@@ -107,7 +101,6 @@
                      },
                      dataType: "json"//Tipo de datos JSON
                    })
-
              $.ajax({
                      url: "dbcoordenadas2.php",
                       // data: form_data,
@@ -138,7 +131,6 @@
                      dataType: "json"//Tipo de datos JSON
                    })
          }, 5 * 1000);
-
        }
        function addMarker(latLng, map) {
                   var marker = new google.maps.Marker({
@@ -156,7 +148,6 @@
           });
           return marker;
      }
-
    </script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>
@@ -194,41 +185,40 @@
 
     <!-- Banner -->
 
-      
+    <script>
+       function move2(){
+            <?php
+              ob_start();
+             include 'database22.php';
+             $output = ob_end_clean(); ?>
+             var lat2 = "<?php echo $Lat2; ?>";
+             var lon2 = "<?php echo $Long2; ?>";
+           var div2 = document.getElementById('magicbox2');
+           var latlng2 = new google.maps.LatLng(parseFloat(lat2),parseFloat(lon2));
+           map.panTo(latlng2)
+       };
+       function move1(){
+         <?php
+           ob_start();
+          include 'database2.php';
+          $output = ob_end_clean(); ?>
+          var lat = "<?php echo $Lat; ?>";
+          var lon = "<?php echo $Long; ?>";
+           var div1 = document.getElementById('magicbox');
+           var latlng1 = new google.maps.LatLng(parseFloat(lat),parseFloat(lon));
+           map.panTo(latlng1)
+       };
+       </script>
+
+
       <div id="map"></div>
             <div id="magicbox" onclick="move1()">
             </div>
 
             <div id="magicbox2" onclick="move2()">
-            </div>  
+            </div>
 
     <!-- /Banner -->
-
-       <script>
-          function move2(){
-               <?php
-                 ob_start();
-                include 'database22.php';
-                $output = ob_end_clean(); ?>
-                var lat2 = "<?php echo $Lat2; ?>";
-                var lon2 = "<?php echo $Long2; ?>";
-              var div2 = document.getElementById('magicbox2');
-              var latlng2 = new google.maps.LatLng(parseFloat(lat2),parseFloat(lon2));
-              map.panTo(latlng2)
-          }; 
-          function move1(){
-            <?php
-              ob_start();
-             include 'database2.php';
-             $output = ob_end_clean(); ?>
-             var lat = "<?php echo $Lat; ?>";
-             var lon = "<?php echo $Long; ?>";
-              var div1 = document.getElementById('magicbox');
-              var latlng1 = new google.maps.LatLng(parseFloat(lat),parseFloat(lon));
-              map.panTo(latlng1)
-          };
-            
-          </script>   
 
     </body>
 </html>
