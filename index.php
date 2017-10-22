@@ -207,7 +207,7 @@
 
     <!-- /Banner -->
 
-       <!-- <script>
+       <script>
           function move2(){
                <?php
                  ob_start();
@@ -231,7 +231,7 @@
               map.panTo(latlng1)
           };
 
-          </script> -->
+          </script>
 
     </body>
 </html>
