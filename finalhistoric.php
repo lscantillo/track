@@ -94,6 +94,7 @@
           var infoWindow = new google.maps.InfoWindow({
           content: content
                   });
+          infoWindow.setContent(infoWindow.getContent());
           google.maps.event.addListener(marker, 'mouseover',
           function(event) {
                   infoWindow.open(map, marker);
@@ -125,6 +126,7 @@
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
+             infoWindow2.setContent(infoWindow2.getContent());
     google.maps.event.addListener(marker2, 'mouseover',
      function(event) {
                   infoWindow2.open(map, marker2);
