@@ -220,5 +220,30 @@
 
     <!-- /Banner -->
 
+    <script>
+       function move2(){
+            <?php
+              ob_start();
+             include 'database22.php';
+             $output = ob_end_clean(); ?>
+             var lat2 = "<?php echo $Lat2; ?>";
+             var lon2 = "<?php echo $Long2; ?>";
+           var div2 = document.getElementById('magicbox2');
+           var latlng2 = new google.maps.LatLng(parseFloat(lat2),parseFloat(lon2));
+           map.panTo(latlng2)
+       };
+       function move1(){
+         <?php
+           ob_start();
+          include 'database2.php';
+          $output = ob_end_clean(); ?>
+          var lat = "<?php echo $Lat; ?>";
+          var lon = "<?php echo $Long; ?>";
+           var div1 = document.getElementById('magicbox');
+           var latlng1 = new google.maps.LatLng(parseFloat(lat),parseFloat(lon));
+           map.panTo(latlng1)
+       };
+       </script>
+
     </body>
 </html>
