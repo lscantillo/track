@@ -46,7 +46,7 @@
                 <script>
   <?php
   ob_start();
-     include_once 'database2.php';
+     include 'database2.php';
   $output = ob_end_clean(); ?>
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
