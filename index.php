@@ -213,8 +213,8 @@
             ob_start();
             include 'database22.php';
             $output = ob_end_clean(); ?>
-               var lat2 = "<?php echo $Lat; ?>";
-               var lon2 = "<?php echo $Long; ?>";
+               var lat2 = "<?php echo $Lat2; ?>";
+               var lon2 = "<?php echo $Long2; ?>";
 
               var div2 = document.getElementById('magicbox2');
               var latlng2 = new google.maps.LatLng(lat2, lon2);
