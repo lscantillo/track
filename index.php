@@ -44,27 +44,6 @@
                 </script>
 
                 <script>
-                    function ajaxCall() {
-                $.ajax({
-                        beforeSend: function() {
-                          <?php
-                          ob_start();
-                          include 'dbcoordenadas.php';
-                          $output = ob_end_clean(); ?>
-
-                        },
-                        success: (function (result) {
-                                $("#xmove").html(result);
-                        })
-                })
-              };
-              ajaxCall(); // To output when the page loads
-              setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
-                </script>
-
-
-                <script>
   <?php
   ob_start();
      include_once 'database2.php';
@@ -114,14 +93,7 @@
                            myPathTotal.setPath(myPath)
                            myPathTotal.setMap(map);
                            addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
-                           // var center = new google.maps.LatLng(LATITUD, LONGITUD);
-                           // map.panTo(center);
-                          //  function move1(){
-                          //      var div1 = document.getElementById('magicbox');
-                          //      var latlng1 = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
-                          //      map.panTo(latlng)
-                          //  };
-                           ID_ST = this.ID;
+                            ID_ST = this.ID;
                          }
                       });
                      },
@@ -150,11 +122,6 @@
                            myPathTotal2.setPath(myPath2)
                            myPathTotal2.setMap(map);
                            addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map);
-                          //  function move2(){
-                          //      var div2 = document.getElementById('magicbox2');
-                          //      var latlng2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
-                          //      map.panTo(latlng2)
-                          //  };
                            ID_ST = this.ID2;
                          }
                       });
@@ -228,42 +195,47 @@
 
        <script id="xmove">
 
-      //  function rmove2() {
-      //    <?php
-      //    ob_start();
-      //    include 'dbcoordenadas2.php';
-      //    $output = ob_end_clean(); ?>
-      //  }
-      //    setInterval(rmove2, (5 * 1000));
-          function move2(){
-              //rmove2();
-              json2ob = <?php echo json_encode($data2) ?>;
-               var lat2 = parseFloat(json2ob.Latitude);
-               var lon2 = parseFloat(json2ob.Longitude);
-              var div2 = document.getElementById('magicbox2');
-              var latlng2 = new google.maps.LatLng(lat2, lon2);
-              map.panTo(latlng2)
-              delete json2ob;
-          };
+        function rmove2() {
 
-          // function
-          // rmove1() {
-          //   <?php
-          //   ob_start();
-          //   include 'dbcoordenadas.php';
-          //   $output = ob_end_clean(); ?>
-          // }
-          // setInterval(rmove1, (5 * 1000));
-          function move1(){
-               //rmove1();
-               jsonob = <?php echo json_encode($data) ?>;
-               var lat1 = parseFloat(jsonob.Latitude);
-               var lon1 = parseFloat(jsonob.Longitude);
-              var div1 = document.getElementById('magicbox');
-              var latlng1 = new google.maps.LatLng(lat1, lon1);
-              map.panTo(latlng1)
-              delete jsonob;
+        }
+         
+          function rmove2(){
+              <?php
+                    ob_start();
+                    include 'dbcoordenadas2.php';
+                    $output = ob_end_clean(); ?>
+              json2ob = <?php echo json_encode($data2) ?>;
+              lat2 = parseFloat(json2ob.Latitude);
+              lon2 = parseFloat(json2ob.Longitude);
+              div2 = document.getElementById('magicbox2');
+              latlng2 = new google.maps.LatLng(lat2, lon2);                      
           };
+          setInterval(rmove2, (5 * 1000));
+          
+          function rmove1(){
+               <?php
+                  ob_start();
+                  include 'dbcoordenadas.php';
+                  $output = ob_end_clean(); ?>
+
+               jsonob = <?php echo json_encode($data) ?>;
+               lat1 = parseFloat(jsonob.Latitude);
+               lon1 = parseFloat(jsonob.Longitude);
+               div1 = document.getElementById('magicbox');
+               latlng1 = new google.maps.LatLng(lat1, lon1);
+    
+          };
+          setInterval(rmove1, (5 * 1000));
+
+
+          function move1(){
+            map.panTo(latlng1);
+          }
+
+          function move2(){
+            latlong1 = rmove1();
+            map.panTo(latlng2);
+          }          
 
           </script>
 
