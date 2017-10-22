@@ -211,7 +211,7 @@
           function move2(){
             <?php
             ob_start();
-            include_once 'dbcoordenadas2.php';
+            include 'dbcoordenadas2.php';
             $output = ob_end_clean(); ?>
               var json2ob = <?php echo json_encode($data2) ?>;
                var lat2 = parseFloat(json2ob.Latitude);
@@ -224,7 +224,7 @@
           function move1(){
             <?php
             ob_start();
-            include_once 'dbcoordenadas.php';
+            include 'dbcoordenadas.php';
             $output = ob_end_clean(); ?>
               var jsonob = <?php echo json_encode($data) ?>;
                var lat1 = parseFloat(jsonob.Latitude);
