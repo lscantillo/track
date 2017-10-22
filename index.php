@@ -211,7 +211,7 @@
           function move2(){
             <?php
             ob_start();
-            include_once 'database22.php';
+            include 'database22.php';
             $output = ob_end_clean(); ?>
                var lat2 = "<?php echo $Lat; ?>";
                var lon2 = "<?php echo $Long; ?>";
