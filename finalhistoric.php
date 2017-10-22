@@ -94,12 +94,20 @@
           var infoWindow = new google.maps.InfoWindow({
           content: content
                   });
-          google.maps.event.addListener(marker, 'hover',
+          google.maps.event.addListener(marker, 'mouseover',
           function(event) {
                   infoWindow.open(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
           );
+          
+                    google.maps.event.addListener(marker, 'mouseout',
+          function(event) {
+                  infoWindow.close(map, marker);
+                  // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
+                }
+          );
+          
               infoWindows.push(infoWindow);
               markers.push(marker);
               return marker;
@@ -117,12 +125,19 @@
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
     });
-                  google.maps.event.addListener(marker2, 'hover',
-                function(event) {
+    google.maps.event.addListener(marker2, 'mouseover',
+     function(event) {
                   infoWindow2.open(map, marker2);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
     );
+          google.maps.event.addListener(marker2, 'mouseout',
+     function(event) {
+                  infoWindow2.close(map, marker2);
+                  // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
+                }
+    );      
+      
         infoWindows2.push(infoWindow2)
     markers2.push(marker2);
                    return marker2;
