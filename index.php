@@ -209,24 +209,24 @@
 
        <script>
           function move2(){
-              var vector= myPath;
-              vector.toString();
-              //document.getElementById("magicbox2").innerHTML = vector;
-              var lat2 = parseFloat(myPath[myPath.length - 1].Latitude);
-              var lon2 = parseFloat(myPath[myPath.length - 1].Longitude);
-                // var lat2 = "<?php echo $Lat2; ?>";
-                // var lon2 = "<?php echo $Long2; ?>";
+            <?php
+            ob_start();
+            include_once 'database22.php';
+            $output = ob_end_clean(); ?>
+               var lat2 = "<?php echo $Lat; ?>";
+               var lon2 = "<?php echo $Long; ?>";
+
               var div2 = document.getElementById('magicbox2');
               var latlng2 = new google.maps.LatLng(lat2, lon2);
               map.panTo(latlng2)
           };
           function move1(){
-            var vector2= myPath2;
-            vector2.toString();
-              var lat= parseFloat(myPath2[myPath2.length - 1].Latitude);
-              var lon= parseFloat(myPath2[myPath2.length - 1].Longitude);
-              //  var lat = "<?php echo $Lat; ?>";
-              //  var lon = "<?php echo $Long; ?>";
+            <?php
+            ob_start();
+            include_once 'database2.php';
+            $output = ob_end_clean(); ?>
+              var lat = "<?php echo $Lat; ?>";
+              var lon = "<?php echo $Long; ?>";
               var div1 = document.getElementById('magicbox');
               var latlng1 = new google.maps.LatLng(lat, lon);
               map.panTo(latlng1)
