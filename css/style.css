@@ -872,7 +872,6 @@
     	cursor: pointer;
     	}
 
-
     #magicbox:hover{
     	background-color: #f36746;
     }
@@ -924,7 +923,21 @@
 		width: 32ch;
 	}
 
+	#mkst{
+		color: white;
+		background-color: #e95d3c;
+		font-weight: bold;
+    		text-align: center;
+    		line-height: 40%;
+	}
 
+	#mkst2{
+		color: white;
+		background-color: #000;
+		font-weight: bold;
+    		text-align: center;
+    		line-height: 40%;
+	}
 	#datesfilter{
 		float: left;
 	}
