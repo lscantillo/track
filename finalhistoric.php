@@ -88,7 +88,7 @@
                        icon: image,
                        infoWindowIndex: id
                    });
-       var content = '<div id="mkst">' +
+       var content = '<div id="mkst1">' +
       '<p>' + 'Info' + '</p>' +
       '<p>' + time + '</p>' + '</div>';
           var infoWindow = new google.maps.InfoWindow({
@@ -120,7 +120,7 @@
                        icon: image2,
                        infoWindowIndex: id
                    });
-      var content2 = '<div id="mkst2">' +
+      var content2 = '<div id="mkst22">' +
       '<p>' + 'Info' + '</p>' +
       '<p>' + time + '</p>' +'<p>' + 'RPM: '+ rpm +'</p>' + '</div>' ;
     var infoWindow2 = new google.maps.InfoWindow({
