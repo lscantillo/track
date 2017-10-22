@@ -100,7 +100,6 @@
                           //      var latlng1 = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
                           //      map.panTo(latlng)
                           //  };
-
                            ID_ST = this.ID;
                          }
                       });
@@ -135,7 +134,6 @@
                           //      var latlng2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
                           //      map.panTo(latlng2)
                           //  };
-
                            ID_ST = this.ID2;
                          }
                       });
@@ -216,12 +214,12 @@
               json2ob = <?php echo json_encode($data2) ?>;
                var lat2 = parseFloat(json2ob.Latitude);
                var lon2 = parseFloat(json2ob.Longitude);
-
               var div2 = document.getElementById('magicbox2');
               var latlng2 = new google.maps.LatLng(lat2, lon2);
               map.panTo(latlng2)
               delete json2ob;
           };
+          setInterval(move2, (5 * 1000));
           function move1(){
             <?php
             ob_start();
@@ -235,7 +233,7 @@
               map.panTo(latlng1)
               delete jsonob;
           };
-
+          setInterval(move1, (5 * 1000));
           </script>
 
     </body>
