@@ -196,15 +196,26 @@
 
       
       <div id="map"></div>
-            <div id="magicbox">
+            <div id="magicbox" onclick="move1()">
             </div>
 
-            <div id="magicbox2">
+            <div id="magicbox2" onclick="move2()">
             </div>  
 
     <!-- /Banner -->
 
-
+        <script>
+            function move2(){
+                var div2 = document.getElementById('magicbox2');
+                var latlng2 = new google.maps.LatLng(LATITUD2, LONGITUD2);
+                map.panTo(latlng2) 
+            }; 
+            function move1(){
+                var div1 = document.getElementById('magicbox');
+                var latlng1 = new google.maps.LatLng(LATITUD, LONGITUD); 
+                map.panTo(latlng1)
+            };   
+        </script>       
 
     </body>
 </html>
