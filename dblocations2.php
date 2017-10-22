@@ -1,5 +1,4 @@
 <?php
-
     function connection2rds($query)
     {
         $servername = "designlocations.cl8waza61otc.us-east-2.rds.amazonaws.com";
@@ -13,29 +12,23 @@
         }
          #echo "Connected successfully";
         mysqli_select_db($conn, "designlocations");
-
         
         $result = mysqli_query($conn, $query);
         $finfo = mysqli_fetch_field($result);
         mysqli_data_seek($result, 1);
         $row = mysqli_fetch_row($result);
-
         while ($row = mysqli_fetch_array($result)) {
-
             $Id = $row['ID'];
             $Lat = $row['Latitude'];
             $Long = $row['Longitude'];
             $DateTime=$row['DateTime'];
             //$Time=$row['Time'];
     	}
-
         $answer = [$Id,$Lat,$Long,$DateTime];
-
         return $answer;
     }
-
-    function suscintquery ($lctn,$fstdt,$scnddt,$place){
-        $query="SELECT * FROM ".$lctn;
+    function suscintquery ($fstdt,$scnddt,$place){
+        $query="SELECT * FROM locations2";
         $ybg="";
         $yen="";
         $plc="";
@@ -43,7 +36,6 @@
         if(strlen($fstdt)>0){
             $ybg="DateTime >= '".$fstdt;
         }
-
         if(strlen($scnddt)>0){
             $yen="DateTime <= '".$scnddt;
         }
@@ -61,15 +53,11 @@
         if(strlen($ybg)>0){
             $query=whereand($query,$ybg);
         }
-
         if(strlen($yen)>0){
             $query=whereand($query,$yen);
         }
-
         return $query;
-
     }
-
     function whereand($query,$string){
         if(strlen($string)>0){
             if(strlen($query)<26){
@@ -82,7 +70,6 @@
             return $query;
         }
     }
-
     function lookup($string){
  
         $string = str_replace (" ", "+", urlencode($string));
@@ -114,4 +101,3 @@
  
     }
 ?>
-

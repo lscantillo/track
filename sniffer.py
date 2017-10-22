@@ -33,13 +33,14 @@ def main():
             print("Raw data received: " + str(data))
             info = str(data)
             if data:
+                print("Address: " + addr[0] + ". Port: " + str(addr[1]))
                 itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon = getMess(info)
                 if itIs == 1:
                     startid1 = startid1 + 1
-                    print("Event " + str(startid) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
+                    print("Event " + str(startid1) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
                     datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
                     print("It was triggered at time " + datetime + " by: App")
-                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid2, lat, lon, datetime))
+                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid1, lat, lon, datetime))
                     db.commit()
                 if itIs == 2:
                     startid2 = startid2 + 1

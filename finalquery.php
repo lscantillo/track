@@ -12,9 +12,9 @@
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
   $query=suscintquery($_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
-  
+
   $result = mysqli_query($conn, $query);
-  
+
  $hist=[];
 //$hist= array();
   while($row = mysqli_fetch_array($result))
@@ -23,10 +23,10 @@
       $Lat = $row['Latitude'];
       $Long = $row['Longitude'];
       $hist[]=$row;
-   
+
   }
-  
+
  // $markers= json_encode($hist);
  echo json_encode($hist);
-  
+
 ?>

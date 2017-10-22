@@ -16,7 +16,6 @@
         async defer></script>
 
                 <script >
-
                                 function ajaxCall() {
                                         $.ajax({
                                                 url: "database2.php",
@@ -27,13 +26,11 @@
                                 };
                                 ajaxCall(); // To output when the page loads
                                 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
                 </script>
-        
-        
+
+
 
                 <script >
-
                                 function ajaxCall() {
                                         $.ajax({
                                                 url: "database22.php",
@@ -44,17 +41,15 @@
                                 };
                                 ajaxCall(); // To output when the page loads
                                 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
-
                 </script>
 
                 <script>
-  <?php 
+  <?php
   ob_start();
-     include_once 'database2.php'; 
+     include_once 'database2.php';
   $output = ob_end_clean(); ?>
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
-
      var myPath = [];
      var myPath2 = [];
      var image = 'https://cdn0.iconfinder.com/data/icons/isometric-city-basic-transport/48/truck-front-01-48.png';
@@ -71,7 +66,6 @@
           }
          // Create map object with options
          map = new google.maps.Map(document.getElementById("map"), myOptions);
-
          var ID_ST = 0;
          var ID_ST2 = 0;
           var infoWindow = new google.maps.InfoWindow;
@@ -99,15 +93,12 @@
                            myPathTotal.setPath(myPath)
                            myPathTotal.setMap(map);
                            addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
-                           var center = new google.maps.LatLng(LATITUD, LONGITUD);
-                           map.panTo(center);
-                           ID_ST = this.ID;
+                            ID_ST = this.ID;
                          }
                       });
                      },
                      dataType: "json"//Tipo de datos JSON
                    })
-
              $.ajax({
                      url: "dbcoordenadas2.php",
                       // data: form_data,
@@ -138,7 +129,6 @@
                      dataType: "json"//Tipo de datos JSON
                    })
          }, 5 * 1000);
-
        }
        function addMarker(latLng, map) {
                   var marker = new google.maps.Marker({
@@ -156,7 +146,6 @@
           });
           return marker;
      }
-
    </script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/skel.min.js"></script>
@@ -194,17 +183,61 @@
 
     <!-- Banner -->
 
-      
+
       <div id="map"></div>
-            <div id="magicbox">
+            <div id="magicbox" onclick="move1()">
             </div>
 
-            <div id="magicbox2">
-            </div>  
+            <div id="magicbox2" onclick="move2()">
+            </div>
 
     <!-- /Banner -->
 
+       <script id="xmove">
 
+        function rmove2() {
+
+        }
+         
+          function rmove2(){
+              <?php
+                    ob_start();
+                    include 'dbcoordenadas2.php';
+                    $output = ob_end_clean(); ?>
+              json2ob = <?php echo json_encode($data2) ?>;
+              lat2 = parseFloat(json2ob.Latitude);
+              lon2 = parseFloat(json2ob.Longitude);
+              div2 = document.getElementById('magicbox2');
+              latlng2 = new google.maps.LatLng(lat2, lon2);                      
+          };
+          setInterval(rmove2, (5 * 1000));
+          
+          function rmove1(){
+               <?php
+                  ob_start();
+                  include 'dbcoordenadas.php';
+                  $output = ob_end_clean(); ?>
+
+               jsonob = <?php echo json_encode($data) ?>;
+               lat1 = parseFloat(jsonob.Latitude);
+               lon1 = parseFloat(jsonob.Longitude);
+               div1 = document.getElementById('magicbox');
+               latlng1 = new google.maps.LatLng(lat1, lon1);
+    
+          };
+          setInterval(rmove1, (5 * 1000));
+
+
+          function move1(){
+            map.panTo(latlng1);
+          }
+
+          function move2(){
+            latlong1 = rmove1();
+            map.panTo(latlng2);
+          }          
+
+          </script>
 
     </body>
 </html>
