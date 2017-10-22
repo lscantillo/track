@@ -26,7 +26,7 @@
         })
       };
       ajaxCall(); // To output when the page loads
-        setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+        setInterval(ajaxCall, (1 * 1000));  // x * 1000 to get it in seconds
       </script>
 
 
@@ -41,7 +41,7 @@
           })
         };
         ajaxCall(); // To output when the page loads
-        setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+        setInterval(ajaxCall, (1 * 1000));  // x * 1000 to get it in seconds
       </script>
 
 
@@ -197,7 +197,7 @@
             },
             dataType: "json"//Tipo de datos JSON
           })
-        }, 5 * 1000);
+        }, 1 * 1000);
       }
 
       function addMarker(latLng, map) {
