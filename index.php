@@ -250,7 +250,7 @@
        lat1 = parseFloat(jsonob.Latitude);
        lon1 = parseFloat(jsonob.Longitude);
        div1 = document.getElementById('magicbox');
-       lat1=lana;
+       lat1=lata;
        lon1=lona;
        latlng1 = new google.maps.LatLng(lat1, lon1);
      };
