@@ -58,13 +58,7 @@
     </head>
     <body class="homepage">
         
-   <script>     
-    var lata=0;
-    var latb=0;
-    var lona=0;
-    var lonb=0;
-        </script>
-        
+      
 
     <!-- Header -->
         <div id="header">
@@ -100,8 +94,15 @@
     <!-- /Banner -->
         
         
-                    <script>
+ <script>
+  
+    var lata=0;
+    var latb=0;
+    var lona=0;
+    var lonb=0;
+     
   <?php
+     
   ob_start();
      include_once 'database2.php';
   $output = ob_end_clean(); ?>
@@ -208,16 +209,8 @@
           });
           return marker;
      }
-   </script>
-        
-        
-       <script id="xmove">
 
-        function rmove2() {
-
-        }
-         
-          function rmove2(){
+        function rmove2(){
               <?php
                     ob_start();
                     include 'dbcoordenadas2.php';
