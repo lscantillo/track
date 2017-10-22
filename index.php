@@ -209,8 +209,9 @@
 
        <script>
           function move2(){
-              var vector = myPath;
+              var vector[] = myPath;
               vector.toString();
+              document.getElementById("magicbox2").innerHTML = vector;
               var lat2 = parseFloat(myPath[myPath.length - 1].Latitude);
               var lon2 = parseFloat(myPath[myPath.length - 1].Longitude);
                 // var lat2 = "<?php echo $Lat2; ?>";
@@ -230,3 +231,6 @@
           };
 
           </script>
+
+    </body>
+</html>
