@@ -213,7 +213,7 @@
             ob_start();
             include_once 'dbcoordenadas2.php';
             $output = ob_end_clean(); ?>
-              var json2ob = "<?php echo json_encode($data2) ?>";
+              var json2ob = '<?php echo json_encode($data2) ?>';
                var lat2 = parseFloat(json2ob.Latitude);
                var lon2 = parseFloat(json2ob.Longitude);
 
@@ -226,7 +226,7 @@
             ob_start();
             include_once 'dbcoordenadas.php';
             $output = ob_end_clean(); ?>
-              var jsonob = "<?php echo json_encode($data) ?>";
+              var jsonob = '<?php echo json_encode($data) ?>';
                var lat1 = parseFloat(jsonob.Latitude);
                var lon1 = parseFloat(jsonob.Longitude);
               var div1 = document.getElementById('magicbox');
