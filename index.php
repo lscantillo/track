@@ -44,6 +44,27 @@
                 </script>
 
                 <script>
+                    function ajaxCall() {
+                $.ajax({
+                        beforeSend: function() {
+                          <?php
+                          ob_start();
+                          include 'dbcoordenadas.php';
+                          $output = ob_end_clean(); ?>
+
+                        },
+                        success: (function (result) {
+                                $("#xmove").html(result);
+                        })
+                })
+              };
+              ajaxCall(); // To output when the page loads
+              setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
+
+                </script>
+
+
+                <script>
   <?php
   ob_start();
      include_once 'database2.php';
@@ -207,16 +228,16 @@
 
        <script id="xmove">
 
-       function rmove2() {
-         <?php
-         ob_start();
-         include 'dbcoordenadas2.php';
-         $output = ob_end_clean(); ?>
-         return <?php echo json_encode($data) ?>;
-       }
-         
+      //  function rmove2() {
+      //    <?php
+      //    ob_start();
+      //    include 'dbcoordenadas2.php';
+      //    $output = ob_end_clean(); ?>
+      //  }
+      //    setInterval(rmove2, (5 * 1000));
           function move2(){
-              json2ob = rmove2();
+              //rmove2();
+              json2ob = <?php echo json_encode($data2) ?>;
                var lat2 = parseFloat(json2ob.Latitude);
                var lon2 = parseFloat(json2ob.Longitude);
               var div2 = document.getElementById('magicbox2');
@@ -225,16 +246,17 @@
               delete json2ob;
           };
 
-          function rmove1() {
-            <?php
-            ob_start();
-            include 'dbcoordenadas.php';
-            $output = ob_end_clean(); ?>
-            return <?php echo json_encode($data) ?>;
-          }
-
+          // function
+          // rmove1() {
+          //   <?php
+          //   ob_start();
+          //   include 'dbcoordenadas.php';
+          //   $output = ob_end_clean(); ?>
+          // }
+          // setInterval(rmove1, (5 * 1000));
           function move1(){
-               jsonob = move1();
+               //rmove1();
+               jsonob = <?php echo json_encode($data) ?>;
                var lat1 = parseFloat(jsonob.Latitude);
                var lon1 = parseFloat(jsonob.Longitude);
               var div1 = document.getElementById('magicbox');
