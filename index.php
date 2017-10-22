@@ -194,11 +194,7 @@
     <!-- /Banner -->
 
        <script id="xmove">
-
-        function rmove2() {
-
-        }
-         
+      
           function rmove2(){
               <?php
                     ob_start();
@@ -207,6 +203,7 @@
               json2ob = <?php echo json_encode($data2) ?>;
               lat2 = parseFloat(json2ob.Latitude);
               lon2 = parseFloat(json2ob.Longitude);
+              console.log(lat2)
               div2 = document.getElementById('magicbox2');
               latlng2 = new google.maps.LatLng(lat2, lon2);                      
           };
@@ -221,6 +218,7 @@
                jsonob = <?php echo json_encode($data) ?>;
                lat1 = parseFloat(jsonob.Latitude);
                lon1 = parseFloat(jsonob.Longitude);
+               console.log(lat1)
                div1 = document.getElementById('magicbox');
                latlng1 = new google.maps.LatLng(lat1, lon1);
     
@@ -233,7 +231,6 @@
           }
 
           function move2(){
-            latlong1 = rmove1();
             map.panTo(latlng2);
           }          
 
