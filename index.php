@@ -5,12 +5,7 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-    
-    var lata=0;
-    var latb=0;
-    var lona=0;
-    var lonb=0;
-    
+       
     <head>
         <title>ABCR Design: Tu solución web de rastreo</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -49,7 +44,63 @@
                                 setInterval(ajaxCall, (5 * 1000));  // x * 1000 to get it in seconds
                 </script>
 
-                <script>
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-panels.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel-noscript.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-desktop.css" />
+        </noscript>
+
+    </head>
+    <body class="homepage">
+        
+   <script>     
+    var lata=0;
+    var latb=0;
+    var lona=0;
+    var lonb=0;
+        </script>
+        
+
+    <!-- Header -->
+        <div id="header">
+            <div class="container">
+
+                <!-- Logo -->
+                    <div id="logo">
+                        <h1><a href="index.php">a b c r design</a></h1>
+                    </div>
+
+                <!-- Nav -->
+                    <nav id="nav">
+                        <ul>
+                            <li class="active"><a href="index.php">Rastreo</a></li>
+                            <li><a href="historico.php">Histórico</a></li>
+                        </ul>
+                    </nav>
+
+            </div>
+        </div>
+    <!-- Header -->
+
+    <!-- Banner -->
+
+
+      <div id="map"></div>
+            <div id="magicbox" onclick="move1()">
+            </div>
+
+            <div id="magicbox2" onclick="move2()">
+            </div>
+
+    <!-- /Banner -->
+        
+        
+                    <script>
   <?php
   ob_start();
      include_once 'database2.php';
@@ -158,52 +209,8 @@
           return marker;
      }
    </script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="js/skel.min.js"></script>
-        <script src="js/skel-panels.min.js"></script>
-        <script src="js/init.js"></script>
-        <noscript>
-            <link rel="stylesheet" href="css/skel-noscript.css" />
-            <link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/style-desktop.css" />
-        </noscript>
-
-    </head>
-    <body class="homepage">
-
-    <!-- Header -->
-        <div id="header">
-            <div class="container">
-
-                <!-- Logo -->
-                    <div id="logo">
-                        <h1><a href="index.php">a b c r design</a></h1>
-                    </div>
-
-                <!-- Nav -->
-                    <nav id="nav">
-                        <ul>
-                            <li class="active"><a href="index.php">Rastreo</a></li>
-                            <li><a href="historico.php">Histórico</a></li>
-                        </ul>
-                    </nav>
-
-            </div>
-        </div>
-    <!-- Header -->
-
-    <!-- Banner -->
-
-
-      <div id="map"></div>
-            <div id="magicbox" onclick="move1()">
-            </div>
-
-            <div id="magicbox2" onclick="move2()">
-            </div>
-
-    <!-- /Banner -->
-
+        
+        
        <script id="xmove">
 
         function rmove2() {
