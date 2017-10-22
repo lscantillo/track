@@ -869,7 +869,17 @@
     	position: fixed;
     	bottom: 15px;
     	right: 50px;
+    	cursor: pointer;
     	}
+
+
+    #magicbox:hover{
+    	background-color: #f36746;
+    }
+
+    #magicbox:active{
+    	background-color: #e95d3c;
+    }	
 
 	#magicbox2
 	{
@@ -885,7 +895,16 @@
     	position: fixed;
     	bottom: 15px;
     	left: 50px;
+    	cursor: pointer;
     	} 
+
+    #magicbox2:hover{
+    	background-color: #151515;
+    }	
+
+    #magicbox2:active{
+    	background-color: #000;
+    }	
 
 	#iframe{
 		color: white;
