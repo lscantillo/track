@@ -5,6 +5,12 @@
     Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
+    
+    var lata=0;
+    var latb=0;
+    var lona=0;
+    var lonb=0;
+    
     <head>
         <title>ABCR Design: Tu solución web de rastreo</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -48,6 +54,7 @@
   ob_start();
      include_once 'database2.php';
   $output = ob_end_clean(); ?>
+                    
      var lat = "<?php echo $Lat; ?>";
      var lon = "<?php echo $Long; ?>";
      var myPath = [];
@@ -81,6 +88,8 @@
                          var ID = this.ID;
                          var LATITUD = this.Latitude;
                          var LONGITUD = this.Longitude;
+                           lata=LATITUD;
+                           lona=LONGITUD;
                          if (ID_ST != this.ID) {
                            point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
                            myPath.push(point);
@@ -110,6 +119,8 @@
                          var ID2 = this.ID;
                          var LATITUD2 = this.Latitude;
                          var LONGITUD2 = this.Longitude;
+                           latb=LATITUD2;
+                           lonb=LONGITUD2;
                          if (ID_ST != this.ID2) {
                            point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
                            myPath2.push(point2);
@@ -207,6 +218,8 @@
               json2ob = <?php echo json_encode($data2) ?>;
               lat2 = parseFloat(json2ob.Latitude);
               lon2 = parseFloat(json2ob.Longitude);
+              lat2=latb;
+              lon2=lonb;
               div2 = document.getElementById('magicbox2');
               latlng2 = new google.maps.LatLng(lat2, lon2);                      
           };
@@ -222,6 +235,8 @@
                lat1 = parseFloat(jsonob.Latitude);
                lon1 = parseFloat(jsonob.Longitude);
                div1 = document.getElementById('magicbox');
+              lat1=lana;
+              lon1=lona;
                latlng1 = new google.maps.LatLng(lat1, lon1);
     
           };
