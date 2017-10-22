@@ -198,7 +198,7 @@
     
           function move1(){
             $.ajax({ url:'dbcoordenadas.php',
-                     success: function(result){
+                     success: function(data){
                        var jsonob = jQuery.parseJSON(JSON.stringify(data));
                        lat1 = parseFloat(jsonob.Latitude);
                        lon1 = parseFloat(jsonob.Longitude);
@@ -211,7 +211,7 @@
           };
           function move2(){
             $.ajax({ url:'dbcoordenadas2.php',
-                     success: function(result){
+                     success: function(data){
                         json2ob = jQuery.parseJSON(JSON.stringify(data2));
                         lat2 = parseFloat(json2ob.Latitude);
                         lon2 = parseFloat(json2ob.Longitude);
