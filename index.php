@@ -206,11 +206,11 @@
                        div1 = document.getElementById('magicbox');
                        latlng1 = new google.maps.LatLng(lat1, lon1);
                        map.panTo(latlng1);
-                     };
+                     }
                    });
           };
           function move2(){
-            $.ajax({ url:'dbcoordenadas.php',
+            $.ajax({ url:'dbcoordenadas2.php',
                      success: function(result){
                         json2ob = <?php echo json_encode($data2) ?>;
                         lat2 = parseFloat(json2ob.Latitude);
@@ -219,7 +219,7 @@
                         div2 = document.getElementById('magicbox2');
                         latlng2 = new google.maps.LatLng(lat2, lon2); 
                         map.panTo(latlng2);
-                      };
+                      }
                     });
           };          
           </script>
