@@ -126,10 +126,7 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        var templata;
-        var templona;
-        var templatb;
-        var templonb;
+
          // Create map object with options
         map = new google.maps.Map(document.getElementById("map"), myOptions);
         var ID_ST = 0;
@@ -147,8 +144,8 @@
                 var ID = this.ID;
                 var LATITUD = this.Latitude;
                 var LONGITUD = this.Longitude;
-                templata=LATITUD;
-                templona=LONGITUD;
+                lata=LATITUD;
+                lona=LONGITUD;
                 if (ID_ST != this.ID) {
                   point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
                   myPath.push(point);
@@ -180,8 +177,8 @@
                 var ID2 = this.ID;
                 var LATITUD2 = this.Latitude;
                 var LONGITUD2 = this.Longitude;
-                templatb=LATITUD2;
-                templonb=LONGITUD2;
+                latb=LATITUD2;
+                lonb=LONGITUD2;
                 if (ID_ST != this.ID2) {
                  point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
                  myPath2.push(point2);
@@ -201,10 +198,6 @@
             dataType: "json"//Tipo de datos JSON
           })
         }, 5 * 1000);
-        lata=templata;
-        lona=templona;
-        latb=templatb;
-        lonb=templonb;
       }
 
       function addMarker(latLng, map) {
@@ -226,13 +219,13 @@
       }
 
       function rmove2(){
-        <?php
+        /*<?php
         ob_start();
         include 'dbcoordenadas2.php';
         $output = ob_end_clean(); ?>
         json2ob = <?php echo json_encode($data2) ?>;
         lat2 = parseFloat(json2ob.Latitude);
-        lon2 = parseFloat(json2ob.Longitude);
+        lon2 = parseFloat(json2ob.Longitude);*/
         lat2=latb;
         lon2=lonb;
         div2 = document.getElementById('magicbox2');
@@ -241,14 +234,14 @@
       setInterval(rmove2, (5 * 1000));
 
       function rmove1(){
-       <?php
+       /*<?php
        ob_start();
        include 'dbcoordenadas.php';
        $output = ob_end_clean(); ?>
 
        jsonob = <?php echo json_encode($data) ?>;
        lat1 = parseFloat(jsonob.Latitude);
-       lon1 = parseFloat(jsonob.Longitude);
+       lon1 = parseFloat(jsonob.Longitude);*/
        div1 = document.getElementById('magicbox');
        lat1=lata;
        lon1=lona;
