@@ -33,6 +33,7 @@ def main():
             print("Raw data received: " + str(data))
             info = str(data)
             if data:
+                print("Address: " + addr)
                 itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon = getMess(info)
                 if itIs == 1:
                     startid1 = startid1 + 1
