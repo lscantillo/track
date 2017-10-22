@@ -210,6 +210,7 @@
        <script>
           function move2(){
               var vector = myPath;
+              vector.toString();
               var lat2 = parseFloat(myPath[myPath.length - 1].Latitude);
               var lon2 = parseFloat(myPath[myPath.length - 1].Longitude);
                 // var lat2 = "<?php echo $Lat2; ?>";
