@@ -105,10 +105,10 @@
       var lat = "<?php echo $Lat; ?>";
       var lon = "<?php echo $Long; ?>";
 
-      var lata=0;
-      var latb=0;
-      var lona=0;
-      var lonb=0;
+      var lata;
+      var latb;
+      var lona;
+      var lonb;
       
       var myPath = [];
       var myPath2 = [];
@@ -117,7 +117,7 @@
 
       function initMap() {
          // var myLatLng = {lat: parseFloat(lat), lng: parseFloat(lon)};
-         var myOptions = {
+        var myOptions = {
           zoom: 16,
           center: new google.maps.LatLng(parseFloat(lat),parseFloat(lon)),
           panControl: true,
@@ -125,75 +125,86 @@
           scaleControl: true,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
+
+        var templata;
+        var templona;
+        var templatb;
+        var templonb;
          // Create map object with options
-         map = new google.maps.Map(document.getElementById("map"), myOptions);
-         var ID_ST = 0;
-         var ID_ST2 = 0;
-         var infoWindow = new google.maps.InfoWindow;
-         setInterval(function mapload(){
-           $.ajax({
-             url: "dbcoordenadas.php",
-                      // data: form_data,
-                      success: function(data)
-                      {
-                       var json_obj = jQuery.parseJSON(JSON.stringify(data));
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+        var ID_ST = 0;
+        var ID_ST2 = 0;
+        var infoWindow = new google.maps.InfoWindow;
+        setInterval(function mapload(){
+          $.ajax({
+            url: "dbcoordenadas.php",
+            // data: form_data,
+            success: function(data)
+            {
+              var json_obj = jQuery.parseJSON(JSON.stringify(data));
                        // Data Treatment in order to obtain the new latlng coordinates.
-                       $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
-                         var ID = this.ID;
-                         var LATITUD = this.Latitude;
-                         var LONGITUD = this.Longitude;
-                         $GLOBALS['lata']=LATITUD;
-                         $GLOBALS['lona']=LONGITUD;
-                         if (ID_ST != this.ID) {
-                           point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
-                           myPath.push(point);
-                           var myPathTotal = new google.maps.Polyline({
-                            path: myPath,
-                            strokeColor: '#e95d3c',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 5
-                          });
-                           myPathTotal.setPath(myPath)
-                           myPathTotal.setMap(map);
-                           addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
-                           ID_ST = this.ID;
-                         }
-                       });
-                     },
-                     dataType: "json"//Tipo de datos JSON
-                   })
-           $.ajax({
-             url: "dbcoordenadas2.php",
+              $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+                var ID = this.ID;
+                var LATITUD = this.Latitude;
+                var LONGITUD = this.Longitude;
+                templata=LATITUD;
+                templona=LONGITUD;
+                if (ID_ST != this.ID) {
+                  point = new google.maps.LatLng(parseFloat(LATITUD),parseFloat(LONGITUD));
+                  myPath.push(point);
+                  var myPathTotal = new google.maps.Polyline({
+                    path: myPath,
+                    strokeColor: '#e95d3c',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 5
+                  });
+                  myPathTotal.setPath(myPath)
+                  myPathTotal.setMap(map);
+                  addMarker(new google.maps.LatLng(LATITUD, LONGITUD), map);
+                  ID_ST = this.ID;
+                }
+              });
+            },
+            dataType: "json"//Tipo de datos JSON
+
+          })
+
+          $.ajax({
+            url: "dbcoordenadas2.php",
                       // data: form_data,
-                      success: function(data)
-                      {
-                       var json_obj = jQuery.parseJSON(JSON.stringify(data));
-                       // Data Treatment in order to obtain the new latlng coordinates.
-                       $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
-                         var ID2 = this.ID;
-                         var LATITUD2 = this.Latitude;
-                         var LONGITUD2 = this.Longitude;
-                         $GLOBALS['latb']=LATITUD2;
-                         $GLOBALS['lonb']=LONGITUD2;
-                         if (ID_ST != this.ID2) {
-                           point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
-                           myPath2.push(point2);
-                           var myPathTotal2 = new google.maps.Polyline({
-                            path: myPath2,
-                            strokeColor: '#000',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 5
-                          });
-                           myPathTotal2.setPath(myPath2)
-                           myPathTotal2.setMap(map);
-                           addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map);
-                           ID_ST = this.ID2;
-                         }
-                       });
+            success: function(data)
+            {
+              var json_obj = jQuery.parseJSON(JSON.stringify(data));
+              // Data Treatment in order to obtain the new latlng coordinates.
+              $(jQuery.parseJSON(JSON.stringify(data))).each(function() {
+                var ID2 = this.ID;
+                var LATITUD2 = this.Latitude;
+                var LONGITUD2 = this.Longitude;
+                templatb=LATITUD2;
+                templonb=LONGITUD2;
+                if (ID_ST != this.ID2) {
+                 point2 = new google.maps.LatLng(parseFloat(LATITUD2),parseFloat(LONGITUD2));
+                 myPath2.push(point2);
+                 var myPathTotal2 = new google.maps.Polyline({
+                  path: myPath2,
+                  strokeColor: '#000',
+                  strokeOpacity: 1.0,
+                  strokeWeight: 5
+                });
+                 myPathTotal2.setPath(myPath2)
+                 myPathTotal2.setMap(map);
+                 addMarker2(new google.maps.LatLng(LATITUD2, LONGITUD2), map);
+                 ID_ST = this.ID2;
+               }
+             });
             },
             dataType: "json"//Tipo de datos JSON
           })
         }, 5 * 1000);
+        lata=templata;
+        lona=templona;
+        latb=templatb;
+        lonb=templonb;
       }
 
       function addMarker(latLng, map) {
@@ -222,8 +233,8 @@
         json2ob = <?php echo json_encode($data2) ?>;
         lat2 = parseFloat(json2ob.Latitude);
         lon2 = parseFloat(json2ob.Longitude);
-        lat2=$GLOBALS['latb'];
-        lon2=$GLOBALS['lonb'];
+        lat2=latb;
+        lon2=lonb;
         div2 = document.getElementById('magicbox2');
         latlng2 = new google.maps.LatLng(lat2, lon2);                      
       };
@@ -239,8 +250,8 @@
        lat1 = parseFloat(jsonob.Latitude);
        lon1 = parseFloat(jsonob.Longitude);
        div1 = document.getElementById('magicbox');
-       lat1=$GLOBALS['lana'];
-       lon1=$GLOBALS['lona'];
+       lat1=lana;
+       lon1=lona;
        latlng1 = new google.maps.LatLng(lat1, lon1);
      };
 
