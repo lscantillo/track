@@ -89,7 +89,7 @@
                        infoWindowIndex: id
                    });
        var content = '<div id="mkst">' +
-      '<h6>' + 'Información' + '</h6>' +
+      '<h6>' + 'Info' + '</h6>' +
       '<p>' + time + '</p>' + '</div>';
           var infoWindow = new google.maps.InfoWindow({
           content: content
@@ -120,7 +120,7 @@
                        infoWindowIndex: id
                    });
       var content2 = '<div id="mkst2">' +
-      '<h6>' + 'Información' + '</h6>' +
+      '<h6>' + 'Info' + '</h6>' +
       '<p>' + time + '</p>' +'<p>' + 'RPM: '+ rpm +'</p>' + '</div>' ;
     var infoWindow2 = new google.maps.InfoWindow({
       content: content2
