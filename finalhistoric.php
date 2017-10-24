@@ -160,8 +160,9 @@
             if (json_hist[json_hist.length - 1] == undefined && json_hist2[json_hist2.length - 1] == undefined ) {
               function myFunction() {
                   alert("No se encontraron datos en la búsqueda");
-                  myFunction();
               }
+                  myFunction();
+              
             }
             if (json_hist[json_hist.length - 1] != undefined) {
               INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
