@@ -10,7 +10,7 @@
 
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap"
     async defer></script> -->
-    <script 
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
@@ -157,6 +157,12 @@
             };
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
             initMap();
+            if (json_hist[json_hist.length - 1] == undefined && json_hist2[json_hist2.length - 1] == undefined ) {
+              function myFunction() {
+                  alert("No se encontraron datos en la búsqueda");
+                  myFunction();
+              }
+            }
             if (json_hist[json_hist.length - 1] != undefined) {
               INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
               INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
@@ -216,8 +222,6 @@
          }
             //fin
           </script>
-
-
 
   </body>
 </html>
