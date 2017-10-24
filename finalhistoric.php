@@ -101,14 +101,14 @@
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
           );
-          
+
                     google.maps.event.addListener(marker, 'mouseout',
           function(event) {
                   infoWindow.close(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
           );
-          
+
               infoWindows.push(infoWindow);
               markers.push(marker);
               return marker;
@@ -138,8 +138,8 @@
                   infoWindow2.close(map, marker2);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
-    );      
-      
+    );
+
         infoWindows2.push(infoWindow2)
     markers2.push(marker2);
                    return marker2;
@@ -155,7 +155,6 @@
             var hist2 = <?php echo json_encode($hist2); ?>;
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
             initMap();
-
             if (json_hist[json_hist.length - 1] != undefined) {
               INIT_LAT = parseFloat(json_hist[json_hist.length - 1].Latitude);
               INIT_LON = parseFloat(json_hist[json_hist.length - 1].Longitude);
@@ -179,7 +178,6 @@
                 addMarker(new google.maps.LatLng(LATITUDE, LONGITUDE),TIME,ID, map);
                   });
             }
-
             //inicio
             var json_hist2 = jQuery.parseJSON(JSON.stringify(hist2));
             if (json_hist2[json_hist2.length - 1] != undefined) {
@@ -207,10 +205,11 @@
            });
          }
             //fin
-
-
           </script>
 
+          <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
+          </script>
 
   </body>
 </html>
