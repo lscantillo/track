@@ -8,8 +8,10 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap"
-    async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap"
+    async defer></script> -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="js/skel.min.js"></script>
@@ -69,6 +71,7 @@
     var image2 = 'https://i.imgur.com/FGEuaWh.png';
     function initMap() {
              //var myLatLng = {lat: INIT_LAT, lng: INIT_LON};
+
              var myLatLng = {lat: 11.009993, lng:  -74.826355};
              var myOptions = {
                  zoom: 14,
@@ -100,14 +103,12 @@
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
           );
-
                     google.maps.event.addListener(marker, 'mouseout',
           function(event) {
                   infoWindow.close(map, marker);
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
           );
-
               infoWindows.push(infoWindow);
               markers.push(marker);
               return marker;
@@ -138,7 +139,6 @@
                   // infoWindows[this.infoWindowIndex].open(this.map2, this.marker);
                 }
     );
-
         infoWindows2.push(infoWindow2)
     markers2.push(marker2);
                    return marker2;
@@ -199,7 +199,6 @@
              var myCoord2b = {lat:  parseFloat(LATITUDE2), lng: parseFloat(LONGITUDE2)};
              //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
              myPath2.push(myCoord2b);
-
              var myPathTotal2b = new google.maps.Polyline({
                path: myPath2,
                icons: [{
