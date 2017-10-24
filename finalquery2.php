@@ -17,13 +17,13 @@
 
 
   if ($_POST['orng']){
-    $query=suscintquery("locations",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
+    $query=suscintquery("locations",$_POST['dtpb'],$_POST['dtpe'],$_POST["plc"]);
     $hist=asking($conn, $query, $hist);    
    
   }
 
   if ($_POST['blck']){
-    $query=suscintquery("locations2",$_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
+    $query=suscintquery("locations2",$_POST['dtpb'],$_POST['dtpe'],$_POST["plc"]);
     $hist2=asking($conn, $query, $hist2);   
     
   }
