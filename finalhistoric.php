@@ -8,14 +8,13 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700' rel='stylesheet' type='text/css'>
     <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 
-    <!-- <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap">
-    </script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap"
+    async defer></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <!-- <script src="js/skel.min.js"></script>
+    <script src="js/skel.min.js"></script>
     <script src="js/skel-panels.min.js"></script>
-    <script src="js/init.js"></script> -->
+    <script src="js/init.js"></script>
     <noscript>
       <link rel="stylesheet" href="css/skel-noscript.css" />
       <link rel="stylesheet" href="css/style.css" />
@@ -153,6 +152,9 @@
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
             var hist2 = <?php echo json_encode($hist2); ?>;
+            var lineSymbol = {
+             path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW
+            };
             var json_hist = jQuery.parseJSON(JSON.stringify(hist));
             initMap();
             if (json_hist[json_hist.length - 1] != undefined) {
@@ -169,6 +171,10 @@
                 myPath.push(myCoord2);
                 var myPathTotal2 = new google.maps.Polyline({
                   path: myPath,
+                  icons: [{
+                  icon: lineSymbol,
+                  offset: '50%'
+                  }],
                   strokeColor: '#e95d3c',
                   strokeOpacity: 1.0,
                   strokeWeight: 5
@@ -193,8 +199,13 @@
              var myCoord2b = {lat:  parseFloat(LATITUDE2), lng: parseFloat(LONGITUDE2)};
              //myCoord2b = new google.maps.LatLng(parseFloat(LATITUDE2), parseFloat(LONGITUDE2));
              myPath2.push(myCoord2b);
+
              var myPathTotal2b = new google.maps.Polyline({
                path: myPath2,
+               icons: [{
+               icon: lineSymbol,
+               offset: '50%'
+               }],
                strokeColor: '#000',
                strokeOpacity: 1.0,
                strokeWeight: 5
@@ -207,8 +218,7 @@
             //fin
           </script>
 
-          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCp2b5o90_5K1NbK5qZj86P6Hn61xhUFII&callback=initMap"
-          async defer></script>
+
 
   </body>
 </html>
