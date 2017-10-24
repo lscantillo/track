@@ -13,9 +13,9 @@
     </script> -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <script src="js/skel.min.js"></script>
+    <!-- <script src="js/skel.min.js"></script>
     <script src="js/skel-panels.min.js"></script>
-    <script src="js/init.js"></script>
+    <script src="js/init.js"></script> -->
     <noscript>
       <link rel="stylesheet" href="css/skel-noscript.css" />
       <link rel="stylesheet" href="css/style.css" />
