@@ -72,14 +72,14 @@
     <div id="filtercontrols" style="width: 530px">
         <form action="finalhistoric.php" name="Places" method="POST">
             <div id="datesfilter">
-                <div id="datetimepicker" name="dtpb" class="input-append date">
-                    <input type="text" placeholder="Fecha Inicial de Filtrado"></input>
+                <div id="datetimepicker" class="input-append date">
+                    <input type="text" name="dtpb" placeholder="Fecha Inicial de Filtrado"></input>
                     <span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                     </span>
                 </div>
-                <div id="datetimepicker2" name="dtpe" class="input-append date">
-                    <input type="text" placeholder="Fecha Final de Filtrado"></input>
+                <div id="datetimepicker2" class="input-append date">
+                    <input type="text" name="dtpe" placeholder="Fecha Final de Filtrado"></input>
                     <span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                     </span>
