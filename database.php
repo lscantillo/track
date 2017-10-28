@@ -41,11 +41,11 @@
         $plc="";
         
         if(strlen($fstdt)>0){
-            $ybg="DateTime >= '".$fstdt;
+            $ybg="DateTime >= '".$fstdt."'";
         }
 
         if(strlen($scnddt)>0){
-            $yen="DateTime <= '".$scnddt;
+            $yen="DateTime <= '".$scnddt."'";
         }
         
         if (strlen($place)>0){
