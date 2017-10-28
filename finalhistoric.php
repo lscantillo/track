@@ -146,14 +146,10 @@
                  }
      // });
             <?php
-              echo $_dtpb
-              echo $_dtbe
-              echo $_plc
-            ?>
-            <?php
             ob_start();
                include_once 'finalquery2.php';
             $output = ob_end_clean(); ?>
+            var intento = <?php echo $_dtbe ?>
             var myPath = [];
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
