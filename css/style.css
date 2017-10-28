@@ -905,6 +905,53 @@
     	background-color: #000;
     }	
 
+    #center1{
+    	background-image: url("https://i.imgur.com/3E9LKQl.jpg");
+    	background-color: #e95d3c;
+    	background-size: auto 70%;
+    	background-repeat: no-repeat;
+    	background-position: center center;
+    	border-radius: 5px;
+    	padding: 10px;
+    	border: 20px white;
+    	width: 40px;
+    	height: 40px;
+    	position: fixed;
+    	bottom: 15px;
+    	right: 300px;
+    	cursor: pointer;
+    }
+
+    #center1:hover{
+    	background-color: #f36746;
+    }
+
+    #center1:active{
+    	background-color: #e95d3c;
+    }	
+    #center2{
+    	background: #000 url('https://i.imgur.com/3E9LKQl.jpg');
+    	background-size: auto 70%;
+    	background-repeat: no-repeat;
+    	background-position: center center;    	
+		border-radius: 5px;
+    	padding: 10px;
+    	border: 20px white;
+    	width: 40px;
+    	height: 40px;
+    	position: fixed;
+    	bottom: 15px;
+    	left: 300px;
+    	cursor: pointer;
+    }
+
+    #center2:hover{
+    	background-color: #151515;
+    }
+
+    #center2:active{
+    	background-color: #000;
+    }
 	#iframe{
 		color: white;
 		font-weight: bold;
