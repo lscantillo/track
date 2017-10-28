@@ -149,7 +149,7 @@
             ob_start();
                include_once 'finalquery2.php';
             $output = ob_end_clean(); ?>
-            var intento = <?php echo $_dtbe; ?>;
+            var intento = <?php echo $_POST['dtbe']; ?>;
             var myPath = [];
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
