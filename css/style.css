@@ -908,7 +908,7 @@
     #center1{
     	background-image: url("https://i.imgur.com/3E9LKQl.jpg");
     	background-color: #e95d3c;
-    	background-size: auto 70%;
+    	background-size: auto 60%;
     	background-repeat: no-repeat;
     	background-position: center center;
     	border-radius: 5px;
@@ -931,7 +931,7 @@
     }	
     #center2{
     	background: #000 url('https://i.imgur.com/3E9LKQl.jpg');
-    	background-size: auto 70%;
+    	background-size: auto 60%;
     	background-repeat: no-repeat;
     	background-position: center center;    	
 		border-radius: 5px;
