@@ -145,7 +145,7 @@
                    return marker2;
                  }
      // });
-            <? php
+            <?php
               echo $_dtpb
               echo $_dtbe
               echo $_plc
