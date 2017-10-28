@@ -145,6 +145,11 @@
                    return marker2;
                  }
      // });
+            <? php
+              echo $_dtpb
+              echo $_dtbe
+              echo $_plc
+            ?>
             <?php
             ob_start();
                include_once 'finalquery2.php';
