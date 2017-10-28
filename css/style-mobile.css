@@ -215,6 +215,14 @@
     	left: 20%;
 	}
 
+	#center1{
+		display: none;
+	}
+
+	#center2{
+		display: none;
+	}
+
     #filtercontrols{
     position: absolute;
     top: 16%;
