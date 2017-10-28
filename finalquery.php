@@ -11,7 +11,7 @@
   }
          #echo "Connected successfully";
   mysqli_select_db($conn, "designlocations");
-  $query=suscintquery($_POST['datetimepicker'],$_POST['datetimepicker2'],$_POST["plc"]);
+  $query=suscintquery($_POST['dtpb'],$_POST['dtpe'],$_POST["plc"]);
 
   $result = mysqli_query($conn, $query);
 
