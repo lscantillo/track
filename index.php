@@ -91,6 +91,15 @@
     <div id="magicbox2" onclick="move2()">
     </div>
 
+    <div id="center1" onclick="move1()">
+
+    </div>
+
+    <div id="center2" onclick="move2()">
+
+    </div>      
+      
+      
     <!-- /Banner -->
 
 
