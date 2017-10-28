@@ -149,7 +149,8 @@
             ob_start();
                include_once 'finalquery2.php';
             $output = ob_end_clean(); ?>
-            // <?php echo $_POST['plc']; ?>;
+            // <?php echo $_POST['dtpb']; ?>;
+            // <?php echo $_POST['dtpe']; ?>;
             var myPath = [];
             var myPath2 = [];
             var hist = <?php echo json_encode($hist); ?>;
