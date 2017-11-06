@@ -34,20 +34,20 @@ def main():
             info = str(data)
             if data:
                 print("Address: " + addr[0] + ". Port: " + str(addr[1]))
-                itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon = getMess(info)
+                itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon, RPM = getMess(info)
                 if itIs == 1:
-                    startid1 = startid1 + 1
-                    print("Event " + str(startid1) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
-                    datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
-                    print("It was triggered at time " + datetime + " by: App")
-                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid1, lat, lon, datetime))
-                    db.commit()
-                if itIs == 2:
                     startid2 = startid2 + 1
                     print("Event " + str(startid2) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
                     datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
+                    print("It was triggered at time " + datetime + " by: App")
+                    cursor.execute("""INSERT INTO designlocations.locations2 (ID, Latitude, Longitude, DateTime, RPM) VALUES (%s, %s, %s, %s, %s)""", (startid2, lat, lon, datetime, RPM))
+                    db.commit()
+                if itIs == 2:
+                    startid1 = startid1 + 1
+                    print("Event " + str(startid1) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
+                    datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
                     print("It was triggered at time " + datetime + " by: Syrus")
-                    cursor.execute("""INSERT INTO designlocations.locations2 (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid2, lat, lon, datetime))
+                    cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid1, lat, lon, datetime))
                     db.commit()
                 else:
                     print("The Message Was Ignored")
@@ -60,6 +60,7 @@ def getMess(m):
         print("Processing Received Data...")
         # Confirmation
         itIs = 2
+        RPM = 0
         # Time
         Year, Mnum, Day, Hour, Minutes, Seconds = getTime(int(m[6:10]), int(m[10]), int(m[11:16]))
         # Coordinates
@@ -80,6 +81,7 @@ def getMess(m):
         Hour = int(m[39:41])
         Minutes = int(m[42:44])
         Seconds = int(m[45:47])
+        RPM = int(m[48:52])
         # Coordinates
         lat = float(m[9:17])
         if m[8] == "-":
@@ -98,7 +100,7 @@ def getMess(m):
         Minutes = 0
         Seconds = 0
         Mnum = 0
-    return itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon
+    return itIs, Year, Mnum, Day, Hour, Minutes, Seconds, lat, lon, RPM
 
 
 def getTime(wks, days, scnd):
