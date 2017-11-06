@@ -42,11 +42,11 @@ def main():
                     print("It was triggered at time " + datetime + " by: App")
                     cursor.execute("""INSERT INTO designlocations.locations2 (ID, Latitude, Longitude, DateTime, RPM) VALUES (%s, %s, %s, %s, %s)""", (startid2, lat, lon, datetime, RPM))
                     db.commit()
-                if itIs == 2:
+                if itIs == 2 or itIs ==3:
                     startid1 = startid1 + 1
                     print("Event " + str(startid1) + " was triggered, the latitude is " + str(lat) + " and longitude is " + str(lon))
                     datetime = str(Year) + "-" + str(Mnum) + "-" + str(Day) + " " + str(Hour) + ":" + str(Minutes) + ":" + str(Seconds)
-                    print("It was triggered at time " + datetime + " by: Syrus")
+                    print("It was triggered at time " + datetime + " by: Syrus/Backup")
                     cursor.execute("""INSERT INTO designlocations.locations (ID, Latitude, Longitude, DateTime) VALUES (%s, %s, %s, %s)""", (startid1, lat, lon, datetime))
                     db.commit()
                 else:
@@ -82,6 +82,25 @@ def getMess(m):
         Minutes = int(m[42:44])
         Seconds = int(m[45:47])
         RPM = int(m[48:52])
+        # Coordinates
+        lat = float(m[9:17])
+        if m[8] == "-":
+            lat = -lat
+        lon = float(m[19:27])
+        if m[18] == "-":
+            lon = -lon
+    elif m[0:7] == "Back-Up":
+        print("Processing Received Data...")
+        # Confirmation
+        itIs = 3
+        # Time
+        Year = int(m[28:32])
+        Mnum = int(m[33:35])
+        Day = int(m[36:38])
+        Hour = int(m[39:41])
+        Minutes = int(m[42:44])
+        Seconds = int(m[45:47])
+        RPM = 0
         # Coordinates
         lat = float(m[9:17])
         if m[8] == "-":
