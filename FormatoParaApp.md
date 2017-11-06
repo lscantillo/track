@@ -12,10 +12,14 @@
 
 * Despues la fecha en el formato **YY-MM-DD HH-MM-SS** (*Se debe completar los campos de un solo numero. Por ejemplo si es el dia 3 no es 2017-10-3 sino 2017-10-03*)
 
-* Despues un último **/**
+* Despues un **/**
+
+* Despues las **RPM** (*Si tiene menos de 4 cifras significativas añadir un 0*)
+
+* Después un último **/**
 
 ---
 
-**Ejemplo:** Para el dia 8 de octubre de 2017 a las 2:05:23 PM con latitud 11.8787167 y longitud -74.8292712 el mensaje que se manda es:
+**Ejemplo:** Para el dia 8 de octubre de 2017 a las 2:05:23 PM con latitud 11.8787167 y longitud -74.8292712 y el OBD recibe 758 RPM el mensaje que se manda es:
 
-*ABCRApp/+11.87872/-74.82927/2017-10-08 14:05:23/*
+*ABCRApp/+11.87872/-74.82927/2017-10-08 14:05:23/0758/*
